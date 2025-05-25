@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BostonHacks 2025
+Bostonhacks 2025 landing page.
+
+## Notes
+- Built with NextJS but exported statically. Meaning you cannot develop with NextJS features that require a server.
 
 ## Getting Started
 
