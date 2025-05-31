@@ -1,6 +1,6 @@
 <-- Please complete the following fields -->
 
-<-- If this PR relates to an issue on the project board, please link the ticket here. -->
+<-- If this PR relates to an issue (such as on Jira, GitHub projects, or Github issues), please link the issue here. -->
 
 # Description
 <-- Add a description of the changes you are making here. -->
