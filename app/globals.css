@@ -4,9 +4,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-main: "Noto Sans", sans-serif;
+
+  /* Main gradient colors */
+  --gradient-stop-1: #070A0F;
+  --gradient-stop-2: #2F4061;
+  --gradient-stop-3: #7E81A6;
+  --gradient-stop-4: #C7BCD8;
+  
+  /* Overlay gradient colors */
+  --overlay-color: #F0ABFF1F;
+  --overlay-transparency: 90%;
+  --overlay-position: 3%;
+  
+  /* Secondary overlay */
+  --secondary-overlay-color: #F2E2F659;
+  --secondary-overlay-transparency: 35%;
+  --secondary-overlay-position: 90%;
 }
 
-/*set theme colors here*/
+/*set theme colors here. you can use these in tailwind as [text/bg]-<primary/text-primary>*/
 @theme {
   --color-primary: white;
   --color-text-primary: white;
@@ -26,8 +43,20 @@
   }
 }
 
+/* consider putting background styles in separate div */
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: "Noto Sans", sans-serif;
+  font-family: var(--font-main);
+  background: 
+    radial-gradient(ellipse 80% 20% at var(--overlay-position) 40%, var(--overlay-color), transparent var(--overlay-transparency)),
+    radial-gradient(ellipse 120% 80% at 70% var(--secondary-overlay-position), var(--secondary-overlay-color), transparent var(--secondary-overlay-transparency)),
+    linear-gradient(to bottom, 
+      var(--gradient-stop-1) 0%, 
+      var(--gradient-stop-2) 39%,
+      var(--gradient-stop-3) 67%,
+      var(--gradient-stop-4) 100%);
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
+
 }
