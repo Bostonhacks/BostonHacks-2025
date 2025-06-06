@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BostonHacks 2025",
     description: "BostonHacks 2025 Hackathon landing page",
-    // url: "https://bostonhacks.com",
+    url: "https://www.bostonhacks.org",
     siteName: "BostonHacks 2025",
     locale: "en_US",
     type: "website",

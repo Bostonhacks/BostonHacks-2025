@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: Presicav;
+  src: url("../public/fonts/PresicavRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --font-main: "Noto Sans", sans-serif;
+  --font-tech: "Noto Sans", sans-serif;
 
   /* Main gradient colors */
   --gradient-stop-1: #070A0F;
@@ -20,13 +29,16 @@
   /* Secondary overlay */
   --secondary-overlay-color: #F2E2F659;
   --secondary-overlay-transparency: 35%;
-  --secondary-overlay-position: 90%;
+  --secondary-overlay-position: 120%;
 }
 
 /*set theme colors here. you can use these in tailwind as [text/bg]-<primary/text-primary>*/
 @theme {
   --color-primary: white;
   --color-text-primary: white;
+  --font-main: var(--font-main);
+  --font-tech: var(--font-tech);
+  --font-presicav: Presicav, "sans-serif";
 }
 
 @theme inline {
@@ -49,12 +61,11 @@ body {
   font-family: var(--font-main);
   background: 
     radial-gradient(ellipse 80% 20% at var(--overlay-position) 40%, var(--overlay-color), transparent var(--overlay-transparency)),
-    radial-gradient(ellipse 120% 80% at 70% var(--secondary-overlay-position), var(--secondary-overlay-color), transparent var(--secondary-overlay-transparency)),
+    radial-gradient(ellipse 250% 80% at 70% var(--secondary-overlay-position), var(--secondary-overlay-color), transparent var(--secondary-overlay-transparency)),
     linear-gradient(to bottom, 
       var(--gradient-stop-1) 0%, 
-      var(--gradient-stop-2) 39%,
-      var(--gradient-stop-3) 67%,
-      var(--gradient-stop-4) 100%);
+      var(--gradient-stop-2) 69%,
+      var(--gradient-stop-3) 120%);
   background-attachment: fixed;
   margin: 0;
   min-height: 100vh;
