@@ -2,44 +2,43 @@
 
 import { useState } from "react";
 
-const ToolTip = ({ children, onClose }: { children: React.ReactNode, onClose?: () => void }) => {
-  return (
-    <div className="absolute z-10 bg-gray-800 text-white text-xs rounded px-2 py-1">
-      <button className="absolute top-0 right-0 text-white text-xs" onClick={onClose}>
-        &times;
-      </button>
-      {children}
-    </div>
-  )
-}
+// const ToolTip = ({ children, onClose }: { children: React.ReactNode, onClose?: () => void }) => {
+//   return (
+//     <div className="absolute z-10 bg-gray-800 text-white text-xs rounded px-2 py-1">
+//       <button className="absolute top-0 right-0 text-white text-xs" onClick={onClose}>
+//         &times;
+//       </button>
+//       {children}
+//     </div>
+//   )
+// }
 
 
 const Signup = () => {
   const [email, setEmail] = useState<string>("");
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const [isReady, setIsReady] = useState<boolean>(true);
   const [formError, setFormError] = useState<string | undefined>(undefined);
-
-  // remove once submit form is ready
-  const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    return;
+    window.location.href = `${process.env.NEXT_PUBLIC_SIGNUP_URL}${encodeURIComponent(email)}`;
     setIsReady(false);
-    try {
-      // https://stackoverflow.com/questions/71714110/can-you-submit-a-restful-request-to-a-google-forms-api
-      if (!process.env.NEXT_PUBLIC_SIGNUP_URL) {
-        throw new Error("No defined form URL. Please contact us at contact@bostonhacks.org");
-      }
-
-      const response = await fetch(`#`);
-      console.log(response);
-
-      setFormError(undefined); // Reset any previous errors
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setFormError("There was an error submitting the form. Please try again later.");
-    }
+    // try {
+    //   // https://stackoverflow.com/questions/71714110/can-you-submit-a-restful-request-to-a-google-forms-api
+    //   if (!process.env.NEXT_PUBLIC_SIGNUP_URL) {
+    //     throw new Error("No defined form URL. Please contact us at contact@bostonhacks.org");
+    //   }
+    //
+    //   const response = await fetch(`#`);
+    //   console.log(response);
+    //
+    //   setFormError(undefined); // Reset any previous errors
+    // } catch (error) {
+    //   console.error("Error submitting form:", error);
+    //   setFormError("There was an error submitting the form. Please try again later.");
+    // }
+    //
+    setFormError("");
 
     setIsReady(true);
     // handle logic, wait for return 
@@ -51,6 +50,7 @@ const Signup = () => {
         <div className="w-full lg:basis-3/4">
           <input
             type="email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
@@ -58,18 +58,18 @@ const Signup = () => {
         </div>
         <div className="w-full lg:basis-1/4">
           <button
-            onMouseOver={() => setTooltipVisible(true)}
-            onMouseLeave={() => setTooltipVisible(false)}
+            // onMouseOver={() => setTooltipVisible(true)}
+            // onMouseLeave={() => setTooltipVisible(false)}
             disabled={!isReady}
             className={`${isReady ? "bg-tertiary" : "bg-tertiary/70"} ${isReady ? "hover:bg-tertiary/70 hover:cursor-pointer" : ""} rounded-xl w-full px-4 py-2 text-center items-center`}>
             {/* {isReady ? "Notify Me" : "Loading..."} */}
             Notify Me
           </button>
-          {tooltipVisible && (
-            <ToolTip>
-              This form is not yet ready. Please check back later!
-            </ToolTip>
-          )}
+          {/* {tooltipVisible && ( */}
+          {/*   <ToolTip> */}
+          {/*     This form is not yet ready. Please check back later! */}
+          {/*   </ToolTip> */}
+          {/* )} */}
         </div>
 
       </form>
@@ -80,9 +80,9 @@ const Signup = () => {
       )}
 
       {/* remove once submit form is ready */}
-      <div className="w-full text-center mt-4 text-red-300 text-xs font-light">
-        This form is not yet ready. Please check back later!
-      </div>
+      {/* <div className="w-full text-center mt-4 text-red-300 text-xs font-light"> */}
+      {/*   This form is not yet ready. Please check back later! */}
+      {/* </div> */}
     </>
   )
 }
