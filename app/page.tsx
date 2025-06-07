@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function Home() {
   return (
-    <main className="max-w-[100vw] w-screen h-screen max-h-[100vh] overscroll-none fixed overflow-hidden">
+    <main className="max-w-[100vw] w-screen h-screen max-h-[100vh] overflow-hidden">
       {/* background gradient is defined within globals.css */}
       <div className="fixed">
         <Navbar />
