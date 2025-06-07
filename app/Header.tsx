@@ -1,55 +1,96 @@
 import Image from "next/image"
 import GlowingLogo from "@/public/temp_landing/bhacks-glowing-logo.svg"
+import Signup from "@/components/Signup";
+import Cog from "@/components/Cog";
+import LinesTopLeft from "@/public/temp_landing/lines-topleft.svg";
+import LinesBottomRight from "@/public/temp_landing/lines-bottomright.svg";
 
-const Header = () => {
+const WelcomeSection = () => {
   return (
-    <div className="flex flex-row items-center justify-center">
-      <Image
-        className="md:flex hidden"
-        src={GlowingLogo}
-        alt="BostonHacks 2025 Logo"
-        width={300}
-        height={300}
-      />
+    <div className="flex-1 grow-0 justify-left text-left w-full lg:mr-10">
 
-      {/* <div className="flex items-center justify-center min-h-screen text-white"> */}
-      {/*   <div className="relative inline-block text-center flex-vertical"> */}
-      {/*     <div className="absolute -top-6 left-1 font-presicav md:text-[18px] text-[12px] translate-widest text-white" > */}
-      {/*       WELCOME TO */}
-      {/*     </div> */}
-      {/**/}
-      {/*     <h1 className="text-[64px] md:text-[108px] font-semibold text-left leading-none">BOSTON<br/>HACKS</h1> */}
-      {/**/}
-      {/*     <div className="absolute -bottom-9 right-0 font-presicav text-[36px] md:text-[58px] translate-widest text-white" > */}
-      {/*       2025 */}
-      {/*     </div> */}
-      {/*   </div> */}
-      {/*   <div className="font-presicav text-[24px] md:text[38px]">October 10th-12th</div> */}
-      {/* </div> */}
+      {/* hidden when mobile */}
+      <div className="w-full lg:flex hidden justify-start items-start">
+        <Image
+          width={400}
+          height={100}
+          src={LinesTopLeft}
+          alt="Top Left Lines"
+          className="" />
+      </div>
 
-      <div className="text-left w-fit mx-30 relative">
-        <div className="pl-1 font-presicav md:text-[18px] text-[12px] w-full">
+      <div className="lg:mx-15">
+        <div className="pl-1 font-presicav lg:text-[1.5em] text-[0.75em] w-full">
           <p>WELCOME TO</p>
         </div>
-        <div className="flex justify-left flex-col w-full leading-none">
-          <div className="text-[64px] md:text-[108px] font-semibold text-left">
+        <div className="leading-none">
+          <div className="text-[64px] lg:text-[108px] font-bold text-left">
             <p>BOSTON</p>
             <p>HACKS</p>
           </div>
         </div>
-        <div className="font-presicav text-[36px] md:text-[58px] text-right w-full leading-none">
+        <div className="font-36days text-[1.5em] lg:text-[4em] text-right w-full leading-none">
           <p>2025</p>
         </div>
-        <div className="w-full font-presicav text-[25px] md:text-[42px]">
+        <div className="w-full font-presicav text-[1.5em] lg:text-[2.5em]">
           <p>October 10th-12th</p>
         </div>
-        <div className="w-full font-presicav text-[12px] md:text-[24px] text-center my-3">
+        <div className="w-full font-presicav text-[0.75em] lg:text-[1.25em] text-left leading-[1em] mt-3">
           <p>Sign up here to get notified when applications open!</p>
         </div>
-
+        <div className="mt-7 w-full">
+          <Signup />
+        </div>
       </div>
 
+      {/* hidden when mobile */}
+      <div className="w-full hidden lg:flex justify-end items-end">
+        <Image
+          width={400}
+          height={100}
+          src={LinesBottomRight}
+          alt="Bottom Right Lines"
+          className="" />
+      </div>
     </div>
+  );
+}
+
+/* 
+ * Adjust the size of the logo by adjusting the parent div first and setting the cog to be the same size.
+ */
+const LogoSection = () => {
+  return (
+    <div className="lg:flex hidden relative w-[600px] h-[600px] items-center justify-center grow-0 shrink-0">
+      <Image
+        className="animate-pulse-glow"
+        src={GlowingLogo}
+        alt="BostonHacks 2025 Logo"
+        width={250}
+        height={250}
+      />
+      <div className="items-center justify-center absolute inset-0 -z-10">
+        <div className="w-[600px] h-[600px]">
+          <Cog />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+const Header = () => {
+  return (
+    <div className="relative flex flex-row items-center justify-center">
+      <WelcomeSection />
+      <div className="flex items-center pb-40 justify-center lg:hidden absolute inset-0 -z-10">
+        <div className="w-[400px] h-[400px] opacity-30">
+          <Cog />
+        </div>
+      </div>
+      <LogoSection />
+    </div>
+
   )
 }
 

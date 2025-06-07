@@ -1,8 +1,6 @@
-import Link from "next/link";
 import Navbar from "./Navbar";
 import Header from "./Header";
-import SignUp from "./SignUp";
-import Cog from "@/components/Cog";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -12,20 +10,15 @@ export default function Home() {
         <Navbar />
       </div>
 
-      <div className="relative flex flex-col items-center justify-center h-screen">
+      <div className="lg:scale-125 flex flex-col items-center w-screen justify-center h-screen">
         <Header />
-        <div className="flex items-center pb-40 justify-center md:hidden absolute inset-0 -z-10">
-          <div className="w-[400px] h-[400px] opacity-30">
-            <Cog />
-          </div>
-        </div>
-        <SignUp />
+      </div>
+
+      <div className="p-10 fixed bottom-0 w-full">
+        <Footer />
       </div>
 
       {/* if you need more control over SVG logo, consider using https://react-svgr.com/playground/ */}
-
-      <Link href={"/apply"}>Apply</Link>
-      <Link href={"/sponsor"}>Sponsor Us</Link>
     </main>
   )
 }

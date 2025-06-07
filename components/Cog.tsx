@@ -11,7 +11,7 @@ const Cog = () => {
         src={Cog1}
         alt="Cog Layer 1"
         fill
-        className="absolute inset-0 scale-[0.95]"
+        className="absolute inset-0 scale-[1.35]"
         style={{ zIndex: 1 }}
         priority
       />
@@ -35,7 +35,7 @@ const Cog = () => {
         src={Cog4}
         alt="Cog Layer 4"
         fill
-        className="absolute inset-0 scale-[0.75]"
+        className="absolute inset-0 scale-[0.72]"
         style={{ zIndex: 4 }}
         priority
       />

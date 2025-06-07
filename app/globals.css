@@ -9,11 +9,28 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: Presicav;
+  src: url("../public/fonts/PresicavBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DaysOfType;
+  src: url("../public/fonts/36DaysOfType.otf") format("opentype");
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-main: "Noto Sans", sans-serif;
-  --font-tech: "Noto Sans", sans-serif;
+  /*--background: #ffffff;*/
+  /*--foreground: #171717;*/
+  /* Main Colors and Fonts*/
+  --text-primary: white;
+  --color-focus-primary: #F2E2F659;
+  --color-tertiary: #E95A85;
+  --font-presicav: "Presicav", sans-serif;
+  --font-36days: "DaysOfType", sans-serif;
 
   /* Main gradient colors */
   --gradient-stop-1: #070A0F;
@@ -34,11 +51,24 @@
 
 /*set theme colors here. you can use these in tailwind as [text/bg]-<primary/text-primary>*/
 @theme {
-  --color-primary: white;
-  --color-text-primary: white;
-  --font-main: var(--font-main);
-  --font-tech: var(--font-tech);
-  --font-presicav: Presicav, "sans-serif";
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--overlay-color);
+  --color-tertiary: var(--color-tertiary);
+  --font-presicav: var(--font-presicav);
+  --font-36days: var(--font-36days);
+  --color-focus-primary: var(--color-focus-primary);
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+    }
+    50% { 
+      filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
+    }
+  }
+
+  --animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 5s cubic-bezier(0.2, -0.3, 0.2, 1) infinite;
 }
 
 @theme inline {
@@ -49,16 +79,17 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /*:root {*/
+  /*  --background: #0a0a0a;*/
+  /*  --foreground: #ededed;*/
+  /*}*/
 }
 
 /* consider putting background styles in separate div */
 body {
-  color: var(--foreground);
-  font-family: var(--font-main);
+  color: var(--color-primary);
+  color: white;
+  font-family: "Noto Sans", sans-serif;
   background: 
     radial-gradient(ellipse 80% 20% at var(--overlay-position) 40%, var(--overlay-color), transparent var(--overlay-transparency)),
     radial-gradient(ellipse 250% 80% at 70% var(--secondary-overlay-position), var(--secondary-overlay-color), transparent var(--secondary-overlay-transparency)),
