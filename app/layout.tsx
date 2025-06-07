@@ -21,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="overflow-hidden">
+    <html lang="en">
       <body
-        className={`antialiased overflow-hidden`}
+        className={`antialiased overscroll-none`}
       >
         {children}
       </body>

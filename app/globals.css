@@ -47,6 +47,8 @@
   --secondary-overlay-color: #F2E2F659;
   --secondary-overlay-transparency: 35%;
   --secondary-overlay-position: 120%;
+
+  overscroll-behavior: none;
 }
 
 /*set theme colors here. you can use these in tailwind as [text/bg]-<primary/text-primary>*/
