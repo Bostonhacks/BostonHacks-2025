@@ -12,6 +12,12 @@ export const metadata: Metadata = {
     siteName: "BostonHacks 2025",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "./opengraph-image.png",
+        alt: "BostonHacks 2025 Hackathon",
+      }
+    ]
   }
 };
 
@@ -23,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased overscroll-none`}
+        className={`antialiased overscroll-none overflow-hidden max-w-[100vw] max-h-[100vh] w-screen h-screen`}
       >
         {children}
       </body>
