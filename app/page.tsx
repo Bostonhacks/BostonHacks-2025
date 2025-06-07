@@ -1,19 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import GlowingLogo from "@/public/temp_landing/bhacks-glowing-logo.svg"
+import Navbar from "./Navbar";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
-    <main>
-      <h1>BostonHacks 2025</h1>
-      {/* <Link href={"/apply" + ".html"}>Apply</Link> */}
-      {/* <Link href={"/sponsor" + ".html"}>Sponsor Us</Link> */}
+    <main className="max-w-[100vw] w-screen h-screen max-h-[100vh] overflow-hidden">
+      {/* background gradient is defined within globals.css */}
+      <div className="fixed">
+        <Navbar />
+      </div>
 
-      <Image src={GlowingLogo} alt="BostonHacks 2025 Logo" width={300} height={300} />
+      <div className="lg:scale-125 flex flex-col items-center w-screen justify-center h-screen">
+        <Header />
+      </div>
+
+      <div className="p-10 fixed bottom-0 w-full">
+        <Footer />
+      </div>
+
       {/* if you need more control over SVG logo, consider using https://react-svgr.com/playground/ */}
-
-      <Link href={"/apply"}>Apply</Link>
-      <Link href={"/sponsor"}>Sponsor Us</Link>
     </main>
   )
 }

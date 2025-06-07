@@ -10,8 +10,28 @@ on:
       - main
 
 jobs:
+  lint:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' 
+
+      - name: Install dependencies
+        run: npm ci 
+
+      - name: Run ESLint
+        run: npm run lint # Adjust the linting command if needed
+
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    needs: [lint]
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
