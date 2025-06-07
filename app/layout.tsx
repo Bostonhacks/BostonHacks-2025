@@ -8,10 +8,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BostonHacks 2025",
     description: "BostonHacks 2025 Hackathon landing page",
-    url: "https://www.bostonhacks.org",
+    url: "https://bostonhacks.org",
     siteName: "BostonHacks 2025",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "./opengraph-image.png",
+        alt: "BostonHacks 2025 Hackathon",
+      }
+    ]
   }
 };
 
