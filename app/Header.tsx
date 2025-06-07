@@ -33,7 +33,7 @@ const WelcomeSection = () => {
           <p>2025</p>
         </div>
         <div className="w-full font-presicav text-[1.5em] lg:text-[2.5em]">
-          <p>October 10th-12th</p>
+          <p>October 11th-12th</p>
         </div>
         <div className="w-full font-presicav text-[0.75em] lg:text-[1.25em] text-left leading-[1em] mt-3">
           <p>Sign up here to get notified when applications open!</p>
