@@ -61,7 +61,7 @@ const WelcomeSection = () => {
  */
 const LogoSection = () => {
   return (
-    <div className="lg:flex hidden relative w-[600px] h-[600px] items-center justify-center grow-0 shrink-0">
+    <div className="lg:flex hidden relative w-[600px] h-[600px] items-center justify-center grow-0 shrink-0 group">
       <Image
         className="animate-pulse-glow"
         src={GlowingLogo}

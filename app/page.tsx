@@ -10,7 +10,7 @@ export default function Home() {
         <Navbar />
       </div>
 
-      <div className="lg:scale-125 flex flex-col items-center w-screen justify-center h-screen">
+      <div className="2xl:scale-125 lg:scale-80 flex flex-col items-center w-screen justify-center h-screen">
         <Header />
       </div>
 
