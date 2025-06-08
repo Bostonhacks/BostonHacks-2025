@@ -16,7 +16,7 @@ const WelcomeSection = () => {
           height={100}
           src={LinesTopLeft}
           alt="Top Left Lines"
-          className="" />
+          className="animate-pulse" />
       </div>
 
       <div className="lg:mx-15">
@@ -50,7 +50,7 @@ const WelcomeSection = () => {
           height={100}
           src={LinesBottomRight}
           alt="Bottom Right Lines"
-          className="" />
+          className="animate-pulse" />
       </div>
     </div>
   );

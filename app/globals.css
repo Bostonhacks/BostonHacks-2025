@@ -70,7 +70,7 @@
   --animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 5s cubic-bezier(0.2, -0.3, 0.2, 1) infinite;
 
-  @keyframes spin-slow {
+  @keyframes spin-custom {
     from {
       transform: rotate(0deg);
     }
@@ -79,7 +79,7 @@
     }
   }
   
-  @keyframes spin-slow-reverse {
+  @keyframes spin-custom-reverse {
     from {
       transform: rotate(0deg);
     }
@@ -87,10 +87,10 @@
       transform: rotate(-360deg);
     }
   }
-
-  --animate-spin-slow: spin-slow 30s linear infinite;
-  --animate-spin-slow-reverse: spin-slow-reverse 30s linear infinite;
-  
+  --animate-spin-slow: spin-custom 30s linear infinite;
+  --animate-spin-slow-reverse: spin-custom-reverse 30s linear infinite;
+  --animate-spin-fast: spin-custom 10s linear infinite;
+  --animate-spin-fast-reverse: spin-custom-reverse 10s linear infinite;
 }
 
 @theme inline {
