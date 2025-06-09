@@ -8,42 +8,42 @@ import React from "react";
 const Cog = () => {
   return (
     <div className="relative w-full h-full">
-      <div className="absolute inset-0 scale-[1.35] animate-spin-slow lg:[animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
+      <div className="absolute inset-0 scale-[1.35] animate-spin-slow [animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
         <Image
           src={Cog1}
           alt="Cog Layer 1"
           fill
-          className="animate-spin-fast lg:[animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
+          className="animate-spin-fast [animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
           style={{ zIndex: 1 }}
           priority
         />
       </div>
-      <div className="absolute inset-0 scale-[0.85] animate-spin-slow-reverse lg:[animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
+      <div className="absolute inset-0 scale-[0.85] animate-spin-slow-reverse [animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
         <Image
           src={Cog2}
           alt="Cog Layer 2"
           fill
-          className="animate-spin-fast-reverse lg:[animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
+          className="animate-spin-fast-reverse [animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
           style={{ zIndex: 2 }}
           priority
         />
       </div>
-      <div className="absolute inset-0 scale-[0.8] animate-spin-slow lg:[animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
+      <div className="absolute inset-0 scale-[0.8] animate-spin-slow [animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
         <Image
           src={Cog3}
           alt="Cog Layer 3"
           fill
-          className="animate-spin-fast lg:[animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
+          className="animate-spin-fast [animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
           style={{ zIndex: 3 }}
           priority
         />
       </div>
-      <div className="absolute inset-0 scale-[0.72] animate-spin-slow-reverse lg:[animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
+      <div className="absolute inset-0 scale-[0.72] animate-spin-slow-reverse [animation-play-state:running] lg:group-hover:[animation-play-state:paused]">
         <Image
           src={Cog4}
           alt="Cog Layer 4"
           fill
-          className="animate-spin-fast-reverse lg:[animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
+          className="animate-spin-fast-reverse [animation-play-state:paused] lg:group-hover:[animation-play-state:running]"
           style={{ zIndex: 4 }}
           priority
         />
