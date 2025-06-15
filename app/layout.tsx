@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "BostonHacks 2025",
-  description: "BostonHacks 2025 Hackathon landing page",
+  description: "BostonHacks 2025 Hackathon, Boston University’s largest, annual student-run hackathon and various beginner friendly workshops!",
   keywords: ["bostonhacks", "hackathon", "bostonhacks 2025", "boston hackathon"],
   openGraph: {
     title: "BostonHacks 2025",
