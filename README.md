@@ -5,6 +5,7 @@ Bostonhacks 2025 landing page.
 ## Notes
 
 - Built with NextJS but exported statically. Meaning you cannot develop with NextJS features that require a server.
+- Website is based on the `release` branch. Only PR from `main` to `release` to change the website.
 
 ## Getting Started
 
