@@ -1,7 +1,6 @@
-import Navbar from "./Navbar";
-import Header from "./Header";
-import Footer from "./Footer";
+import Navbar from "@/components/Navbar/Navbar";
 import { Metadata } from "next";
+import { routes } from "./const";
 
 export const metadata: Metadata = {
   title: "BostonHacks 2025",
@@ -17,23 +16,30 @@ export const metadata: Metadata = {
   }
 };
 
-export default function Home() {
+
+const Home = () => {
   return (
-    <main className="w-dvw h-dvh overflow-hidden">
-      {/* background gradient is defined within globals.css */}
-      <div className="fixed">
-        <Navbar />
+    <main className="overflow-x-hidden">
+      {/* background gradient defined in Background component */}
+      <Navbar routes={routes} />
+      <div className="h-screen">
+        wow
       </div>
 
-      <div className="2xl:scale-125 lg:scale-80 flex flex-col items-center w-screen justify-center h-screen">
-        <Header />
+      <div className="h-screen">
+        wow
+      </div>
+      <div className="h-screen">
+        wow
       </div>
 
-      <div className="p-10 fixed bottom-0 w-full">
-        <Footer />
+      {/* examplec component to scroll to, add id tag and set it in the const file */}
+      <div id="about" className="h-screen">
+        wow
       </div>
 
-      {/* if you need more control over SVG logo, consider using https://react-svgr.com/playground/ */}
     </main>
   )
 }
+
+export default Home;

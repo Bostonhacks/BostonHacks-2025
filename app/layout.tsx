@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Background from "@/components/Background/Background";
 
 export const metadata: Metadata = {
-  title: "BostonHacks 2025",
+  title: "BostonHacks 2025 - Retro Remix",
   description: "BostonHacks 2025 Hackathon, Boston University’s largest, annual student-run hackathon and various beginner friendly workshops!",
   keywords: ["bostonhacks", "hackathon", "bostonhacks 2025", "boston hackathon"],
   openGraph: {
-    title: "BostonHacks 2025",
+    title: "BostonHacks 2025 - Retro Remix",
     description: "BostonHacks 2025 Hackathon landing page",
     url: "https://www.bostonhacks.org",
     siteName: "BostonHacks 2025",
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`antialiased overflow-x-hidden`}
       >
-        {children}
+        <Background>
+          {children}
+        </Background>
       </body>
     </html>
   );
