@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
 type RouteType = 'hash' | 'page'
 
@@ -17,6 +18,18 @@ type NavbarProps = {
 
 const Navbar = ({ routes, className = '' }: NavbarProps) => {
   const pathname = usePathname()
+  const [currentHash, setCurrentHash] = useState('')
+
+  useEffect(() => {
+    const updateHash = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+
+    return () => window.removeEventListener('hashchange', updateHash)
+  }, [])
 
   const handleHashClick = (e: React.MouseEvent, path: string) => {
     e.preventDefault()
@@ -25,7 +38,15 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
       element.scrollIntoView({ behavior: 'smooth' })
       // Update URL without navigation
       window.history.pushState(null, '', path)
+      setCurrentHash(path)
     }
+  }
+
+  const isActive = (route: Route) => {
+    if (route.type === 'hash') {
+      return currentHash === route.path
+    }
+    return pathname === route.path
   }
 
   return (
@@ -37,9 +58,9 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
               <a
                 href={route.path}
                 onClick={(e) => handleHashClick(e, route.path)}
-                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${pathname === route.path || (route.type === 'hash' && pathname === '/')
-                  ? 'bg-red-500'
-                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
+                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
+                    ? 'bg-red-500'
+                    : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
                   }`}
               >
                 {route.label}
@@ -47,9 +68,9 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
             ) : (
               <Link
                 href={route.path}
-                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${pathname === route.path
-                  ? 'bg-red-500'
-                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
+                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
+                    ? 'bg-red-500'
+                    : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
                   }`}
               >
                 {route.label}
