@@ -27,6 +27,8 @@
   /*put your color if it will get reused a lot here*/
 
   /*Main Gradient Colors*/
+  --gradient-stop-1: #206DDF;
+  --gradient-stop-2: #A6EFFF;
 
 
 
@@ -65,6 +67,8 @@
   /*--font-presicav: var(--font-presicav);*/
   /*--font-36days: var(--font-36days);*/
   /*--color-focus-primary: var(--color-focus-primary);*/
+  --color-bg-gradient-stop-1: var(--gradient-stop-1);
+  --color-bg-gradient-stop-2: var(--gradient-stop-2);
 
 
 
