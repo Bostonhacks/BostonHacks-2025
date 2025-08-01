@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Background from "@/components/Background/Background";
 
 export const metadata: Metadata = {
   title: "BostonHacks 2025 - Retro Remix",
@@ -26,9 +25,7 @@ export default function RootLayout({
       <body
         className={`antialiased overflow-x-hidden`}
       >
-        <Background>
-          {children}
-        </Background>
+        {children}
       </body>
     </html>
   );

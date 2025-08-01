@@ -59,8 +59,8 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
                 href={route.path}
                 onClick={(e) => handleHashClick(e, route.path)}
                 className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
-                    ? 'bg-red-500'
-                    : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
+                  ? 'bg-red-500'
+                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
                   }`}
               >
                 {route.label}
@@ -69,8 +69,8 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
               <Link
                 href={route.path}
                 className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
-                    ? 'bg-red-500'
-                    : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
+                  ? 'bg-red-500'
+                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
                   }`}
               >
                 {route.label}

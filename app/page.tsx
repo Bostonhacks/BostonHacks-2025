@@ -1,44 +1,27 @@
-import Navbar from "@/components/Navbar/Navbar";
-import { Metadata } from "next";
+import Navbar from "@/components/Navbar";
 import { routes } from "./const";
-
-export const metadata: Metadata = {
-  title: "BostonHacks 2025",
-  description: "BostonHacks 2025 Hackathon, Boston University’s largest, annual student-run hackathon and various beginner friendly workshops!",
-  keywords: ["bostonhacks", "hackathon", "bostonhacks 2025", "boston hackathon"],
-  openGraph: {
-    title: "BostonHacks 2025",
-    description: "BostonHacks 2025 Hackathon landing page",
-    url: "https://www.bostonhacks.org",
-    siteName: "BostonHacks 2025",
-    locale: "en_US",
-    type: "website",
-  }
-};
-
+import Background from "@/components/Background";
+import LoginModal from "./login/LoginModal";
+import Sandbox from "./Sandbox";
 
 const Home = () => {
   return (
-    <main className="overflow-x-hidden">
-      {/* background gradient defined in Background component */}
+    <Background>
       <Navbar routes={routes} />
-      <div className="h-screen">
-        wow
-      </div>
+      <main className="flex flex-col p-10">
+        <LoginModal />
+        <Sandbox id={5} />
+        <Sandbox id={6} />
+        {/* background gradient defined in Background component */}
+        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
-      <div className="h-screen">
-        wow
-      </div>
-      <div className="h-screen">
-        wow
-      </div>
+        <div className="absoltue bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
 
-      {/* examplec component to scroll to, add id tag and set it in the const file */}
-      <div id="about" className="h-screen">
-        wow
-      </div>
-
-    </main>
+      </main>
+    </Background>
   )
 }
 
