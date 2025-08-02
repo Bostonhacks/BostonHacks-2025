@@ -5,7 +5,7 @@ import Background from "@/components/Background"
 import LoginModal from "./LoginModal"
 import StowBar from "@/components/StowBar"
 
-const Login = () => {
+const LoginPage = () => {
   const [showLoginModal, setShowLoginModal] = useState(true)
   const [stowedWindows, setStowedWindows] = useState<Array<{
     id: string
@@ -48,5 +48,5 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage
 

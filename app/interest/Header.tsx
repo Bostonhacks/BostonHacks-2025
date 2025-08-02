@@ -1,7 +1,7 @@
 import Image from "next/image"
 import GlowingLogo from "@/public/temp_landing/bhacks-glowing-logo.svg"
-import Signup from "@/components/Signup";
-import Cog from "@/components/Cog";
+import Signup from "@/components/archive/Signup";
+import Cog from "@/components/archive/Cog";
 import LinesTopLeft from "@/public/temp_landing/lines-topleft.svg";
 import LinesBottomRight from "@/public/temp_landing/lines-bottomright.svg";
 

@@ -2,25 +2,57 @@
 
 import React from 'react'
 import Window from '@/components/Window'
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type LoginModalProps = {
   onStow?: () => void;
 }
 
 
+
 const LoginModal = ({ onStow }: LoginModalProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [error, setError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const success = searchParams.get('success');
+    const message = searchParams.get('message');
+    const userId = searchParams.get('userId');
+
+    if (success === 'true' && message === 'successfulLogin' && !!userId) {
+      router.push(`/profile?userId=${userId}`)
+    }
+  });
+
   const handleGoogleLogin = async () => {
-    // Call your backend endpoint that returns the Google auth URL
-    // Example: fetch('/api/auth/google').then(res => res.json()).then(data => window.location.href = data.url)
-    console.log('Redirecting to Google auth...')
+    try {
+      setError(null);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/google/login?redirect_uri=${encodeURIComponent(window.location.origin)}/login`, {
+        credentials: 'include',
+      });
+      if (!response.ok) {
+        throw new Error("There was an error processing your request. Please try again later.");
+      }
+
+      const data = await response.json();
+
+      if (!data?.url) {
+        throw new Error("No redirect URL provided");
+      }
+
+      router.push(data.url);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Unknown error occurred")
+    }
   }
 
   return (
     <Window
       title="Login"
-      minWidth="min-w-[600px]"
-      minHeight="min-h-[400px]"
-      initialSize={{ width: 600, height: 400 }}
+      minWidth="min-w-[500px]"
+      minHeight="min-h-[430px]"
+      initialSize={{ width: 500, height: 430 }}
       onClose={onStow}
       closable={true}
     >
@@ -43,6 +75,13 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
             </div>
             <span>Sign in with Google</span>
           </button>
+
+          {error && (
+            <div className="w-full max-w-xs bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded text-sm">
+              {error}
+            </div>
+          )}
+
 
           <div className="w-full h-0.5 bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 my-2.5"></div>
 
