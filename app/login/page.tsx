@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import Background from "@/components/Background"
 import LoginModal from "./LoginModal"
 import StowBar from "@/components/StowBar"
@@ -35,9 +35,11 @@ const LoginPage = () => {
   return (
     <Background showCity={false} className="overflow-y-hidden">
       <div className="w-full h-screen flex items-center justify-center p-4">
-        {showLoginModal && (
-          <LoginModal onStow={handleLoginStow} />
-        )}
+        <Suspense>
+          {showLoginModal && (
+            <LoginModal onStow={handleLoginStow} />
+          )}
+        </Suspense>
       </div>
 
       <StowBar
