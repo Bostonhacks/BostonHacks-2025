@@ -1,6 +1,6 @@
-import Navbar from "@/components/Navbar";
-import { routes } from "./const";
 import Background from "@/components/Background";
+import { routes } from "./const";
+import Navbar from "@/components/Navbar";
 
 const Home = () => {
   return (

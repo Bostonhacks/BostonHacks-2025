@@ -132,6 +132,8 @@
 }
 
 body {
+  background: linear-gradient(to bottom, var(--gradient-stop-1), var(--gradient-stop-2));
   color: black;
   font-family: "Noto Sans", sans-serif;
+  background-attachment: fixed;
 }

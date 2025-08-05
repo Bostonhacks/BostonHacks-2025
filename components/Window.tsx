@@ -252,7 +252,9 @@ const Window = ({
               onClick={handleMinimize}
               title="Minimize"
             >
-              _
+              <span className="mt-1">
+                &#8213;
+              </span>
             </button>
           )}
           {maximizable && (
@@ -261,7 +263,7 @@ const Window = ({
               onClick={handleMaximize}
               title={isMaximized ? "Restore" : "Maximize"}
             >
-              {isMaximized ? '🗗' : '□'}
+              {isMaximized ? <>&#9635;</> : <>&#9633;</>}
             </button>
           )}
           {closable && (
@@ -270,7 +272,7 @@ const Window = ({
               onClick={handleClose}
               title="Close"
             >
-              ×
+              &#10005;
             </button>
           )}
         </div>
