@@ -25,7 +25,8 @@ const Background = ({ showCity = true, className, children }: BackgroundProps): 
       )}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-gradient-stop-1 to-bg-gradient-stop-2 -z-40"></div>
+      {/* this is defined instead in globals.css for background fixing reasons */}
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-bg-gradient-stop-1 to-bg-gradient-stop-2 -z-40"></div> */}
 
       <Image
         className="absolute right-[200px] top-[30%] z-10 opacity-[0.35] pointer-events-none select-none"
@@ -63,7 +64,7 @@ const Background = ({ showCity = true, className, children }: BackgroundProps): 
         alt="Waterbead"
       />
 
-      <div className="relative z-20 pt-2">
+      <div className="relative z-20 pt-1">
         {children}
       </div>
     </div>
