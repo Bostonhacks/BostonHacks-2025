@@ -1,12 +1,14 @@
 import Background from "@/components/Background";
 import { routes } from "./const";
 import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import RetroRemix from "./RetroRemix/RetroRemix";
 import LoginSponsorButton from "@/components/LoginSponsorButton";
 
 const Home = () => {
   return (
     <Background>
+      <Header />
       <Navbar routes={routes} />
       <main className="flex flex-col">
         {/* background gradient defined in Background component */}
