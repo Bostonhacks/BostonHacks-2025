@@ -1,10 +1,12 @@
 import Background from "@/components/Background";
 import { routes } from "./const";
 import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 
 const Home = () => {
   return (
     <Background>
+      <Header />
       <Navbar routes={routes} />
       <main className="flex flex-col p-10">
         {/* background gradient defined in Background component */}
