@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { routes } from "./const";
 import Background from "@/components/Background";
+import ApplyNow from "@/components/ApplyNow";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
         <div className="absoltue bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
-
+        <ApplyNow />
       </main>
     </Background>
   )
