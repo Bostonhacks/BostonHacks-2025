@@ -6,6 +6,8 @@ import fishFlower from '@/public/fish-flower.svg'
 import glass from '@/public/glass.svg'
 import splash from '@/public/splash.svg'
 import waterbead from '@/public/waterbead.svg'
+import babybubble from '@/public/babybubble.svg'
+import bubble from '@/public/bubble.svg'
 import LoginButton from './LoginButton'
 import SponsorButton from './SponsorButton'
 
@@ -18,7 +20,7 @@ const Header = () => {
           src={splash}
           alt="Water splash background"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-70 translate-x-10 md:translate-x-60"
           priority
         />
       </div>
@@ -67,51 +69,47 @@ const Header = () => {
         />
       </div>
 
-      {/* Fish with flower - positioned on left */}
-      <div className="absolute left-4 md:left-12 top-16 md:top-24 z-20">
+      <div className="absolute left-[-140px] md:left-[-300px] top-[60%] md:top-[62%] -translate-y-1/2 z-20 w-[320px] h-[320px] md:w-[1020px] md:h-[1020px]">
         <Image
           src={fishFlower}
-          alt="Fish with daisy flower"
-          width={120}
-          height={120}
-          className="md:w-[200px] md:h-[200px]"
+          alt="Fish with flower"
+          fill
+          className="object-contain pointer-events-none"
           style={{ animation: 'gentle-sway 10s ease-in-out infinite' }}
         />
       </div>
-
-      {/* Fish with computer - positioned on right */}
-      <div className="absolute right-4 md:right-12 bottom-32 md:bottom-24 z-20">
+ 
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-[120px] h-[120px] md:w-[360px] md:h-[360px]">
         <Image
           src={fishComputer}
-          alt="Fish with computer monitor"
-          width={120}
-          height={120}
-          className="md:w-[200px] md:h-[200px]"
+          alt="Fish with computer"
+          fill
+          className="object-contain pointer-events-none"
           style={{ animation: 'float 8s ease-in-out infinite 1s' }}
         />
       </div>
 
-      {/* Glass effect overlay */}
-      <div className="absolute inset-0 z-30">
-        <Image
-          src={glass}
-          alt="Glass bubble effect"
-          fill
-          className="object-cover opacity-20"
-        />
-      </div>
 
-      <div className="relative z-40 inline-block text-left text-white px-4">
+      <div className="relative z-40 inline-block text-left text-white px-4 mt-32 md:mt-48 mx-auto">
         <div className="mb-8 md:mb-6">
-          <p className="font-akshar pl-[10px] text-white-blue-outline"
-             style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontSize: '36px', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
+          <p className="font-akshar text-white-blue-outline text-[16px] md:text-[32px]"
+             style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
             November <span style={{ letterSpacing: '0.1em' }}>2-3</span>
           </p>
         </div>
 
-        <div className="mb-6 md:mb-8">
-          <h1 className="inline-block text-left font-neuropol text-white-blue-outline-2"
-              style={{ animation: 'pulse-glow 6s ease-in-out infinite', fontSize: '153px', fontWeight: 400, lineHeight: 0.9, textShadow: '9.6px 12px 9.6px rgba(2, 0, 66, 0.25)' }}>
+        <div className="relative mb-6 md:mb-8">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[480px] h-[480px] md:w-[1600px] md:h-[1600px]">
+            <Image
+              src={bubble}
+              alt="Bubble background"
+              fill
+              className="object-contain opacity-25"
+              priority
+            />
+          </div>
+          <h1 className="inline-block text-left font-neuropol text-white-blue-outline-1 text-[48px] md:text-[153px]"
+              style={{ fontWeight: 400, lineHeight: 0.9, textShadow: '9.6px 12px 9.6px rgba(2, 0, 66, 0.25)' }}>
             <span className="block">
               Boston
             </span>
@@ -122,8 +120,8 @@ const Header = () => {
         </div>
 
         <div className="mb-8 md:mb-12">
-          <h2 className="font-akshar text-white-blue-outline-1 drop-shadow-2xl w-fit mx-auto flex justify-center gap-[125px]"
-              style={{ animation: 'pulse-glow 5s ease-in-out infinite 0.5s', fontSize: '57px', fontWeight: 600, lineHeight: 0.9 }}>
+          <h2 className="font-akshar text-white-blue-outline-1 drop-shadow-2xl w-fit mx-auto flex justify-center gap-[16px] md:gap-[125px] text-[28px] md:text-[57px]"
+              style={{ animation: 'pulse-glow 5s ease-in-out infinite 0.5s', fontWeight: 600, lineHeight: 0.9 }}>
             <span className="text-white-blue-outline-1">2</span>
             <span className="text-white-blue-outline-1">0</span>
             <span className="text-white-blue-outline-1">2</span>
@@ -131,9 +129,21 @@ const Header = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-center">
-          <LoginButton />
-          <SponsorButton />
+        <div className="mx-auto mt-56 md:mt-72" style={{ width: '566px', height: '322px' }}>
+          <div className="relative w-full h-full">
+            <Image
+              src={glass}
+              alt="Glass card"
+              fill
+              className="object-contain opacity-60"
+            />
+            <div className="absolute inset-0 flex items-center justify-center gap-4">
+              <div className="flex flex-col items-center justify-center gap-4 w-full h-full">
+                <LoginButton />
+                <SponsorButton />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
