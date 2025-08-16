@@ -2,6 +2,13 @@
 @import "tailwindcss";
 
 @font-face {
+  font-family: MSSansSerif;
+  src: url("@/public/fonts/ms-sans-serif-1.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: Presicav;
   src: url("../public/fonts/PresicavRegular.ttf") format("truetype");
   font-weight: normal;
@@ -25,10 +32,12 @@
 :root {
   /*Main Colors and Fonts*/
   /*put your color if it will get reused a lot here*/
+  /*define these in the @theme to use them in tailwind*/
 
   /*Main Gradient Colors*/
   --gradient-stop-1: #206DDF;
   --gradient-stop-2: #A6EFFF;
+  --ms-sans-serif-1: "MSSansSerif", sans-serif;
 
 
 
@@ -69,6 +78,8 @@
   /*--color-focus-primary: var(--color-focus-primary);*/
   --color-bg-gradient-stop-1: var(--gradient-stop-1);
   --color-bg-gradient-stop-2: var(--gradient-stop-2);
+
+  --font-mssansserif: var(--ms-sans-serif-1);
 
 
 
