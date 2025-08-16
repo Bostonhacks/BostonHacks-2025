@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, ReactNode } from 'react'
 import React from 'react'
 
 interface WindowProps {
-  title: string
+  title: string | ReactNode
   children: ReactNode
   initialPosition?: { x: number; y: number }
   initialSize?: { width: number; height: number }
@@ -182,7 +182,7 @@ const Window = ({
   return (
     <div
       ref={modalRef}
-      className={`bg-gray-300 border-2 border-gray-300 shadow-lg font-mono relative ${isMinimized ? 'h-8 overflow-hidden' : `${minHeight}`} ${className} ${minWidth}`}
+      className={`bg-gray-300 border-2 border-gray-300 shadow-lg font-mssansserif relative ${isMinimized ? 'h-8 overflow-hidden' : `${minHeight}`} ${className} ${minWidth}`}
       style={{
         transform: isMaximized ? 'none' : `translate(${position.x}px, ${position.y}px)`,
         width: isMaximized ? '100%' : `${size.width}px`,
