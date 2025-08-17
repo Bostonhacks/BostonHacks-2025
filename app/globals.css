@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: MSSansSerif;
-  src: url("@/public/fonts/ms-sans-serif-1.otf") format("opentype");
+  src: url("../public/fonts/ms-sans-serif-1.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,9 +30,11 @@
 }
 
 :root {
+  overflow-x: hidden;
   /*Main Colors and Fonts*/
   /*put your color if it will get reused a lot here*/
   /*define these in the @theme to use them in tailwind*/
+  --ms-gray: #C1C1C1;
 
   /*Main Gradient Colors*/
   --gradient-stop-1: #206DDF;
@@ -78,6 +80,7 @@
   /*--color-focus-primary: var(--color-focus-primary);*/
   --color-bg-gradient-stop-1: var(--gradient-stop-1);
   --color-bg-gradient-stop-2: var(--gradient-stop-2);
+  --color-ms-gray: var(--ms-gray);
 
   --font-mssansserif: var(--ms-sans-serif-1);
 
