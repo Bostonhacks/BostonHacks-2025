@@ -4,11 +4,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "BostonHacks 2025 - Retro Remix",
   description: "BostonHacks 2025 Hackathon, Boston University’s largest, annual student-run hackathon and various beginner friendly workshops!",
-  keywords: ["bostonhacks", "hackathon", "bostonhacks 2025", "boston hackathon"],
+  keywords: ["bostonhacks", "hackathon", "boston university", "boston hackathon", "boston hackathons 2025", "bu hackathon", "student hackathon", "coding competition", "tech event", "programming", "retro remix", "2025"],
+  authors: [{
+    name: "BostonHacks Team",
+  }],
+  creator: "BostonHacks",
   openGraph: {
     title: "BostonHacks 2025 - Retro Remix",
     description: "BostonHacks 2025 Hackathon landing page",
-    url: "https://www.bostonhacks.org",
+    url: "https://bostonhacks.org",
     siteName: "BostonHacks 2025",
     locale: "en_US",
     type: "website",
