@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Background>
       <Navbar routes={routes} />
-      <main className="flex flex-col p-10">
+      <main className="flex flex-col">
         {/* background gradient defined in Background component */}
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
@@ -16,7 +16,7 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
-        <div className="absoltue bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
+        <div className="absolute bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
 
       </main>
     </Background>
