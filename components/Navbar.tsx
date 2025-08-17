@@ -1,5 +1,5 @@
 "use client"
-import Link from 'next/link'
+import NavBarButton from "@/components/NavBarButton";
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -42,39 +42,22 @@ const Navbar = ({ routes, className = '' }: NavbarProps) => {
     }
   }
 
-  const isActive = (route: Route) => {
-    if (route.type === 'hash') {
-      return currentHash === route.path
-    }
-    return pathname === route.path
-  }
+  // const isActive = (route: Route) => {
+  //   if (route.type === 'hash') {
+  //     return currentHash === route.path
+  //   }
+  //   return pathname === route.path
+  // }
 
   return (
-    <nav className={`flex items-center ${className}`}>
-      <div className="flex">
+    <nav className={`flex items-center w-[80vw] ${className}`}>
+      <div className="flex w-full gap-6 py-[3vh] px-4">
         {routes.map((route, index) => (
           <div key={index}>
             {route.type === 'hash' ? (
-              <a
-                href={route.path}
-                onClick={(e) => handleHashClick(e, route.path)}
-                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
-                  ? 'bg-red-500'
-                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
-                  }`}
-              >
-                {route.label}
-              </a>
+                <NavBarButton text={route.label} href={route.path} onClick={(e:any) => handleHashClick(e, route.path)} />
             ) : (
-              <Link
-                href={route.path}
-                className={`px-4 py-2 rounded-lg transition-all duration-100 font-medium ${isActive(route)
-                  ? 'bg-red-500'
-                  : 'bg-blue-200 hover:text-white hover:cursor-pointer hover:bg-white/10'
-                  }`}
-              >
-                {route.label}
-              </Link>
+                <NavBarButton text={route.label} href={route.path} />
             )}
           </div>
         ))}
