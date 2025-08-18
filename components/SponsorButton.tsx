@@ -15,17 +15,17 @@ const SponsorButton = () => {
       aria-label="Sponsor us"
     >
       <Image
-        src="/sponsor.svg"
+        src="/sponsorog.svg"
         alt="Sponsor us"
         fill
-        className="pointer-events-none object-fill opacity-100 group-hover:opacity-0 transition-opacity duration-200 ease-out"
+        className="absolute inset-0 pointer-events-none object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-200 ease-out"
         priority
       />
       <Image
         src="/sponsorHover.svg"
         alt="Sponsor us hover"
         fill
-        className="pointer-events-none object-fill opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
+        className="absolute inset-0 pointer-events-none object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
         priority
       />
     </button>

@@ -69,7 +69,7 @@ const Header = () => {
         />
       </div>
 
-      <div className="absolute left-[-140px] md:left-[-300px] top-[60%] md:top-[62%] -translate-y-1/2 z-20 w-[320px] h-[320px] md:w-[1020px] md:h-[1020px]">
+      <div className="absolute left-[-140px] md:left-[-300px] top-[70%] md:top-[62%] -translate-y-1/2 z-20 w-[320px] h-[320px] md:w-[1020px] md:h-[1020px]">
         <Image
           src={fishFlower}
           alt="Fish with flower"
@@ -90,10 +90,10 @@ const Header = () => {
       </div>
 
 
-      <div className="relative z-40 inline-block text-left text-white px-4 mt-32 md:mt-48 mx-auto">
+      <div className="relative z-40 inline-block text-left text-white px-4 mt-32 md:mt-48">
         <div className="mb-8 md:mb-6">
-          <p className="font-akshar text-white-blue-outline text-[16px] md:text-[32px]"
-             style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
+          <p className="font-akshar pl-[10px] text-white-blue-outline"
+             style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontSize: '32px', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
             November <span style={{ letterSpacing: '0.1em' }}>2-3</span>
           </p>
         </div>
@@ -108,7 +108,7 @@ const Header = () => {
               priority
             />
           </div>
-          <h1 className="inline-block text-left font-neuropol text-white-blue-outline-1 text-[48px] md:text-[153px]"
+          <h1 className="inline-block text-center font-neuropol text-white-blue-outline-1 text-[72px] md:text-[153px]"
               style={{ fontWeight: 400, lineHeight: 0.9, textShadow: '9.6px 12px 9.6px rgba(2, 0, 66, 0.25)' }}>
             <span className="block">
               Boston
@@ -120,7 +120,7 @@ const Header = () => {
         </div>
 
         <div className="mb-8 md:mb-12">
-          <h2 className="font-akshar text-white-blue-outline-1 drop-shadow-2xl w-fit mx-auto flex justify-center gap-[16px] md:gap-[125px] text-[28px] md:text-[57px]"
+          <h2 className="font-akshar text-white-blue-outline-1 drop-shadow-2xl w-fit mx-auto flex justify-center gap-[24px] md:gap-[125px] text-[32px] md:text-[57px]"
               style={{ animation: 'pulse-glow 5s ease-in-out infinite 0.5s', fontWeight: 600, lineHeight: 0.9 }}>
             <span className="text-white-blue-outline-1">2</span>
             <span className="text-white-blue-outline-1">0</span>

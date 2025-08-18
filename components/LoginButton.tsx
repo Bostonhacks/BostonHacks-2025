@@ -15,7 +15,7 @@ const LoginButton = () => {
       aria-label="Login"
     >
       <Image
-        src="/login.svg"
+        src="/loginog.svg"
         alt="Login"
         fill
         className="pointer-events-none object-fill opacity-100 group-hover:opacity-0 transition-opacity duration-200 ease-out scale-105"
