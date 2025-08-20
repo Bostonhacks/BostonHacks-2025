@@ -22,6 +22,14 @@
   src: url("../public/fonts/36DaysOfType.otf") format("opentype");
 }
 
+@font-face {
+  font-family: NeuropolXFree;
+  src: url("../public/fonts/neuropolx.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /*Main Colors and Fonts*/
   /*put your color if it will get reused a lot here*/
@@ -39,6 +47,7 @@
   /*--color-tertiary: #E95A85;*/
   /*--font-presicav: "Presicav", sans-serif;*/
   /*--font-36days: "DaysOfType", sans-serif;*/
+  --font-neuropol: "NeuropolXFree", sans-serif;
   /**/
   /* Main gradient colors */
   /*--gradient-stop-1: #070A0F;*/
@@ -72,14 +81,13 @@
 
 
 
-
-
   /*------------ olt temp landing site ------------*/
   /*--color-primary: var(--text-primary);*/
   /*--color-secondary: var(--overlay-color);*/
   /*--color-tertiary: var(--color-tertiary);*/
   /*--font-presicav: var(--font-presicav);*/
   /*--font-36days: var(--font-36days);*/
+  --font-neuropol: var(--font-neuropol);
   /*--color-focus-primary: var(--color-focus-primary);*/
   /**/
   /*@keyframes pulse-glow {*/
@@ -116,6 +124,7 @@
   /*--animate-spin-fast: spin-custom 10s linear infinite;*/
   /*--animate-spin-fast-reverse: spin-custom-reverse 10s linear infinite;*/
 }
+
 /**/
 /*@theme inline {*/
 /*  --color-background: var(--background);*/
@@ -136,4 +145,11 @@ body {
   color: black;
   font-family: "Noto Sans", sans-serif;
   background-attachment: fixed;
+}
+
+.text-outline-blue {
+  color: white;
+  -webkit-text-stroke: 0.02em #125DC7;
+  -webkit-text-fill-color: white;
+  text-shadow: 4.4px 2.2px 4.62px rgba(2, 0, 66, 0.29);
 }
