@@ -30,6 +30,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: MSSansSerif;
+  src: url("../public/fonts/ms-sans-serif-1.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /*Main Colors and Fonts*/
   /*put your color if it will get reused a lot here*/
@@ -48,6 +56,7 @@
   /*--font-presicav: "Presicav", sans-serif;*/
   /*--font-36days: "DaysOfType", sans-serif;*/
   --font-neuropol: "NeuropolXFree", sans-serif;
+  --font-ms-sans-serif: "MSSansSerif", sans-serif;
   /**/
   /* Main gradient colors */
   /*--gradient-stop-1: #070A0F;*/
@@ -88,6 +97,7 @@
   /*--font-presicav: var(--font-presicav);*/
   /*--font-36days: var(--font-36days);*/
   --font-neuropol: var(--font-neuropol);
+  --font-ms-sans-serif: var(--font-ms-sans-serif);
   /*--color-focus-primary: var(--color-focus-primary);*/
   /**/
   /*@keyframes pulse-glow {*/
@@ -152,4 +162,8 @@ body {
   -webkit-text-stroke: 0.02em #125DC7;
   -webkit-text-fill-color: white;
   text-shadow: 4.4px 2.2px 4.62px rgba(2, 0, 66, 0.29);
+}
+
+.text-shadow {
+  text-shadow: 0px 8.8px 8.8px #0B334140;
 }
