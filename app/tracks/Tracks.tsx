@@ -10,9 +10,19 @@ import orange from "@/public/orange.svg";
 import disk from "@/public/disk.svg";
 import expandWhiteLeft from "@/public/expand-white.svg";
 import expandWhiteRight from "@/public/expand-whitev2.svg";
+import expandedBlueLeft from "@/public/expandblue.svg";
+import expandedBlueRight from "@/public/expandbluev2.svg";
 
 const Tracks = () => {
-  const [expandedTrack, setExpandedTrack] = useState(null);
+  const trackDescriptions = {
+    track1: "Description for Track 1",
+    track2: "Description for Track 2",
+    track3: "Description for Track 3",
+  };
+
+  const [expandedTrack1, setExpandedTrack1] = useState(false);
+  const [expandedTrack2, setExpandedTrack2] = useState(false);
+  const [expandedTrack3, setExpandedTrack3] = useState(false);
 
   return (
     <div>
@@ -51,12 +61,28 @@ const Tracks = () => {
             alt="Track 1"
             className="w-1/2 h-auto object-cover pointer-events-none select-none"
           />
-          <Image
-            src={expandWhiteLeft}
-            alt="Expand"
-            className="w-1/2 h-auto object-cover pointer-events-none select-none"
-          />
+          {expandedTrack1 ? (
+            <Image
+              src={expandedBlueLeft}
+              alt="Expanded"
+              className="w-1/2 h-auto object-cover"
+              onClick={() => setExpandedTrack1(false)}
+            />
+          ) : (
+            <Image
+              src={expandWhiteLeft}
+              alt="Expand"
+              className="w-1/2 h-auto object-cover"
+              onClick={() => setExpandedTrack1(true)}
+            />
+          )}
         </div>
+
+        {expandedTrack1 && (
+          <div className="col-start-2 row-start-1 flex items-center justify-center text-white text-4xl h-full">
+            {trackDescriptions.track1}
+          </div>
+        )}
 
         {/* second track */}
         <div className="col-start-3 row-start-2 flex flex-col items-center text-white">
@@ -70,35 +96,80 @@ const Tracks = () => {
             alt="Track 2"
             className="w-1/2 h-auto object-cover pointer-events-none select-none"
           />
-          <Image
-            src={expandWhiteRight}
-            alt="Expand"
-            className="w-1/2 h-auto object-cover pointer-events-none select-none"
-          />
+          {expandedTrack2 ? (
+            <Image
+              src={expandedBlueRight}
+              alt="Expanded"
+              className="w-1/2 h-auto object-cover"
+              onClick={() => setExpandedTrack2(false)}
+            />
+          ) : (
+            <Image
+              src={expandWhiteRight}
+              alt="Expand"
+              className="w-1/2 h-auto object-cover"
+              onClick={() => setExpandedTrack2(true)}
+            />
+          )}
         </div>
+
+        {expandedTrack2 && (
+          <div className="col-start-2 row-start-2 flex items-center justify-center text-white text-4xl h-full">
+            {trackDescriptions.track2}
+          </div>
+        )}
 
         {/* third track */}
-        <div className="col-start-1 row-start-3 flex flex-col items-center text-white">
-          <span
-            className="font-bold mb-2 text-center font-ms-sans-serif tracking-widest text-shadow"
-            style={{ fontSize: "3vw" }}>
-            track 3
-          </span>
-          <Image
-            src={disk}
-            alt="Track 3"
-            className="w-2/5 h-auto object-cover pointer-events-none select-none"
-          />
-          <Image
-            src={expandWhiteLeft}
-            alt="Expand"
-            className="w-1/2 h-auto object-cover pointer-events-none select-none"
-          />
-        </div>
+        {expandedTrack3 ? (
+          <div className="col-start-1 row-start-3 flex flex-col items-center text-white">
+            <span
+              className="font-bold mb-2 text-center font-ms-sans-serif tracking-widest text-shadow"
+              style={{ fontSize: "3vw" }}>
+              track 3
+            </span>
+            <Image
+              src={disk}
+              alt="Track 3"
+              className="w-2/5 h-auto object-cover pointer-events-none select-none"
+            />
+            <Image
+              src={expandedBlueLeft}
+              alt="Expand"
+              className="w-1/2 h-auto object-cover"
+              onClick={() => setExpandedTrack3(false)}
+            />
+          </div>
+        ) : (
+          <div className="col-start-1 col-end-3 row-start-3 flex flex-col items-center text-white">
+            <span
+              className="font-bold mb-2 text-center font-ms-sans-serif tracking-widest text-shadow"
+              style={{ fontSize: "3vw" }}
+            >
+              track 3
+            </span>
+
+            <div className="w-1/5 flex flex-col items-center">
+              <Image
+                src={disk}
+                alt="Track 3"
+                className="w-full h-auto object-cover pointer-events-none select-none"
+              />
+              <Image
+                src={expandWhiteLeft}
+                alt="Expand"
+                className="w-full h-auto object-cover"
+                onClick={() => setExpandedTrack3(true)}
+              />
+            </div>
+          </div>
+        )}
+        {expandedTrack3 && (
+          <div className="col-start-2 row-start-3 flex items-center justify-center text-white text-4xl h-full">
+            {trackDescriptions.track3}
+          </div>
+        )}
 
       </div>
-
-
 
     </div>
   );
