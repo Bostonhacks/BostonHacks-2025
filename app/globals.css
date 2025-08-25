@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -57,6 +58,7 @@
   /*--font-36days: "DaysOfType", sans-serif;*/
   --font-neuropol: "NeuropolXFree", sans-serif;
   --font-ms-sans-serif: "MSSansSerif", sans-serif;
+  --font-akshar: "Akshar", sans-serif;
   /**/
   /* Main gradient colors */
   /*--gradient-stop-1: #070A0F;*/
@@ -98,6 +100,7 @@
   /*--font-36days: var(--font-36days);*/
   --font-neuropol: var(--font-neuropol);
   --font-ms-sans-serif: var(--font-ms-sans-serif);
+  --font-akshar: var(--font-akshar);
   /*--color-focus-primary: var(--color-focus-primary);*/
   /**/
   /*@keyframes pulse-glow {*/
@@ -166,4 +169,13 @@ body {
 
 .text-shadow {
   text-shadow: 0px 8.8px 8.8px #0B334140;
+}
+
+.track-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.track-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
