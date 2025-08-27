@@ -124,7 +124,6 @@ const Window = ({
     }
   }, [
     isDragging,
-    initialSize,
     isResizing,
     dragStart,
     resizeStart,
