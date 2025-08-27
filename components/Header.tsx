@@ -3,10 +3,8 @@ import React from 'react'
 import Image from 'next/image'
 import fishComputer from '@/public/fish-computer.svg'
 import fishFlower from '@/public/fish-flower.svg' 
-import glass from '@/public/glass.svg'
 import splash from '@/public/splash.svg'
 import waterbead from '@/public/waterbead.svg'
-import babybubble from '@/public/babybubble.svg'
 import bubble from '@/public/bubble.svg'
 import LoginSponsorButton from "@/components/LoginSponsorButton";
 

@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Background>
       <Header />
-      {/* <Navbar routes={routes} /> */}
+      <Navbar routes={routes} />
       <main className="flex flex-col">
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
