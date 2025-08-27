@@ -98,7 +98,7 @@ const LoginPage = () => {
         <Window
           title="Error"
           initialSize={{ width: 300, height: 200 }}
-          closable={true}
+          closable={false}
           onClose={() => setError(null)}
         >
           <div className="flex flex-col p-4">
@@ -108,6 +108,11 @@ const LoginPage = () => {
               <br />
               If you need assistance, please contact us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
             </div>
+            <Link href="/">
+              <WindowsButton className="hover:cursor-pointer w-full mt-2">
+                Go home
+              </WindowsButton>
+            </Link>
           </div>
         </Window >
       </div >

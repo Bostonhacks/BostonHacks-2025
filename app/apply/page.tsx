@@ -82,6 +82,7 @@ const ApplyPage = () => {
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [submissionSuccess, setSubmissionSuccess] = useState(false)
   const [alreadySubmitted, setAlreadySubmitted] = useState(false)
 
   const [formData, setFormData] = useState<FormData>({
@@ -187,20 +188,6 @@ const ApplyPage = () => {
     checkAuth()
   }, [router]);
 
-  if (pageLoading) {
-    return (
-      <div className="min-h-screen bg-teal-600 flex items-center justify-center">
-        <CircularProgress />
-      </div>
-    )
-  }
-
-  // if (!user) {
-  //   return null // This prevents flash of content before redirect
-  // }
-
-
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
     setFormData(prev => ({
@@ -255,6 +242,8 @@ const ApplyPage = () => {
         return;
       }
 
+      setSubmissionSuccess(true);
+
     } catch (error) {
       console.error('Error submitting application:', error);
       setError("There was an error submitting your application. Please try again or contact us.");
@@ -295,13 +284,50 @@ const ApplyPage = () => {
   const legendClass = "bg-ms-gray px-2 text-sm font-bold font-mssansserif"
 
 
-  if (error || alreadySubmitted) {
+  if (pageLoading) {
+    return (
+      <div className="min-h-screen bg-teal-600 flex items-center justify-center">
+        <CircularProgress />
+      </div>
+    )
+  }
+
+  if (submissionSuccess || alreadySubmitted) {
+    return (
+      <div className="bg-teal-600 w-screen h-screen flex items-center justify-center z-100">
+        <Window
+          title="Success"
+          initialSize={{ width: 400, height: 250 }}
+          closable={false}
+        >
+          <div className="flex flex-col p-4 items-center">
+            <div className="text-green-700 text-lg font-bold mb-4 text-center font-mssansserif">
+              Application Submitted Successfully!
+            </div>
+            <div className="text-sm mb-4 text-center font-mssansserif">
+              Thank you for applying to BostonHacks! We&apos;ve received your application and will review it soon.
+              <br />
+              <br />
+              If you have any questions, feel free to reach out to us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
+            </div>
+            <Link href="/">
+              <WindowsButton className="hover:cursor-pointer w-full p-1">
+                Return to Home
+              </WindowsButton>
+            </Link>
+          </div>
+        </Window>
+      </div>
+    )
+  }
+
+  if (error) {
     return (
       <div className="bg-teal-600 w-screen h-screen flex items-center justify-center z-100">
         <Window
           title="Error"
           initialSize={{ width: 300, height: 230 }}
-          closable={!alreadySubmitted}
+          closable={true}
           onClose={() => {
             setError(null)
           }}
@@ -313,14 +339,6 @@ const ApplyPage = () => {
               <br />
               If you need assistance, please contact us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
             </div>
-
-            {alreadySubmitted && (
-              <Link href="/">
-                <WindowsButton className="hover:cursor-pointer w-full mt-2">
-                  Go home
-                </WindowsButton>
-              </Link>
-            )}
           </div>
 
         </Window >
@@ -979,7 +997,6 @@ const ApplyPage = () => {
                           <option value="M">M</option>
                           <option value="L">L</option>
                           <option value="XL">XL</option>
-                          <option value="XXL">XXL</option>
                         </select>
                       </div>
                       <div className="col-span-2">
