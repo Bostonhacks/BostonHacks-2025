@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Window from '@/components/Window'
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import CircularProgress from '@mui/material/CircularProgress';
 import Image from 'next/image';
 import GoogleIcon from "@/public/login/google-old.svg";
@@ -17,19 +17,9 @@ type LoginModalProps = {
 
 const LoginModal = ({ onStow }: LoginModalProps) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [error, setError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(false);
 
-  React.useEffect(() => {
-    const success = searchParams.get('success');
-    const message = searchParams.get('message');
-    const userId = searchParams.get('userId');
-
-    if (success === 'true' && message === 'successfulLogin' && !!userId) {
-      router.push(`/profile?userId=${userId}`)
-    }
-  });
 
   const handleGoogleLogin = async () => {
     try {
@@ -121,6 +111,7 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
       </Window>
     </>
   )
+
 }
 
 export default LoginModal

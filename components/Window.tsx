@@ -60,11 +60,6 @@ const Window = ({
   const [restoreSize, setRestoreSize] = useState(initialSize)
   const modalRef = useRef<HTMLDivElement>(null)
 
-  // set width/height to initial size or viewport size
-  React.useEffect(() => {
-
-  })
-
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     if (isMaximized) return
 
@@ -107,16 +102,21 @@ const Window = ({
       const newY = position.y
 
       if (resizeDirection.includes('right')) {
-        newWidth = Math.max(initialSize.width, resizeStart.width + deltaX)
+        // newWidth = Math.max(initialSize.width, resizeStart.width + deltaX)
+        newWidth = Math.max(250, resizeStart.width + deltaX)
       }
       if (resizeDirection.includes('left')) {
-        newWidth = Math.max(initialSize.width, resizeStart.width - deltaX)
+        // left and bottom turned off to reduce complexity of resizing logic
+        // newWidth = Math.max(initialSize.width, resizeStart.width - deltaX)
+        newWidth = Math.max(250, resizeStart.width - deltaX)
       }
       if (resizeDirection.includes('bottom')) {
-        newHeight = Math.max(initialSize.height, resizeStart.height + deltaY)
+        // newHeight = Math.max(initialSize.height, resizeStart.height + deltaY)
+        newHeight = Math.max(250, resizeStart.height + deltaY)
       }
       if (resizeDirection.includes('top')) {
-        newHeight = Math.max(initialSize.height, resizeStart.height - deltaY)
+        // newHeight = Math.max(initialSize.height, resizeStart.height - deltaY)
+        newHeight = Math.max(250, resizeStart.height - deltaY)
       }
 
       setSize({ width: newWidth, height: newHeight })
