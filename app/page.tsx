@@ -9,13 +9,13 @@ const Home = () => {
   return (
     <Background>
       <Header />
-      <Navbar routes={routes} />
+      {/* <Navbar routes={routes} /> */}
       <main className="flex flex-col">
         {/* background gradient defined in Background component */}
-        <div className="mt-8 flex flex-col gap-4 items-center" //temporary location (move to header)
+        {/* <div className="mt-8 flex flex-col gap-4 items-center" //temporary location (move to header)
         >
             <LoginSponsorButton></LoginSponsorButton>
-          </div>
+          </div> */}
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
         </div>

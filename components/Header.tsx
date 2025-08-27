@@ -8,8 +8,7 @@ import splash from '@/public/splash.svg'
 import waterbead from '@/public/waterbead.svg'
 import babybubble from '@/public/babybubble.svg'
 import bubble from '@/public/bubble.svg'
-import LoginButton from './LoginButton'
-import SponsorButton from './SponsorButton'
+import LoginSponsorButton from "@/components/LoginSponsorButton";
 
 const Header = () => {
   return (
@@ -129,22 +128,6 @@ const Header = () => {
           </h2>
         </div>
 
-        <div className="mx-auto mt-56 md:mt-72" style={{ width: '566px', height: '322px' }}>
-          <div className="relative w-full h-full">
-            <Image
-              src={glass}
-              alt="Glass card"
-              fill
-              className="object-contain opacity-60"
-            />
-            <div className="absolute inset-0 flex items-center justify-center gap-4">
-              <div className="flex flex-col items-center justify-center gap-4 w-full h-full">
-                <LoginButton />
-                <SponsorButton />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="absolute inset-0 z-10 md:hidden">
@@ -165,6 +148,14 @@ const Header = () => {
           style={{ animation: 'bubble-float 8s ease-in-out infinite 2s' }}
         />
       </div>
+
+
+        <div className="relative z-50 mt-8 flex flex-col gap-4 items-center pointer-events-auto"
+        >
+            <LoginSponsorButton></LoginSponsorButton>
+        </div>
+       
+
     </header>
   )
 }
