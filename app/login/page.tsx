@@ -75,9 +75,7 @@ const LoginPage = () => {
 
   if (pageLoading) {
     return (
-      <Suspense>
-        <div className="w-full h-full flex items-center justify-center"><CircularProgress size="3rem" color="primary" /></div>
-      </Suspense>
+      <div className="w-full h-full flex items-center justify-center"><CircularProgress size="3rem" color="primary" /></div>
     );
   }
 
