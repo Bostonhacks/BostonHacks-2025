@@ -643,7 +643,7 @@ const ApplyPage = () => {
 
                   {/* Social Links */}
                   <fieldset className={fieldsetClass}>
-                    <legend className={legendClass}>Social Links</legend>
+                    <legend className={legendClass}>Social Links (optional)</legend>
                     <div className="space-y-3">
                       <div>
                         <label className={labelClass}>GitHub:</label>
@@ -1016,7 +1016,7 @@ const ApplyPage = () => {
 
                   {/* Social Links */}
                   <fieldset className={fieldsetClass}>
-                    <legend className={legendClass}>Social Links</legend>
+                    <legend className={legendClass}>Social Links (optional)</legend>
                     <div className="space-y-3">
                       <div>
                         <label className={labelClass}>GitHub:</label>
