@@ -15,7 +15,8 @@
     "@mui/material": "^7.3.0",
     "next": "^15.4.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-phone-number-input": "^3.4.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

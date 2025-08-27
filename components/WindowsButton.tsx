@@ -41,6 +41,7 @@ const WindowsButton = ({ onClick, onClose, children, className = '', title, disa
     focus:outline-none
     text-black
     disabled:opacity-50
+    font-mssansserif
   `
 
   if (closeButton && onClose) {
