@@ -2,17 +2,78 @@
 
 import { useEffect, useState } from 'react'
 import Window from '@/components/Window'
-import { Application, ShortUser, UploadApplication, User } from '@/types/types'
-import { ETHNICITY_OPTIONS, LOGO_SIZE, MAJORS_OPTIONS } from '../const'
+import { Application, ShortUser, User } from '@/types/types'
+import { ETHNICITY_OPTIONS, LOGO_SIZE, MAJORS_OPTIONS, STATE_OPTIONS } from '../const'
 import PhoneInput from 'react-phone-number-input/input'
 import { useRouter } from 'next/navigation'
-import { CircularProgress, Link } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import Image from 'next/image'
 import Logo from '@/public/logo.svg'
 import WindowsButton from '@/components/WindowsButton'
 import FolderImage from '@/public/apply/directory_explorer.png'
 import ApplicationImage from '@/public/apply/signature.png'
 import StowBar from '@/components/StowBar'
+import Link from 'next/link'
+
+type FormData = {
+  userId: string
+  firstName: string
+  lastName: string
+  gender: string
+  pronouns: string
+  age: string
+  ethnicity: string
+  gradYear: string
+  phoneNumber: string
+  email: string
+  school: string
+  city: string
+  state: string
+  country: string
+  educationLevel: string
+  major: string
+  diet: string
+  shirtSize: string
+  sleep: boolean
+  github: string
+  linkedin: string
+  portfolio: string
+  whyBostonhacks: string
+  resume: File | undefined
+}
+
+const createApplicationData = (inputData: FormData) => {
+  if (!inputData.resume) throw new Error("Resume file is required");
+
+  const formData = new FormData();
+
+  formData.append('applicationYear', new Date().getFullYear().toString());
+  formData.append('userId', inputData.userId);
+  formData.append('gender', inputData.gender);
+  formData.append('pronouns', inputData.pronouns);
+  formData.append('age', inputData.age);
+  formData.append('ethnicity', inputData.ethnicity);
+  formData.append('gradYear', inputData.gradYear);
+  formData.append('phoneNumber', inputData.phoneNumber);
+  formData.append('school', inputData.school);
+  formData.append('city', inputData.city);
+  formData.append('state', inputData.state);
+  formData.append('country', inputData.country);
+  formData.append('educationLevel', inputData.educationLevel);
+  formData.append('major', inputData.major);
+  formData.append('diet', inputData.diet);
+  formData.append('shirtSize', inputData.shirtSize);
+  formData.append('sleep', inputData.sleep.toString());
+  formData.append('github', inputData.github || "http://empty.empty");
+  formData.append('linkedin', inputData.linkedin || "http://empty.empty");
+  formData.append('portfolio', inputData.portfolio || "http://empty.empty");
+  formData.append('whyBostonhacks', inputData.whyBostonhacks);
+  formData.append('resume', inputData.resume);
+
+  return formData;
+}
+
+
 
 // this page uses a lot of components like input boxes and fieldsets.
 // if you wish to reuse them, put them in separate components
@@ -20,8 +81,11 @@ const ApplyPage = () => {
   const [pageLoading, setPageLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false)
 
-  const [formData, setFormData] = useState<Partial<UploadApplication>>({
+  const [formData, setFormData] = useState<FormData>({
+    userId: '',
     firstName: '',
     lastName: '',
     gender: '',
@@ -46,7 +110,6 @@ const ApplyPage = () => {
     whyBostonhacks: '',
     resume: undefined
   });
-
 
   const [showApplyModal, setShowApplyModal] = useState(true)
   const [stowedWindows, setStowedWindows] = useState<Array<{
@@ -88,7 +151,7 @@ const ApplyPage = () => {
 
         const shortUserData: ShortUser = await response.json()
         const userDataResponse = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/user?id=${shortUserData.id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/user?id=${shortUserData.id}&include=true`,
           {
             credentials: 'include'
           }
@@ -108,9 +171,10 @@ const ApplyPage = () => {
 
         if (hasApplied) {
           setError("You have already submitted an application for this year. If you believe this is an error, please contact us.");
+          setAlreadySubmitted(true);
           return
         }
-        setFormData(prev => ({ ...prev, email: userData.email, firstName: userData.firstName, lastName: userData.lastName }))
+        setFormData(prev => ({ ...prev, email: userData.email, userId: userData.id }))
       } catch (error) {
         console.error('Error checking authentication:', error)
         setError("There was an error processing your request. Please try again later.");
@@ -150,9 +214,54 @@ const ApplyPage = () => {
     setFormData(prev => ({ ...prev, resume: file }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData);
+
+    // update user first, then create application
+    try {
+      setLoading(true);
+      const userUpdateResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${formData.userId}`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+        })
+      }
+      );
+
+      if (!userUpdateResponse.ok) {
+        setError("There was an error updating your user information. Please try again.");
+        return;
+      }
+
+      const applicationCreateResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/application`, {
+        method: 'POST',
+        credentials: 'include',
+        body: createApplicationData(formData)
+      });
+
+      if (!applicationCreateResponse.ok) {
+        const errorData = await applicationCreateResponse.json().catch(() => null);
+
+        if (errorData?.error && Array.isArray(errorData.error)) {
+          const errorMessages = errorData.error
+            .map((error: { message: string }) => error.message || '')
+            .join(', ');
+          setError(`Application submission failed: ${errorMessages}`);
+        } else {
+          setError("There was an error submitting your application. Please try again or contact us.");
+        }
+        return;
+      }
+
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      setError("There was an error submitting your application. Please try again or contact us.");
+    } finally {
+      setLoading(false);
+    }
+
 
   }
 
@@ -185,16 +294,16 @@ const ApplyPage = () => {
 
   const legendClass = "bg-ms-gray px-2 text-sm font-bold font-mssansserif"
 
-  if (error) {
+
+  if (error || alreadySubmitted) {
     return (
-      <div className="w-screen h-screen flex items-center justify-center z-100">
+      <div className="bg-teal-600 w-screen h-screen flex items-center justify-center z-100">
         <Window
           title="Error"
-          initialSize={{ width: 300, height: 200 }}
-          closable={true}
+          initialSize={{ width: 300, height: 230 }}
+          closable={!alreadySubmitted}
           onClose={() => {
             setError(null)
-            handleApplyStow()
           }}
         >
           <div className="flex flex-col p-4">
@@ -204,11 +313,16 @@ const ApplyPage = () => {
               <br />
               If you need assistance, please contact us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
             </div>
+
+            {alreadySubmitted && (
+              <Link href="/">
+                <WindowsButton className="hover:cursor-pointer w-full mt-2">
+                  Go home
+                </WindowsButton>
+              </Link>
+            )}
           </div>
 
-          <WindowsButton>
-            <Link href="/" />
-          </WindowsButton>
         </Window >
       </div >
     )
@@ -371,15 +485,20 @@ const ApplyPage = () => {
                       </div>
                       <div>
                         <label className={labelClass}>State:</label>
-                        <input
-                          type="text"
+                        <select
                           name="state"
                           value={formData.state}
                           onChange={handleInputChange}
-                          className={inputClass}
+                          className={selectClass}
                           required
-                        />
+                        >
+                          <option value="">Select State</option>
+                          {STATE_OPTIONS.map((state) => (
+                            <option key={state} value={state}>{state}</option>
+                          ))}
+                        </select>
                       </div>
+
                       <div>
                         <label className={labelClass}>Country:</label>
                         <input
@@ -589,12 +708,13 @@ const ApplyPage = () => {
                   <div className="flex justify-center pt-4">
                     <button
                       type="submit"
-                      className={`${buttonClass} px-8 py-2`}
+                      className={`${buttonClass} px-8 py-2 flex items-center gap-2`}
+                      disabled={loading}
                     >
-                      Submit Application
+                      {loading && <CircularProgress size={16} />}
+                      {loading ? 'Submitting...' : 'Submit Application'}
                     </button>
-                  </div>
-                </form>
+                  </div>                </form>
               </div>
             </div>
           </div>
@@ -739,14 +859,18 @@ const ApplyPage = () => {
                       </div>
                       <div>
                         <label className={labelClass}>State:</label>
-                        <input
-                          type="text"
+                        <select
                           name="state"
                           value={formData.state}
                           onChange={handleInputChange}
-                          className={inputClass}
+                          className={selectClass}
                           required
-                        />
+                        >
+                          <option value="">Select State</option>
+                          {STATE_OPTIONS.map((state) => (
+                            <option key={state} value={state}>{state}</option>
+                          ))}
+                        </select>
                       </div>
                       <div>
                         <label className={labelClass}>Country:</label>
@@ -957,9 +1081,11 @@ const ApplyPage = () => {
                   <div className="flex justify-center pt-4">
                     <button
                       type="submit"
-                      className={`${buttonClass} px-8 py-2`}
+                      className={`${buttonClass} px-8 py-2 flex items-center gap-2`}
+                      disabled={loading}
                     >
-                      Submit Application
+                      {loading && <CircularProgress size={16} />}
+                      {loading ? 'Submitting...' : 'Submit Application'}
                     </button>
                   </div>
                 </form>

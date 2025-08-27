@@ -62,12 +62,7 @@ export type Application = {
   user?: User;
 };
 
-export type UploadApplication = Omit<Application, 'id' | 'resumeUrl' | 'user' | 'status' | 'age' | 'gradYear'> & {
-  firstName: string;
-  lastName: string;
-  email: string;
+export type UploadApplication = Omit<Application, 'id' | 'resumeUrl' | 'user' | 'status'> & {
   resume: File;
-  gradYear: string;
-  age: string;
 };
 
