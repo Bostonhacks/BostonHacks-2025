@@ -9,7 +9,6 @@ import Image from "next/image"
 import Link from "next/link"
 import Logo from "@/public/logo.svg"
 import { LOGO_SIZE } from "../const"
-import { useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import WindowsButton from "@/components/WindowsButton"
 import { CircularProgress } from "@mui/material"
@@ -17,7 +16,6 @@ import Window from "@/components/Window"
 import { ShortUser } from "@/types/types"
 
 const LoginPage = () => {
-  const searchParams = useSearchParams();
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [pageLoading, setPageLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -65,15 +63,6 @@ const LoginPage = () => {
           }
         }
         setLoggedIn(false);
-
-        const success = searchParams.get('success');
-        const message = searchParams.get('message');
-        const userId = searchParams.get('userId');
-
-        if (success === 'true' && message === 'successfulLogin' && !!userId) {
-          // router.push(`/profile?userId=${userId}`)
-          router.push('/apply');
-        }
       } catch (error) {
         setError(error instanceof Error ? error.message : "Unknown error occurred")
       } finally {
@@ -82,7 +71,7 @@ const LoginPage = () => {
     }
     checkUser();
 
-  }, [setPageLoading, setLoggedIn, router, searchParams]);
+  }, [setPageLoading, setLoggedIn, router]);
 
   if (pageLoading) {
     return (
