@@ -93,7 +93,7 @@ const Header = () => {
         <div className="mb-8 md:mb-6">
           <p className="font-akshar pl-[10px] text-white-blue-outline"
              style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontSize: '32px', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
-            November <span style={{ letterSpacing: '0.1em' }}>2-3</span>
+            October <span style={{ letterSpacing: '0.1em' }}>11-12</span>
           </p>
         </div>
 

@@ -9,7 +9,7 @@ import SponsorButton from "@/public/sponsor_button.png"
 import SponsorButtonHover from "@/public/sponsor_button_hover.png"
 
 
-const buttonStyle = "flex items-center rounded-4xl shadow-md shadow-[#345068] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer transition-all duration-50";
+const buttonStyle = "flex items-center rounded-[45px] shadow-md shadow-[#345068] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.8)] cursor-pointer transition-all duration-50";
 
 const LoginSponsorButton = () => {
     const [loginHover, setLoginHover] = useState(false)
