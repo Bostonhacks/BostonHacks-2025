@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Akshar:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -27,6 +27,92 @@
 @font-face {
   font-family: DaysOfType;
   src: url("../public/fonts/36DaysOfType.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neuropol X Free";
+  src: url("../public/fonts/neuropol x free.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom animations for underwater theme */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-30px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 30px rgba(135, 206, 235, 0.4));
+  }
+}
+
+
+.text-white-blue-outline {
+  color: white;
+  -webkit-text-stroke: 0px #206DDF;
+  text-shadow: 0 0 10px rgba(32, 109, 223, 0.3);
+}
+
+.text-white-blue-outline-2 {
+  color: white;
+  -webkit-text-stroke: 4.8px #125DC7;
+  text-shadow: 0 0 8px rgba(18, 93, 199, 0.25);
+}
+
+.text-white-blue-outline-1 {
+  color: white;
+  -webkit-text-stroke: 2.4px #125DC7;
+  text-shadow: 0 0 6px rgba(18, 93, 199, 0.2);
+}
+
+.text-white-blue-outline-date {
+  color: white;
+  -webkit-text-stroke: 0.75px #125DC7;
+  text-shadow: 0 1.2px 0 rgba(18, 93, 199, 0.2);
 }
 
 :root {
@@ -84,6 +170,15 @@
 
   --font-mssansserif: var(--ms-sans-serif-1);
 
+  --font-akshar: "Akshar", sans-serif;
+  --font-neuropol: "Neuropol X Free", sans-serif;
+  --font-presicav: "Presicav", sans-serif;
+  --font-daysoftype: "DaysOfType", sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bubble-float: bubble-float 8s ease-in-out infinite;
+  --animate-gentle-sway: gentle-sway 10s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
 
 
 
