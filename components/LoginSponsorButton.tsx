@@ -9,14 +9,14 @@ import SponsorButton from "@/public/sponsor_button.png"
 import SponsorButtonHover from "@/public/sponsor_button_hover.png"
 
 
-const buttonStyle = "flex items-center rounded-4xl shadow-md shadow-[#345068] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer transition-all duration-50";
+const buttonStyle = "flex items-center rounded-[45px] shadow-md shadow-[#345068] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.8)] cursor-pointer transition-all duration-50";
 
 const LoginSponsorButton = () => {
     const [loginHover, setLoginHover] = useState(false)
     const [sponsorHover, setSponsorHover] = useState(false)
 
     return (
-        <div className="outline-[0.5px] outline-white bg-white/25 backdrop-blur-sm p-4 md:p-4 rounded-2xl flex flex-col gap-4 items-center w-42 sm:w-58 md:w-74 lg:w-[350px] mx-auto">
+        <div className="outline-[0.5px] outline-white bg-white/25 backdrop-blur-sm p-8 md:p-10 rounded-2xl flex flex-col gap-7 items-center w-72 sm:w-80 md:w-96 lg:w-[420px] mx-auto">
 
             {/*Login Button*/}
             <Link href="/login" //sends to login page
@@ -29,7 +29,7 @@ const LoginSponsorButton = () => {
                     alt = "Login"
                     width = {220}
                     height = {220}
-                    className = "w-32 sm:w-36 md:w-44 lg:w-52 transition-transform duration-200"
+                    className = "w-44 sm:w-52 md:w-64 lg:w-72 transition-transform duration-200"
                     ></Image>
                 </button>
             </Link>
@@ -45,7 +45,7 @@ const LoginSponsorButton = () => {
                     alt = "Sponsor Us"
                     width = {220}
                     height = {220}
-                    className = "w-32 sm:w-36 md:w-44 lg:w-52 transition-transform duration-200"
+                    className = "w-44 sm:w-52 md:w-64 lg:w-72 transition-transform duration-200"
                     ></Image>
                 </button>
             </Link>
