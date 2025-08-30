@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import Image from "next/image";
+import sunglare from "@/public/sunflare-removebg.png";
 import glass from "@/public/glass.svg";
 import cursor from "@/public/cursor.svg";
 import leaf from "@/public/leaf.svg";
@@ -28,11 +29,16 @@ const Tracks = () => {
     <div>
       {/* Title for the section */}
       <div className="flex justify-center items-center">
-        <div className="relative w-1/2">
+        <div className="relative w-1/2 isolate">
           <Image
             src={glass}
             alt="Track Title"
             className="w-full h-auto object-cover pointer-events-none select-none"
+          />
+          <Image
+            src={sunglare}
+            alt="sunglare"
+            className="absolute top-0 left-0 -translate-y-5/8 -translate-x-3/8 pointer-events-none select-none"
           />
           <span
             className="absolute inset-0 flex justify-center items-center font-neuropol text-outline-blue"

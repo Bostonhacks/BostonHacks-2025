@@ -179,3 +179,10 @@ body {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+.sunglare {
+  mix-blend-mode: screen;
+  /* try also: lighten, color-dodge */
+  pointer-events: none;
+  /* optional, if you don’t want clicks */
+}
