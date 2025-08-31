@@ -17,7 +17,7 @@ export default function StyledButton({text, href, onClick, className}: NavBarBut
 
     return (
         <a href={href} onClick={onClick} rel="noopener noreferrer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="relative  cursor-pointer">
-            <Image src={isHovering ? navHover : navPrimary} alt={`${text} nav button`} priority className={`h-auto object-cover ${className}`}/>
+            <Image src={isHovering ? navHover : navPrimary} alt={`${text} nav button`} priority className={` h-auto object-cover ${className}`}/>
             <h1 className="absolute inset-0 flex items-center justify-center text-lg text-black font-mssansserif">
                 {text}
             </h1>

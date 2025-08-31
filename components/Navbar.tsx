@@ -1,10 +1,12 @@
 "use client"
 import StyledButton from "@/components/StyledButton";
+import MobileNavButton from "@/components/MobileNavButton";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import logo from "@/public/logo-nav.svg"
+import mobileNav from "@/public/mobile-nav.svg";
 
 type RouteType = 'hash' | 'page'
 
@@ -60,7 +62,7 @@ const Navbar = ({ routes}: NavbarProps) => {
           <Image src={logo} alt="logo" />
         </Link>
       </div>
-      <div className="hidden md:flex gap-6 h-full px-4">
+      <div className="hidden md:flex gap-[1vw] h-full px-4">
         {routes.map((route, index) => (
           <div key={index}>
             {route.type === 'hash' ? (
@@ -79,30 +81,92 @@ const Navbar = ({ routes}: NavbarProps) => {
 }
 function MobileNav({ routes}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname()
+  const [currentHash, setCurrentHash] = useState('')
+
+  useEffect(() => {
+    const updateHash = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+
+    return () => window.removeEventListener('hashchange', updateHash)
+  }, [])
+
+  const handleHashClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault()
+    const element = document.getElementById(path.replace('#', ''))
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+      // Update URL without navigation
+      window.history.pushState(null, '', path)
+      setCurrentHash(path)
+    }
+  }
 
   return (
       <>
         <div
-            className={`flex items-center justify-center fixed w-full h-dvh bg-white z-[99] top-0 left-0 overflow-hidden transition-all duration-300 ease-in-out ${
-                isOpen ? "opacity-100 " : "opacity-0 pointer-events-none"
+            className={`flex justify-center fixed w-full h-dvh bg-white/0 z-[99] md:hidden top-0 left-0 overflow-hidden transition-all duration-300 ease-in-out ${
+                isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
+            onClick={() => setIsOpen(false)}
         >
-          <nav>
-            <ul className="flex flex-col gap-5 text-center">
-              {routes.map((route, index) => (
-                  <li key={index}>
-                    <Link
-                        href={route.path}
-                        onClick={()=>setIsOpen(false)}
-                        className="text-black"
-                    >
-                      {route.label}
-                    </Link>
+          <div className="relative">
+            <div className="relative m-5 w-[70vw]">
+              <Image
+                  className="w-full h-auto"
+                  src={mobileNav}
+                  alt=""
+              />
+
+              <nav className="absolute inset-0 flex">
+                <ul className="flex flex-col w-full h-full">
+                    <li key={0} className={"flex-1 "}>
+                    <MobileNavButton
+                        text={routes[0].label}
+                        href={routes[0].path}
+                        onClick={(e: any) => handleHashClick(e, routes[0].path)}
+                    />
                   </li>
-              ))}
-            </ul>
-          </nav>
+                    <li key={1} className={"flex-1 "}>
+                      <MobileNavButton
+                          text={routes[1].label}
+                          href={routes[1].path}
+                          onClick={(e: any) => handleHashClick(e, routes[1].path)}
+                      />
+                    </li>
+                  <li key={2} className={"flex-1 "}>
+                    <MobileNavButton
+                        text={routes[2].label}
+                        href={routes[2].path}
+                        onClick={(e: any) => handleHashClick(e, routes[2].path)}
+                    />
+                  </li>
+                  <li key={3} className={"flex-1"}>
+                    <MobileNavButton
+                        text={routes[3].label}
+                        href={routes[3].path}
+                        onClick={(e: any) => handleHashClick(e, routes[3].path)}
+                    />
+                  </li>
+                  <li key={4} className={"flex-1 "}>
+                    <MobileNavButton
+                        text={routes[4].label}
+                        href={routes[4].path}
+                    />
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+
         </div>
+
+
         <div className="flex md:hidden">
           <button className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
             <svg
