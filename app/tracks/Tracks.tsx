@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 import sunglare from "@/public/sunflare-removebg.png";
-import glass from "@/public/glass.svg";
+import glass from "@/public/trackTitle.svg";
 import cursor from "@/public/cursor.svg";
 import leaf from "@/public/leaf.svg";
 import orange from "@/public/orange.svg";
