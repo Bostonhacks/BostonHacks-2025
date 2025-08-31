@@ -2,11 +2,12 @@
 
 import React from 'react'
 import Window from '@/components/Window'
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import CircularProgress from '@mui/material/CircularProgress';
 import Image from 'next/image';
 import GoogleIcon from "@/public/login/google-old.svg";
 import WindowsButton from '@/components/WindowsButton';
+import KeysIcon from '@/public/login/keys.png';
 
 type LoginModalProps = {
   onStow?: () => void;
@@ -16,19 +17,9 @@ type LoginModalProps = {
 
 const LoginModal = ({ onStow }: LoginModalProps) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [error, setError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(false);
 
-  React.useEffect(() => {
-    const success = searchParams.get('success');
-    const message = searchParams.get('message');
-    const userId = searchParams.get('userId');
-
-    if (success === 'true' && message === 'successfulLogin' && !!userId) {
-      router.push(`/profile?userId=${userId}`)
-    }
-  });
 
   const handleGoogleLogin = async () => {
     try {
@@ -60,21 +51,22 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
   return (
     <>
       {error && (
-        <div className="fixed left-[42vw] top-3/8 z-50">
+        <div className="fixed z-100">
           <Window
             title="Error"
-            minWidth="min-w-[300px]"
-            minHeight="min-h-[150px]"
-            initialSize={{ width: 300, height: 150 }}
+            initialSize={{ width: 300, height: 200 }}
             closable={true}
             onClose={() => setError(null)}
           >
             <div className="flex flex-col p-4">
               <div className="text-red-700 text-sm">
-                {error}
+                There was an error processing your request. Please try again later.
+                <br />
+                <br />
+                If you need assistance, please contact us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
               </div>
               <div className="w-full flex items-center justify-center m-auto">
-                <WindowsButton className="text-xs px-2 py-1" onClick={() => setError(null)} title="Close">
+                <WindowsButton className="text-xs px-2 py-1 mt-2" onClick={() => setError(null)} title="Close">
                   Close
                 </WindowsButton>
               </div>
@@ -85,15 +77,14 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
 
 
       <Window
-        title="Login"
-        minWidth="min-w-[500px]"
-        minHeight="min-h-[400px]"
+        title={<span className="flex flex-row gap-x-1"><Image src={KeysIcon} width={16} height={16} alt="Key" /> Login</span>}
         initialSize={{ width: 500, height: 400 }}
         onClose={onStow}
         closable={true}
+        menuItems={["File", "Edit", "Search", "Help"]}
       >
-        <div className="p-5">
-          <div className="flex flex-col items-center space-y-6">
+        <div className="p-2 w-full h-full">
+          <div className="flex flex-col w-full h-full items-center space-y-6 p-5 bg-gray-200 border-black border-1">
             <div className="p-2.5">
               <div className="w-12 h-12 bg-blue-600 border-2 border-gray-400 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">U</span>
@@ -120,6 +111,7 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
       </Window>
     </>
   )
+
 }
 
 export default LoginModal
