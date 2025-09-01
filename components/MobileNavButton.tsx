@@ -20,7 +20,7 @@ export default function MobileNavButton({text, href, onClick, className,}: NavBa
             } 
             `}
         >
-            <span className="mx-2 font-mssansserif text-2xl">{text}</span>
+            <span className="mx-10 font-mssansserif text-2xl">{text}</span>
         </a>
     );
 }

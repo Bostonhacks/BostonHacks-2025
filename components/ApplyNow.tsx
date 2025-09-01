@@ -20,7 +20,7 @@ const ApplyNow = () => {
                     <Image src={people} alt="People icon" className="w-full h-auto" />
                 </div>
 
-                <StyledButton text={"APPLY NOW"} href={"apply"} className="w-[25vw] md:w-[15vw]" />
+                <StyledButton text={"APPLY NOW"} href={"/apply"} className="w-[25vw] md:w-[15vw]" />
 
             </div>
 

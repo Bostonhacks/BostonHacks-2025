@@ -56,7 +56,7 @@ const Navbar = ({ routes}: NavbarProps) => {
 
   return (
       <>
-    <nav className=" w-full items-center justify-between px-10 py-5 fixed flex z-100">
+    <nav className=" w-full items-center justify-between px-10 md:py-5 py-10 fixed flex z-100">
       <div>
         <Link href="/">
           <Image src={logo} alt="logo" />
@@ -109,7 +109,7 @@ function MobileNav({ routes}: NavbarProps) {
   return (
       <>
         <div
-            className={`flex justify-center fixed w-full h-dvh bg-white/0 z-[99] md:hidden top-0 left-0 overflow-hidden transition-all duration-300 ease-in-out ${
+            className={`flex justify-center fixed w-full h-dvh bg-white/0 z-[99] md:hidden top-0 left-0 overflow-hidden py-10 transition-all duration-300 ease-in-out ${
                 isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             onClick={() => setIsOpen(false)}
