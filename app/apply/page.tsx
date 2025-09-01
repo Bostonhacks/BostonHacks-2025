@@ -40,6 +40,9 @@ type FormData = {
   portfolio: string
   whyBostonhacks: string
   resume: File | undefined
+  agreeToTerms: boolean
+  authorizeDataUse: boolean
+  authorizeMLHEmail: boolean
 }
 
 const createApplicationData = (inputData: FormData) => {
@@ -69,6 +72,7 @@ const createApplicationData = (inputData: FormData) => {
   formData.append('portfolio', inputData.portfolio || "http://empty.empty");
   formData.append('whyBostonhacks', inputData.whyBostonhacks);
   formData.append('resume', inputData.resume);
+  formData.append('authorizeMLHEmail', inputData.authorizeMLHEmail.toString());
 
   return formData;
 }
@@ -109,7 +113,10 @@ const ApplyPage = () => {
     linkedin: '',
     portfolio: '',
     whyBostonhacks: '',
-    resume: undefined
+    resume: undefined,
+    agreeToTerms: false,
+    authorizeDataUse: false,
+    authorizeMLHEmail: false,
   });
 
   const [showApplyModal, setShowApplyModal] = useState(true)
@@ -210,6 +217,9 @@ const ApplyPage = () => {
       const userUpdateResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${formData.userId}`, {
         method: 'PUT',
         credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
@@ -283,6 +293,7 @@ const ApplyPage = () => {
 
   const legendClass = "bg-ms-gray px-2 text-sm font-bold font-mssansserif"
 
+  const linkClass = "text-blue-800 underline hover:text-blue-800"
 
   if (pageLoading) {
     return (
@@ -551,6 +562,8 @@ const ApplyPage = () => {
                         <input
                           type="number"
                           name="gradYear"
+                          min={new Date().getFullYear()}
+                          max={new Date().getFullYear() + 100}
                           value={formData.gradYear}
                           onChange={handleInputChange}
                           className={inputClass}
@@ -722,6 +735,54 @@ const ApplyPage = () => {
                     </div>
                   </fieldset>
 
+                  {/* Agreement Checkboxes */}
+                  <fieldset className={fieldsetClass}>
+                    <legend className={legendClass}>We are currently in the process of partnering with MLH. The following 3 checkboxes are for this partnership. If we do not end up partnering with MLH, your information will not be shared</legend>
+                    <div className="space-y-3">
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="agreeToTerms"
+                          checked={formData.agreeToTerms}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                          required
+                        />
+                        <span className="text-sm font-mssansserif">
+                          I have read and agree to the MLH Code of Conduct. <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">(https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md)</a>
+                        </span>
+                      </label>
+
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="authorizeDataUse"
+                          checked={formData.authorizeDataUse}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                          required
+                        />
+                        <span className="text-sm font-mssansserif">
+                          I agree to abide by the Code of Conduct and maintain a respectful, inclusive environment for all participants.
+                        </span>
+                      </label>
+
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="dataProcessing"
+                          checked={formData.authorizeMLHEmail}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                          required
+                        />
+                        <span className="text-sm font-mssansserif">
+                          I consent to the processing of my personal data for event registration, communication, and related purposes.
+                        </span>
+                      </label>
+                    </div>
+                  </fieldset>
+
                   {/* Submit Button */}
                   <div className="flex justify-center pt-4">
                     <button
@@ -732,7 +793,8 @@ const ApplyPage = () => {
                       {loading && <CircularProgress size={16} />}
                       {loading ? 'Submitting...' : 'Submit Application'}
                     </button>
-                  </div>                </form>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -924,6 +986,8 @@ const ApplyPage = () => {
                         <input
                           type="number"
                           name="gradYear"
+                          min={new Date().getFullYear()}
+                          max={new Date().getFullYear() + 100}
                           value={formData.gradYear}
                           onChange={handleInputChange}
                           className={inputClass}
@@ -1094,6 +1158,59 @@ const ApplyPage = () => {
                     </div>
                   </fieldset>
 
+                  {/* Agreement checkboxes */}
+                  <fieldset className={fieldsetClass}>
+                    <legend className={legendClass}>Agreement Terms</legend>
+                    <div className="mb-3 text-sm">We are currently in the process of partnering with MLH. The following 3 checkboxes are for this partnership. If we do not end up partnering with MLH, your information will not be shared</div>
+                    <div className="space-y-3">
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="agreeToTerms"
+                          checked={formData.agreeToTerms}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                          required
+                        />
+                        <span className="text-sm font-mssansserif">
+                          I have read and agree to the MLH Code of Conduct. (<a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md</a>).
+                        </span>
+                      </label>
+
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="authorizeDataUse"
+                          checked={formData.authorizeDataUse}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                          required
+                        />
+                        <span className="text-sm font-mssansserif">
+                          I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy
+                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
+                          I further agree to the terms of both the MLH Contest Terms and Conditions
+                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md">https://github.com/MLH/mlh-policies/blob/main/contest-terms.md</a>)
+                          and the MLH Privacy Policy
+                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
+                        </span>
+                      </label>
+
+                      <label className="flex items-start space-x-2">
+                        <input
+                          type="checkbox"
+                          name="authorizeMLHEmail"
+                          checked={formData.authorizeMLHEmail}
+                          onChange={handleInputChange}
+                          className="mt-1 flex-shrink-0"
+                        />
+                        <span className="text-sm font-mssansserif">
+                          (Optional) I consent to the processing of my personal data for event registration, communication, and related purposes.
+                        </span>
+                      </label>
+                    </div>
+                  </fieldset>
+
                   {/* Submit Button */}
                   <div className="flex justify-center pt-4">
                     <button
@@ -1111,7 +1228,8 @@ const ApplyPage = () => {
           </div>
 
         </>
-      )}
+      )
+      }
 
       <StowBar
         stowedWindows={stowedWindows}
@@ -1119,7 +1237,7 @@ const ApplyPage = () => {
       />
 
 
-    </div>
+    </div >
   );
 }
 

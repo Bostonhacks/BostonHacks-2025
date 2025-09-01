@@ -59,6 +59,7 @@ export type Application = {
   applicationYear: number;
   userId: string;
   status: Status;
+  authorizeMLHEmail: boolean;
   user?: User;
 };
 
