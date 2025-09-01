@@ -453,6 +453,7 @@ const ApplyPage = () => {
                           value={formData.age}
                           onChange={handleInputChange}
                           className={inputClass}
+                          min={1}
                           required
                         />
                       </div>
@@ -737,7 +738,8 @@ const ApplyPage = () => {
 
                   {/* Agreement Checkboxes */}
                   <fieldset className={fieldsetClass}>
-                    <legend className={legendClass}>We are currently in the process of partnering with MLH. The following 3 checkboxes are for this partnership. If we do not end up partnering with MLH, your information will not be shared</legend>
+                    <legend className={legendClass}>Agreement Terms</legend>
+                    <div className="mb-3 text-sm">We are currently in the process of partnering with MLH. The following 3 checkboxes are for this partnership. If we do not end up partnering with MLH, your information will not be shared</div>
                     <div className="space-y-3">
                       <label className="flex items-start space-x-2">
                         <input
@@ -749,7 +751,7 @@ const ApplyPage = () => {
                           required
                         />
                         <span className="text-sm font-mssansserif">
-                          I have read and agree to the MLH Code of Conduct. <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">(https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md)</a>
+                          I have read and agree to the MLH Code of Conduct. (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md</a>).
                         </span>
                       </label>
 
@@ -763,21 +765,25 @@ const ApplyPage = () => {
                           required
                         />
                         <span className="text-sm font-mssansserif">
-                          I agree to abide by the Code of Conduct and maintain a respectful, inclusive environment for all participants.
+                          I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
+                          I further agree to the terms of both the MLH Contest Terms and Conditions
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md">https://github.com/MLH/mlh-policies/blob/main/contest-terms.md</a>)
+                          and the MLH Privacy Policy
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
                         </span>
                       </label>
 
                       <label className="flex items-start space-x-2">
                         <input
                           type="checkbox"
-                          name="dataProcessing"
+                          name="authorizeMLHEmail"
                           checked={formData.authorizeMLHEmail}
                           onChange={handleInputChange}
                           className="mt-1 flex-shrink-0"
-                          required
                         />
                         <span className="text-sm font-mssansserif">
-                          I consent to the processing of my personal data for event registration, communication, and related purposes.
+                          (Optional) I consent to the processing of my personal data for event registration, communication, and related purposes.
                         </span>
                       </label>
                     </div>
@@ -874,6 +880,7 @@ const ApplyPage = () => {
                         <input
                           type="number"
                           name="age"
+                          min={1}
                           value={formData.age}
                           onChange={handleInputChange}
                           className={inputClass}
@@ -1173,7 +1180,7 @@ const ApplyPage = () => {
                           required
                         />
                         <span className="text-sm font-mssansserif">
-                          I have read and agree to the MLH Code of Conduct. (<a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md</a>).
+                          I have read and agree to the MLH Code of Conduct. (<a target="_blank" rel="noopener noreferrer" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md</a>).
                         </span>
                       </label>
 
@@ -1188,11 +1195,11 @@ const ApplyPage = () => {
                         />
                         <span className="text-sm font-mssansserif">
                           I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy
-                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
                           I further agree to the terms of both the MLH Contest Terms and Conditions
-                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md">https://github.com/MLH/mlh-policies/blob/main/contest-terms.md</a>)
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md">https://github.com/MLH/mlh-policies/blob/main/contest-terms.md</a>)
                           and the MLH Privacy Policy
-                          (<a className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
+                          (<a target="_blank" rel="noopener" className={linkClass} href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md">https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md</a>).
                         </span>
                       </label>
 
