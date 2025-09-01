@@ -121,6 +121,7 @@
   /*put your color if it will get reused a lot here*/
   /*define these in the @theme to use them in tailwind*/
   --ms-gray: #C1C1C1;
+  --ms-gray-darker: #868686; 
 
   /*Main Gradient Colors*/
   --gradient-stop-1: #206DDF;
@@ -167,6 +168,7 @@
   --color-bg-gradient-stop-1: var(--gradient-stop-1);
   --color-bg-gradient-stop-2: var(--gradient-stop-2);
   --color-ms-gray: var(--ms-gray);
+  --color-ms-gray-darker: var(--ms-gray-darker);
 
   --font-mssansserif: var(--ms-sans-serif-1);
 

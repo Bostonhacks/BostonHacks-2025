@@ -77,7 +77,7 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
 
 
       <Window
-        title={<span className="flex flex-row gap-x-1"><Image src={KeysIcon} width={16} height={16} alt="Key" /> Login</span>}
+        title={<span className="flex flex-row gap-x-1"><Image src={KeysIcon} width={24} height={24} alt="Key" /> Login</span>}
         initialSize={{ width: 500, height: 400 }}
         onClose={onStow}
         closable={true}
