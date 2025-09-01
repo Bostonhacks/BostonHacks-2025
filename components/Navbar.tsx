@@ -3,7 +3,6 @@ import StyledButton from "@/components/StyledButton";
 import MobileNavButton from "@/components/MobileNavButton";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import logo from "@/public/logo-nav.svg"
 import mobileNav from "@/public/mobile-nav.svg";
@@ -22,8 +21,7 @@ type NavbarProps = {
 }
 
 const Navbar = ({ routes}: NavbarProps) => {
-  const pathname = usePathname()
-  const [currentHash, setCurrentHash] = useState('')
+  const [, setCurrentHash] = useState('')
 
   useEffect(() => {
     const updateHash = () => {
@@ -36,16 +34,16 @@ const Navbar = ({ routes}: NavbarProps) => {
     return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
-  const handleHashClick = (e: React.MouseEvent, path: string) => {
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault()
     const element = document.getElementById(path.replace('#', ''))
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
-      // Update URL without navigation
       window.history.pushState(null, '', path)
       setCurrentHash(path)
     }
   }
+
 
   // const isActive = (route: Route) => {
   //   if (route.type === 'hash') {
@@ -66,7 +64,7 @@ const Navbar = ({ routes}: NavbarProps) => {
         {routes.map((route, index) => (
           <div key={index}>
             {route.type === 'hash' ? (
-                <StyledButton text={route.label} href={route.path} onClick={(e:any) => handleHashClick(e, route.path)} />
+                <StyledButton text={route.label} href={route.path} onClick={(e) => handleHashClick(e, route.path)} />
             ) : (
                 <StyledButton text={route.label} href={route.path} />
             )}
@@ -81,8 +79,7 @@ const Navbar = ({ routes}: NavbarProps) => {
 }
 function MobileNav({ routes}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname()
-  const [currentHash, setCurrentHash] = useState('')
+  const [, setCurrentHash] = useState('')
 
   useEffect(() => {
     const updateHash = () => {
@@ -95,16 +92,16 @@ function MobileNav({ routes}: NavbarProps) {
     return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
-  const handleHashClick = (e: React.MouseEvent, path: string) => {
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault()
     const element = document.getElementById(path.replace('#', ''))
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
-      // Update URL without navigation
       window.history.pushState(null, '', path)
       setCurrentHash(path)
     }
   }
+
 
   return (
       <>
@@ -128,28 +125,28 @@ function MobileNav({ routes}: NavbarProps) {
                     <MobileNavButton
                         text={routes[0].label}
                         href={routes[0].path}
-                        onClick={(e: any) => handleHashClick(e, routes[0].path)}
+                        onClick={(e) => handleHashClick(e, routes[0].path)}
                     />
                   </li>
                     <li key={1} className={"flex-1 "}>
                       <MobileNavButton
                           text={routes[1].label}
                           href={routes[1].path}
-                          onClick={(e: any) => handleHashClick(e, routes[1].path)}
+                          onClick={(e) => handleHashClick(e, routes[1].path)}
                       />
                     </li>
                   <li key={2} className={"flex-1 "}>
                     <MobileNavButton
                         text={routes[2].label}
                         href={routes[2].path}
-                        onClick={(e: any) => handleHashClick(e, routes[2].path)}
+                        onClick={(e) => handleHashClick(e, routes[2].path)}
                     />
                   </li>
                   <li key={3} className={"flex-1"}>
                     <MobileNavButton
                         text={routes[3].label}
                         href={routes[3].path}
-                        onClick={(e: any) => handleHashClick(e, routes[3].path)}
+                        onClick={(e) => handleHashClick(e, routes[3].path)}
                     />
                   </li>
                   <li key={4} className={"flex-1 "}>

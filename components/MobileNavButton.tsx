@@ -6,10 +6,9 @@ type NavBarButtonProps = {
     text: string;
     href?: string;
     onClick?: (e: React.MouseEvent) => void;
-    className?: string;
 };
 
-export default function MobileNavButton({text, href, onClick, className,}: NavBarButtonProps) {
+export default function MobileNavButton({text, href, onClick,}: NavBarButtonProps) {
     const [isHovering, setIsHovered] = useState(false);
 
     return (

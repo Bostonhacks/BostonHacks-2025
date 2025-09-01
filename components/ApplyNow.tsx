@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image';
-import { useState } from 'react';
 
 import section from '@/public/applynow-withoutb.svg';
 import people from '@/public/apply-image.svg';
