@@ -47,6 +47,41 @@
   }
 }
 
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-20px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Fallback for browsers that don't support view-timeline */
+@supports not (animation-timeline: view()) {
+  .windows-container .window-1,
+  .windows-container .window-2,
+  .windows-container .window-3 {
+    animation: popInFallback 0.4s ease-out forwards;
+  }
+  
+  @keyframes popInFallback {
+    from {
+      opacity: 0;
+      transform: scale(0.3) translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+}
+
 @keyframes bubble-float {
   0% {
     transform: translateY(0px) scale(1);
@@ -253,6 +288,58 @@
 .phone-input-custom .PhoneInputCountrySelectArrow {
   @apply w-3 h-3;
 }
+
+/* for retroremix component */
+.window-animate {
+  opacity: 0;
+  animation: windows95Appear 0.2s ease-out forwards;
+  animation-play-state: paused;
+}
+
+[data-animate="true"] .window-1 {
+  animation-play-state: running;
+  animation-delay: 0.3s;
+}
+
+[data-animate="true"] .window-2 {
+  animation-play-state: running;
+  animation-delay: 0.7s;
+}
+
+[data-animate="true"] .window-3 {
+  animation-play-state: running;
+  animation-delay: 1s;
+}
+
+@keyframes windows95Appear {
+  0% {
+    opacity: 0;
+    filter: brightness(0.4) contrast(1.5);
+  }
+  20% {
+    opacity: 0.2;
+    filter: brightness(0.6) contrast(1.3);
+  }
+  40% {
+    opacity: 0.5;
+    filter: brightness(0.8) contrast(1.1);
+  }
+  70% {
+    opacity: 0.8;
+    filter: brightness(1.2) contrast(1.05);
+  }
+  85% {
+    opacity: 0.95;
+    filter: brightness(1.1) contrast(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) contrast(1);
+  }
+}
+
+/**/
+
 
 body {
   background: linear-gradient(to bottom, var(--gradient-stop-1), var(--gradient-stop-2));

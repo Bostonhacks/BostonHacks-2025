@@ -2,7 +2,7 @@ import Background from "@/components/Background";
 import { routes } from "./const";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
-import RetroRemix from "./RetroRemix/RetroRemix";
+import RetroRemix from "@/components/RetroRemix/RetroRemix";
 
 const Home = () => {
   return (

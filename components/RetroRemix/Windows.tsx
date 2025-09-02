@@ -1,4 +1,3 @@
-import React from 'react';
 import Window from '@/components/Window';
 import recycleBin from '@/public/main/RetroRemix/recyclebin.png';
 import Image from 'next/image';
@@ -7,7 +6,8 @@ import LlamaBalloon from '@/public/main/RetroRemix/llama_balloon.png';
 import Fish from '@/public/main/RetroRemix/fish.svg';
 import { ArrowLeft, ArrowRight, ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
 
-enum ScreenWindowSizes {
+
+export enum ScreenWindowSizes {
   SMALL = "SMALL",
   MEDIUM = "MEDIUM",
   LARGE = "LARGE",
@@ -32,7 +32,7 @@ const SCREEN_WINDOW_SIZES = {
   ],
 };
 
-const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
+const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
   const windowSizing = SCREEN_WINDOW_SIZES[windowSize] || SCREEN_WINDOW_SIZES.SMALL;
   const isSmall = windowSize === ScreenWindowSizes.SMALL;
   return (
@@ -48,7 +48,7 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           menuItems={['File', 'Edit', 'View', 'Help']}
           initialPosition={{ x: windowSizing[0].startX, y: windowSizing[0].startY }}
           initialSize={{ width: windowSizing[0].width, height: windowSizing[0].height }}
-          className=""
+          className="window-1 window-animate"
         >
           <div className="w-full h-full">
             <div className="w-full h-full flex flex-col text-black">
@@ -102,10 +102,10 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
             </div>
           </div>
         </Window >
-      </div >
+      </div>
 
 
-      < div className="absolute" >
+      <div className="absolute">
         <Window
           title={
             <span className="flex flex-row gap-x-2">
@@ -114,7 +114,7 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           }
           initialPosition={{ x: windowSizing[2].startX, y: windowSizing[2].startY }}
           initialSize={{ width: windowSizing[2].width, height: windowSizing[2].height }}
-          className=""
+          className="window-3 window-animate"
           menuItems={['File', 'Edit', 'View', 'Image', 'Colors', 'Help']}
         >
           <div className="w-full h-full">
@@ -223,7 +223,7 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
             </div>
           </div>
         </Window >
-      </div >
+      </div>
 
       <div className="relative">
         <Window
@@ -234,7 +234,7 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           }
           initialPosition={{ x: windowSizing[1].startX, y: windowSizing[1].startY }}
           initialSize={{ width: windowSizing[1].width, height: windowSizing[1].height }}
-          className=""
+          className="window-animate window-2"
         >
           <div className="text-black w-full h-full p-1 flex flex-col">
             {/* Tab headers */}
@@ -290,20 +290,4 @@ const WindowSection = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
   );
 }
 
-const RetroRemix = () => {
-  return (
-    <div className="font-font-mssansserif w-full h-full flex">
-      <div className="md:hidden">
-        <WindowSection windowSize={ScreenWindowSizes.SMALL} />
-      </div>
-      <div className="hidden xl:hidden md:block">
-        <WindowSection windowSize={ScreenWindowSizes.MEDIUM} />
-      </div>
-      <div className="hidden xl:block">
-        <WindowSection windowSize={ScreenWindowSizes.LARGE} />
-      </div>
-    </div>
-  )
-}
-
-export default RetroRemix
+export default Windows;
