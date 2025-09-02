@@ -7,9 +7,9 @@ import RetroRemix from "./RetroRemix/RetroRemix";
 const Home = () => {
   return (
     <Background>
-      <Header />
-      <Navbar routes={routes} />
       <main className="flex flex-col">
+        <Navbar routes={routes} />
+        <Header />
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
         </div>
@@ -17,7 +17,6 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
-        <div className="absolute bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
 
       </main>
     </Background>
