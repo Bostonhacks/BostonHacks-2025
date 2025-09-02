@@ -1,27 +1,31 @@
 'use client'
 import Image from 'next/image';
-
-import section from '@/public/applynow-withoutb.svg';
+import Window from "@/components/Window"
 import people from '@/public/apply-image.svg';
 import StyledButton from "@/components/StyledButton";
+import React from "react";
 
 const ApplyNow = () => {
 
     return (
-        <div className="relative w-full min-h-[40vh] flex flex-col items-center justify-center overflow-hidden">
 
-            <div className="relative w-[60vw] max-w-[700px]">
-                <Image src={section} alt="Join us section" className="w-full h-auto" />
-            </div>
+        <div className="relative flex flex-col items-center justify-center ">
+            <Window
+                title="JOIN US"
+                initialSize={{ width: 400, height: 200 }}
+                closable={true}
+            >
+                <div className="flex h-full justify-center items-center gap-5 md:gap-10">
+                    <div className="relative max-w-[100px]">
+                        <Image src={people} alt="People icon" className="w-full h-auto" />
+                    </div>
 
-            <div className="absolute flex justify-center items-center gap-5 md:gap-10">
-                <div className="relative w-[20vw] md:max-w-[200px] max-w-[100px]">
-                    <Image src={people} alt="People icon" className="w-full h-auto" />
+                    <StyledButton text={"APPLY NOW"} href={"/apply"}/>
+
                 </div>
+            </Window >
 
-                <StyledButton text={"APPLY NOW"} href={"/apply"} className="w-[25vw] md:w-[15vw]" />
 
-            </div>
 
         </div>
     );

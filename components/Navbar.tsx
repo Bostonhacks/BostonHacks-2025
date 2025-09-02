@@ -4,9 +4,7 @@ import MobileNavButton from "@/components/MobileNavButton";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from 'react'
-import logo from "@/public/logo-nav.svg"
-import mobileNav from "@/public/mobile-nav.svg";
-
+import logo from "@/public/logo.svg"
 type RouteType = 'hash' | 'page'
 
 type Route = {
@@ -34,7 +32,7 @@ const Navbar = ({ routes}: NavbarProps) => {
     return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
-  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleHashClick = (e: React.MouseEvent, path: string) => {
     e.preventDefault()
     const element = document.getElementById(path.replace('#', ''))
     if (element) {
@@ -60,13 +58,13 @@ const Navbar = ({ routes}: NavbarProps) => {
           <Image src={logo} alt="logo" />
         </Link>
       </div>
-      <div className="hidden md:flex gap-[1vw] h-full px-4">
+      <div className="hidden md:flex gap-[1vw] px-4">
         {routes.map((route, index) => (
-          <div key={index}>
+          <div key={index} className={"flex 1"}>
             {route.type === 'hash' ? (
-                <StyledButton text={route.label} href={route.path} onClick={(e) => handleHashClick(e, route.path)} />
+                <StyledButton text={route.label} href={route.path} onClick={(e) => handleHashClick(e, route.path)} className={"min-w-[7vw]"} />
             ) : (
-                <StyledButton text={route.label} href={route.path} />
+                <StyledButton text={route.label} href={route.path} className={"min-w-[7vw]"}/>
             )}
           </div>
         ))}
@@ -77,7 +75,7 @@ const Navbar = ({ routes}: NavbarProps) => {
       </>
   )
 }
-function MobileNav({ routes}: NavbarProps) {
+function MobileNav({ routes }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [, setCurrentHash] = useState('')
 
@@ -92,7 +90,7 @@ function MobileNav({ routes}: NavbarProps) {
     return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
-  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleHashClick = (e: React.MouseEvent, path: string) => {
     e.preventDefault()
     const element = document.getElementById(path.replace('#', ''))
     if (element) {
@@ -112,55 +110,56 @@ function MobileNav({ routes}: NavbarProps) {
             onClick={() => setIsOpen(false)}
         >
           <div className="relative">
-            <div className="relative m-5 w-[70vw]">
-              <Image
-                  className="w-full h-auto"
-                  src={mobileNav}
-                  alt=""
-              />
+            <div className="relative m-5 w-[70vw] h-[30vh] ">
+              <div className="flex flex-col w-full h-auto border border-[#9a9a9a] bg-[#d6d2c8]">
+                {routes.map((route, index) =>
+                    route.label === "FAQs" ? null : (
+                        <div key={index} className="flex-1">
+                          {(index === 2 || index === 5) && (
+                              <>
+                                <div className="border-t border-[#efefef]" />
+                                <div className="border-t border-[#9a9a9a]" />
+                              </>
+                          )}
 
-              <nav className="absolute inset-0 flex">
-                <ul className="flex flex-col w-full h-full">
-                    <li key={0} className={"flex-1 "}>
-                    <MobileNavButton
-                        text={routes[0].label}
-                        href={routes[0].path}
-                        onClick={(e) => handleHashClick(e, routes[0].path)}
-                    />
-                  </li>
-                    <li key={1} className={"flex-1 "}>
+                          {route.type === "hash" ? (
+                              <MobileNavButton
+                                  text={route.label}
+                                  href={route.path}
+                                  onClick={(e) => handleHashClick(e, route.path)}
+                              />
+                          ) : (
+                              <MobileNavButton text={route.label} href={route.path} />
+                          )}
+                        </div>
+                    )
+                )}
+                <div className="flex-1">
+                      <>
+                        <div className="border-t border-[#efefef]" />
+                        <div className="border-t border-[#9a9a9a]" />
+                      </>
+                    <p className="mx-10 my-2 font-mssansserif text-2xl">Below are some frequently asked questions!</p>
+
+                </div>
+                <div className="flex-1">
+                      <>
+                        <div className="border-t border-[#efefef]" />
+                        <div className="border-t border-[#9a9a9a]" />
+                      </>
+
                       <MobileNavButton
-                          text={routes[1].label}
-                          href={routes[1].path}
-                          onClick={(e) => handleHashClick(e, routes[1].path)}
+                          text={routes[3].label}
+                          href={routes[3].path}
+                          onClick={(e) => handleHashClick(e, routes[3].path)}
                       />
-                    </li>
-                  <li key={2} className={"flex-1 "}>
-                    <MobileNavButton
-                        text={routes[2].label}
-                        href={routes[2].path}
-                        onClick={(e) => handleHashClick(e, routes[2].path)}
-                    />
-                  </li>
-                  <li key={3} className={"flex-1"}>
-                    <MobileNavButton
-                        text={routes[3].label}
-                        href={routes[3].path}
-                        onClick={(e) => handleHashClick(e, routes[3].path)}
-                    />
-                  </li>
-                  <li key={4} className={"flex-1 "}>
-                    <MobileNavButton
-                        text={routes[4].label}
-                        href={routes[4].path}
-                    />
-                  </li>
+                </div>
 
-                </ul>
-              </nav>
+
+
+              </div>
             </div>
           </div>
-
         </div>
 
 

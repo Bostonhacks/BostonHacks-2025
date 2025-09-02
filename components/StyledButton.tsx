@@ -1,8 +1,4 @@
 "use client"
-
-import Image from "next/image";
-import navHover from "@/public/nav-hover.svg";
-import navPrimary from "@/public/nav-primary.svg";
 import {useState} from "react";
 
 type NavBarButtonProps = {
@@ -16,11 +12,11 @@ export default function StyledButton({text, href, onClick, className}: NavBarBut
     const [isHovering, setIsHovered] = useState(false);
 
     return (
-        <a href={href} onClick={onClick} rel="noopener noreferrer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="relative  cursor-pointer">
-            <Image src={isHovering ? navHover : navPrimary} alt={`${text} nav button`} priority className={` h-auto object-cover ${className}`}/>
-            <h1 className="absolute inset-0 flex items-center justify-center text-lg text-black font-mssansserif">
-                {text}
-            </h1>
+        <a href={href} onClick={onClick} rel="noopener noreferrer" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+            className={`font-mssansserif text-black uppercase px-6 py-1  bg-[#c0c0c0] border-2 ${className ?? ""} ${isHovering ? "border-t-[#404040] border-l-[#404040] border-b-white border-r-white" : "border-t-white border-l-white border-b-[#404040] border-r-[#404040]"}`}>
+      <span className="flex items-center text-center justify-center text-[min(3vw, 1.5rem)] text-black">
+        {text}
+      </span>
         </a>
     )
 }

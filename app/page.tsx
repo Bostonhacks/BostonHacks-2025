@@ -8,8 +8,8 @@ import RetroRemix from "./RetroRemix/RetroRemix";
 const Home = () => {
   return (
     <Background>
-      <Header />
       <Navbar routes={routes} />
+        <Header />
       <main className="flex flex-col">
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
