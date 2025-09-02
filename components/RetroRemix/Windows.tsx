@@ -4,6 +4,7 @@ import Image from 'next/image';
 import WindowsButton from '@/components/WindowsButton';
 import LlamaBalloon from '@/public/main/RetroRemix/llama_balloon.png';
 import Fish from '@/public/main/RetroRemix/fish.svg';
+import SmallFlowers from '@/public/main/RetroRemix/smallflowers.svg';
 import { ArrowLeft, ArrowRight, ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
 
 
@@ -26,9 +27,9 @@ const SCREEN_WINDOW_SIZES = {
     { width: 550, height: 800, startX: 350, startY: 500 },
   ],
   LARGE: [
-    { width: 400, height: 420, startX: 1300, startY: 0 },
-    { width: 550, height: 550, startX: 400, startY: 300 },
-    { width: 650, height: 1000, startX: 1000, startY: 500 },
+    { width: 400, height: 420, startX: 700, startY: 50 },
+    { width: 450, height: 450, startX: 200, startY: 150 },
+    { width: 550, height: 800, startX: 450, startY: 550 },
   ],
 };
 
@@ -222,6 +223,10 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
               </div>
             </div>
           </div>
+
+          <div className="absolute -top-20 -right-40 z-50 -rotate-45 pointer-events-none">
+            <Image width={300} height={300} src={SmallFlowers} alt="Flowers" />
+          </div>
         </Window >
       </div>
 
@@ -279,7 +284,7 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           </div>
 
           {/* Fish */}
-          <div className="absolute -bottom-30 -left-30 z-50">
+          <div className="absolute pointer-events-none -bottom-30 -left-30 z-50">
             <Image width={300} height={300} src={Fish} alt="Fish" />
           </div>
 

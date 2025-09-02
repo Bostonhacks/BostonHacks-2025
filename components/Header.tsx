@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import fishComputer from '@/public/fish-computer.svg'
-import fishFlower from '@/public/fish-flower.svg' 
+import fishFlower from '@/public/fish-flower.svg'
 import splash from '@/public/splash.svg'
 import waterbead from '@/public/waterbead.svg'
 import bubble from '@/public/bubble.svg'
@@ -75,7 +75,7 @@ const Header = () => {
           style={{ animation: 'gentle-sway 10s ease-in-out infinite' }}
         />
       </div>
- 
+
       <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-[120px] h-[120px] md:w-[360px] md:h-[360px]">
         <Image
           src={fishComputer}
@@ -90,7 +90,7 @@ const Header = () => {
       <div className="relative z-40 inline-block text-left text-white px-4 mt-32 md:mt-48">
         <div className="mb-8 md:mb-6">
           <p className="font-akshar pl-[10px] text-white-blue-outline"
-             style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontSize: '32px', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
+            style={{ animation: 'pulse-glow 4s ease-in-out infinite 1s', fontSize: '32px', fontWeight: 400, lineHeight: 0.9, letterSpacing: '-0.02em', fontKerning: 'none', textShadow: '0px 9.6px 9.6px rgba(0,0,0,0.25)' }}>
             October <span style={{ letterSpacing: '0.1em' }}>11-12</span>
           </p>
         </div>
@@ -106,7 +106,7 @@ const Header = () => {
             />
           </div>
           <h1 className="inline-block text-center font-neuropol text-white-blue-outline-1 text-[72px] md:text-[153px]"
-              style={{ fontWeight: 400, lineHeight: 0.9, textShadow: '9.6px 12px 9.6px rgba(2, 0, 66, 0.25)' }}>
+            style={{ fontWeight: 400, lineHeight: 0.9, textShadow: '9.6px 12px 9.6px rgba(2, 0, 66, 0.25)' }}>
             <span className="block">
               Boston
             </span>
@@ -118,7 +118,7 @@ const Header = () => {
 
         <div className="mb-8 md:mb-12">
           <h2 className="font-akshar text-white-blue-outline-1 drop-shadow-2xl w-fit mx-auto flex justify-center gap-[24px] md:gap-[125px] text-[32px] md:text-[57px]"
-              style={{ animation: 'pulse-glow 5s ease-in-out infinite 0.5s', fontWeight: 600, lineHeight: 0.9 }}>
+            style={{ animation: 'pulse-glow 5s ease-in-out infinite 0.5s', fontWeight: 600, lineHeight: 0.9 }}>
             <span className="text-white-blue-outline-1">2</span>
             <span className="text-white-blue-outline-1">0</span>
             <span className="text-white-blue-outline-1">2</span>
@@ -148,11 +148,11 @@ const Header = () => {
       </div>
 
 
-        <div className="relative z-50 mt-8 flex flex-col gap-4 items-center pointer-events-auto"
-        >
-            <LoginSponsorButton></LoginSponsorButton>
-        </div>
-       
+      <div className="relative z-50 mt-8 flex flex-col gap-4 items-center pointer-events-auto"
+      >
+        <LoginSponsorButton></LoginSponsorButton>
+      </div>
+
 
     </header>
   )
