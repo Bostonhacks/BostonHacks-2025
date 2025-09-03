@@ -6,7 +6,10 @@ import React, { useEffect, useState } from 'react'
 import logo from "@/public/logo.svg"
 import WindowsButton from "./WindowsButton";
 import { useRouter } from "next/navigation";
+import MLHTrustBadge from "@/public/mlh-trust-badge.svg";
+
 type RouteType = 'hash' | 'page'
+
 
 type Route = {
   label: string
@@ -54,10 +57,14 @@ const Navbar = ({ routes }: NavbarProps) => {
 
   return (
     <>
-      <nav className=" w-full items-center justify-between px-10 md:py-5 py-10 fixed flex z-100">
+      <nav className="w-full items-center justify-between px-10 md:py-5 py-10 md:fixed flex z-100">
         <div>
           <Link href="/">
             <Image src={logo} alt="logo" />
+          </Link>
+
+          <Link href="https://mlh.io/seasons/2024/events" target="_blank" rel="noreferrer">
+            <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-30 w-auto -top-2 left-[45vw] md:left-[150px] absolute" />
           </Link>
         </div>
         <div className="hidden md:flex gap-[1vw] px-4">
