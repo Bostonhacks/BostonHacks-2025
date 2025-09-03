@@ -286,7 +286,7 @@ const ApplyPage = () => {
 
   if (pageLoading) {
     return (
-      <div className="min-h-screen bg-teal-600 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <CircularProgress />
       </div>
     )
@@ -294,7 +294,7 @@ const ApplyPage = () => {
 
   if (submissionSuccess || alreadySubmitted) {
     return (
-      <div className="bg-teal-600 w-screen h-screen flex items-center justify-center z-100">
+      <div className="w-screen h-screen flex items-center justify-center z-100">
         <Window
           title="Success"
           initialSize={{ width: 400, height: 250 }}
@@ -323,7 +323,7 @@ const ApplyPage = () => {
 
   if (error) {
     return (
-      <div className="bg-teal-600 w-screen h-screen flex items-center justify-center z-100">
+      <div className="w-screen h-screen flex items-center justify-center z-100">
         <Window
           title="Error"
           initialSize={{ width: 300, height: 230 }}
@@ -347,7 +347,7 @@ const ApplyPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-teal-600 p-2 overflow-y-auto overflow-x-hidden">
+    <div className="min-h-screen p-2 overflow-y-auto overflow-x-hidden">
       <div className="flex flex-row w-full p-4 justify-between items-center">
         <Link href="/">
           <Image
