@@ -3,14 +3,14 @@ import ApplyNow from "@/components/ApplyNow";
 import { routes } from "./const";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
-import RetroRemix from "./RetroRemix/RetroRemix";
+import RetroRemix from "@/components/RetroRemix/RetroRemix";
 
 const Home = () => {
   return (
     <Background>
-      <Navbar routes={routes} />
-        <Header />
       <main className="flex flex-col">
+        <Navbar routes={routes} />
+        <Header />
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
         </div>
@@ -18,7 +18,6 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
-        <div className="absoltue bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
         <ApplyNow />
 
       </main>

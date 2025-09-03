@@ -29,7 +29,7 @@ const WindowsButton = ({ onClick, onClose, children, className = '', title, disa
   const baseClasses = `
     bg-gradient-to-b from-gray-100 to-gray-200
     border-2
-    border-t-white border-l-white border-r-gray-400 border-b-gray-400
+    border-t-white border-l-white border-r-black border-b-black
     ${!disabled && `
       hover:bg-gradient-to-b hover:from-white hover:to-gray-100
       active:bg-gradient-to-b active:from-gray-300 active:to-gray-200
