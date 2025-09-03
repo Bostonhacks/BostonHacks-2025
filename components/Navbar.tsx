@@ -1,11 +1,11 @@
 "use client"
-import StyledButton from "@/components/StyledButton";
 import MobileNavButton from "@/components/MobileNavButton";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from 'react'
 import logo from "@/public/logo.svg"
 import WindowsButton from "./WindowsButton";
+import { useRouter } from "next/navigation";
 type RouteType = 'hash' | 'page'
 
 type Route = {
@@ -21,6 +21,7 @@ type NavbarProps = {
 
 const Navbar = ({ routes }: NavbarProps) => {
   const [, setCurrentHash] = useState('')
+  const router = useRouter();
 
   useEffect(() => {
     const updateHash = () => {
@@ -63,9 +64,9 @@ const Navbar = ({ routes }: NavbarProps) => {
           {routes.map((route, index) => (
             <div key={index} className={"flex 1"}>
               {route.type === 'hash' ? (
-                <WindowsButton className="bg-ms-gray w-30 hover:cursor-pointer" title={route.label} onClick={() => handleHashClick(null, route.path)}>{route.label}</WindowsButton>
+                <WindowsButton className="w-30 hover:cursor-pointer" title={route.label} onClick={() => handleHashClick(null, route.path)}>{route.label}</WindowsButton>
               ) : (
-                <StyledButton text={route.label} href={route.path} className={"min-w-[7vw]"} />
+                <WindowsButton className="w-30 hover:cursor-pointer" title={route.label} onClick={() => router.push(route.path)}>{route.label}</WindowsButton>
               )}
             </div>
           ))}
