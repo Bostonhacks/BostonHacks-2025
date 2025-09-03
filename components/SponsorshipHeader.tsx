@@ -8,7 +8,7 @@ import waterbead from '@/public/waterbead.svg'
 import bubble from '@/public/bubble.svg'
 import SponsorButton from "@/public/sponsor_button.png"
 import SponsorButtonHover from "@/public/sponsor_button_hover.png"
-import Sunflare from "@/public/sunflare.png"
+import Sunflare from "@/public/sunflare_blue.png"
 import fish from "@/public/fish.svg"
 
 
