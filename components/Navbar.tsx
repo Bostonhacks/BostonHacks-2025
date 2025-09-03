@@ -63,7 +63,7 @@ const Navbar = ({ routes }: NavbarProps) => {
             <Image src={logo} alt="logo" />
           </Link>
 
-          <Link href="https://mlh.io/seasons/2024/events" target="_blank" rel="noreferrer">
+          <Link href="https://mlh.io" target="_blank" rel="noreferrer">
             <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-30 w-auto -top-2 left-[45vw] md:left-[150px] absolute" />
           </Link>
         </div>
