@@ -10,14 +10,14 @@ import LoginSponsorButton from "@/components/LoginSponsorButton";
 
 const Header = () => {
   return (
-    <header className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <header className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-visible">
       {/* Background splash effect */}
       <div className="absolute inset-0 z-0">
         <Image
           src={splash}
           alt="Water splash background"
           fill
-          className="object-cover opacity-70 translate-x-10 md:translate-x-60"
+          className="scale-150 overflow-visible opacity-70 translate-x-10 md:translate-x-60 z-100 pointer-events-none"
           priority
         />
       </div>

@@ -5,6 +5,7 @@ import WindowsButton from '@/components/WindowsButton';
 import LlamaBalloon from '@/public/main/RetroRemix/llama_balloon.png';
 import Fish from '@/public/main/RetroRemix/fish.svg';
 import SmallFlowers from '@/public/main/RetroRemix/smallflowers.svg';
+import Bubble from '@/public/main/RetroRemix/bubble.svg';
 import { ArrowLeft, ArrowRight, ArrowDropUp, ArrowDropDown } from '@mui/icons-material';
 
 
@@ -12,17 +13,18 @@ export enum ScreenWindowSizes {
   SMALL = "SMALL",
   MEDIUM = "MEDIUM",
   LARGE = "LARGE",
+  XLARGE = "XLARGE"
 };
 
 const SCREEN_WINDOW_SIZES = {
   // everything is scaled down on small
   SMALL: [
-    { width: 300, height: 400, startX: 180, startY: 0 },
+    { width: 300, height: 400, startX: 180, startY: 10 },
     { width: 300, height: 450, startX: 10, startY: 430 },
     { width: 400, height: 700, startX: 70, startY: 850 },
   ],
   MEDIUM: [
-    { width: 400, height: 420, startX: 600, startY: 0 },
+    { width: 400, height: 420, startX: 600, startY: 10 },
     { width: 450, height: 450, startX: 100, startY: 100 },
     { width: 550, height: 800, startX: 350, startY: 500 },
   ],
@@ -31,6 +33,11 @@ const SCREEN_WINDOW_SIZES = {
     { width: 450, height: 450, startX: 200, startY: 150 },
     { width: 550, height: 800, startX: 450, startY: 550 },
   ],
+  XLARGE: [
+    { width: 400, height: 420, startX: 1300, startY: 50 },
+    { width: 450, height: 450, startX: 500, startY: 200 },
+    { width: 550, height: 800, startX: 900, startY: 600 },
+  ]
 };
 
 const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
@@ -49,6 +56,7 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           menuItems={['File', 'Edit', 'View', 'Help']}
           initialPosition={{ x: windowSizing[0].startX, y: windowSizing[0].startY }}
           initialSize={{ width: windowSizing[0].width, height: windowSizing[0].height }}
+          maximizable={!isSmall}
           className="window-1 window-animate"
         >
           <div className="w-full h-full">
@@ -102,6 +110,12 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
               </div>
             </div>
           </div>
+
+          {/* Fish */}
+          <div className="absolute pointer-events-none -top-40 -right-30 z-50">
+            <Image width={300} height={300} className="opacity-15" src={Bubble} alt="Bubble" />
+          </div>
+
         </Window >
       </div>
 
@@ -116,6 +130,7 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
           initialPosition={{ x: windowSizing[2].startX, y: windowSizing[2].startY }}
           initialSize={{ width: windowSizing[2].width, height: windowSizing[2].height }}
           className="window-3 window-animate"
+          maximizable={!isSmall}
           menuItems={['File', 'Edit', 'View', 'Image', 'Colors', 'Help']}
         >
           <div className="w-full h-full">
@@ -237,6 +252,7 @@ const Windows = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
               Help Topics: Windows Help
             </span>
           }
+          maximizable={!isSmall}
           initialPosition={{ x: windowSizing[1].startX, y: windowSizing[1].startY }}
           initialSize={{ width: windowSizing[1].width, height: windowSizing[1].height }}
           className="window-animate window-2"
