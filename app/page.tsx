@@ -16,7 +16,9 @@ const Home = () => {
         </div>
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         {/* TODO: move to correct spot -- leaving tracks here for now */}
-        <Tracks />
+        <div className="min-h-screen w-full">
+          <Tracks />
+        </div>
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
