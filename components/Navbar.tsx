@@ -64,9 +64,9 @@ const Navbar = ({ routes }: NavbarProps) => {
           {routes.map((route, index) => (
             <div key={index} className={"flex 1"}>
               {route.type === 'hash' ? (
-                <WindowsButton className="w-30 hover:cursor-pointer" title={route.label} onClick={() => handleHashClick(null, route.path)}>{route.label}</WindowsButton>
+                <WindowsButton className="bg-ms-gray w-30 py-1 hover:cursor-pointer" title={route.label} onClick={() => handleHashClick(null, route.path)}>{route.label}</WindowsButton>
               ) : (
-                <WindowsButton className="w-30 hover:cursor-pointer" title={route.label} onClick={() => router.push(route.path)}>{route.label}</WindowsButton>
+                <WindowsButton className="bg-ms-gray w-30 py-1 hover:cursor-pointer" title={route.label} onClick={() => router.push(route.path)}>{route.label}</WindowsButton>
               )}
             </div>
           ))}

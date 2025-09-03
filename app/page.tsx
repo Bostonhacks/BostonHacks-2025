@@ -11,14 +11,13 @@ const Home = () => {
       <main className="flex flex-col">
         <Navbar routes={routes} />
         <Header />
-        <div className="flex flex-col items-center justify-center h-screen text-white">
+        <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
         </div>
-        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
-        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
-        <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div id="faqs" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white"><ApplyNow /></div>
 
-        <ApplyNow />
+
 
       </main>
     </Background>

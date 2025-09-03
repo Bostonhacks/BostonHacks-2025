@@ -25,8 +25,6 @@ export default function WindowsAnimationTrigger({ children, className }: Windows
       observer.observe(containerRef.current);
     }
 
-    console.log(isVisible);
-
     return () => observer.disconnect();
   }, [isVisible]);
 
