@@ -1,6 +1,5 @@
 import Image from "next/image";
 import sunglare from "@/public/sunflare-removebg.png";
-import glass from "@/public/trackTitle.svg";
 import cursor from "@/public/cursor.svg";
 import leaf from "@/public/leaf.svg";
 import orange from "@/public/orange.svg";
@@ -15,22 +14,11 @@ const Tracks = () => {
       {/* Title for the section */}
       <div className="flex justify-center items-center">
         <div className="relative w-1/2 isolate">
-          {/* <Image
-            src={glass}
-            alt="Track Title"
-            className="w-full h-auto object-cover pointer-events-none select-none title-shadow"
-          /> */}
           <Image
             src={sunglare}
             alt="sunglare"
             className="absolute top-0 left-0 -translate-y-5/8 -translate-x-3/8 pointer-events-none select-none"
           />
-          {/* <span
-            className="absolute inset-0 flex justify-center items-center font-neuropol text-outline-blue"
-            style={{ fontSize: "6vw" }}
-          >
-            TRACKS
-          </span> */}
           <SectionTitle title="TRACKS" />
           <Image
             src={cursor}
