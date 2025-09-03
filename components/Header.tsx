@@ -17,7 +17,7 @@ const Header = () => {
           src={splash}
           alt="Water splash background"
           fill
-          className="scale-150 overflow-visible opacity-70 translate-x-10 md:translate-x-60 z-100 pointer-events-none"
+          className="scale-150 overflow-visible opacity-70 translate-x-10 md:translate-x-60 pointer-events-none"
           priority
         />
       </div>
