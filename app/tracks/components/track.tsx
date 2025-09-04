@@ -38,21 +38,21 @@ const Track = ({ trackNum, imgSrc, alignment }: TrackProps) => {
         <Image
           src={imgSrc}
           alt={`Track ${trackNum}`}
-          className="w-1/2 h-auto object-cover track-image"
+          className="md:w-1/2 h-auto object-cover track-image"
           onClick={() => setExpandedTrack(!expandedTrack)}
         />
         {expandedTrack ? (
           <Image
             src={alignment === 1 ? expandedBlueLeft : alignment === 3 ? expandedBlueRight : expandedBlueLeft}
             alt="Expanded"
-            className="w-1/2 h-auto object-cover track-image img-shadow"
+            className="md:w-1/2 h-auto object-cover track-image img-shadow"
             onClick={() => setExpandedTrack(false)}
           />
         ) : (
           <Image
             src={alignment === 1 ? expandWhiteLeft : alignment === 3 ? expandWhiteRight : expandWhiteLeft}
             alt="Expand"
-            className="w-1/2 h-auto object-cover track-image img-shadow"
+            className="md:w-1/2 h-auto object-cover track-image img-shadow"
             onClick={() => setExpandedTrack(true)}
           />
         )}

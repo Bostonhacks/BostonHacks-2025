@@ -64,7 +64,7 @@ const Background = ({ showCity = true, className, children }: BackgroundProps): 
         alt="Waterbead"
       />
 
-      <div className="relative z-20 pt-1">
+      <div className="relative z-20">
         {children}
       </div>
     </div>
