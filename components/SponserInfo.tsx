@@ -2,7 +2,7 @@ import React from 'react';
 
 const SponsorInfo = () => {
     return (
-        <section className='h-fit w-[90%] flex flex-col items-center justify-center p-4 mt-[30%] md:p-8 text-white'>
+        <section className='h-fit w-[90%] flex flex-col items-center justify-center p-4 mt-[35%] md:p-8 text-white'>
             <div className='w-full max-w-7xl flex flex-col mx-auto items-center justify-center'>
                 <h2 className='font-neuropol text-3xl bg-white/10 backdrop-blur-md md:text-5xl rounded-full p-10 font-bold text-center mb-12 shadow-xl/30 w-fit'>
                     Let's talk numbers!
