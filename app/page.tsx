@@ -4,7 +4,7 @@ import { routes } from "./const";
 import Navbar from "@/components/Navbar";
 import Tracks from "./tracks/Tracks";
 import Header from "@/components/Header";
-import SponserInfo from "@/components/SponserInfo"
+import SponserInfo from "@/components/SponsorInfo"
 import RetroRemix from "@/components/RetroRemix/RetroRemix";
 import Schedule from "@/components/Schedule/Schedule";
 

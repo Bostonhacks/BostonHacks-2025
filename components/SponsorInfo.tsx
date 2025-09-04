@@ -5,7 +5,7 @@ const SponsorInfo = () => {
         <section className='h-fit w-[90%] flex flex-col items-center justify-center p-4 mt-[35%] md:p-8 text-white'>
             <div className='w-full max-w-7xl flex flex-col mx-auto items-center justify-center'>
                 <h2 className='font-neuropol text-3xl bg-white/10 backdrop-blur-md md:text-5xl rounded-full p-10 font-bold text-center mb-12 shadow-xl/30 w-fit'>
-                    Let's talk numbers!
+                    Let&apos;s talk numbers!
                 </h2>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-8 w-full'>
                     {/* Card 1 */}
