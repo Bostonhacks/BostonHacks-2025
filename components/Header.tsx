@@ -17,7 +17,7 @@ const Header = () => {
           src={splash}
           alt="Water splash background"
           fill
-          className="scale-150 overflow-visible opacity-70 translate-x-10 md:translate-x-60 lg:translate-y-[50%] pointer-events-none"
+          className="scale-150 overflow-visible opacity-70 translate-x-10 md:translate-x-60 pointer-events-none"
           priority
         />
       </div>
@@ -66,7 +66,7 @@ const Header = () => {
         />
       </div>
 
-      <div className="absolute left-[-140px] md:left-[-300px] top-[70%] md:top-[62%] -translate-y-1/2 lg:mt-[20%] z-20 w-[320px] h-[320px] md:w-[1020px] md:h-[1020px]">
+      <div className="absolute left-[-140px] md:left-[-300px] top-[70%] md:top-[62%] -translate-y-1/2 z-20 w-[320px] h-[320px] md:w-[1020px] md:h-[1020px]">
         <Image
           src={fishFlower}
           alt="Fish with flower"
@@ -76,7 +76,7 @@ const Header = () => {
         />
       </div>
 
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-[120px] h-[120px] md:w-[360px] md:h-[360px] lg:mt-[20%]">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-[120px] h-[120px] md:w-[360px] md:h-[360px]">
         <Image
           src={fishComputer}
           alt="Fish with computer"
@@ -148,7 +148,7 @@ const Header = () => {
       </div>
 
 
-      <div className="relative z-50 mt-8 flex flex-col gap-4 items-center pointer-events-auto lg:mt-[30%]"
+      <div className="relative z-50 mt-8 flex flex-col gap-4 items-center pointer-events-auto"
       >
         <LoginSponsorButton></LoginSponsorButton>
       </div>

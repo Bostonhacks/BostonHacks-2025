@@ -64,7 +64,7 @@ const Navbar = ({ routes }: NavbarProps) => {
           </Link>
 
           <Link href="https://mlh.io" target="_blank" rel="noreferrer">
-            <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-15 md:h-30 w-auto top-0 left-[5px] md:left-[150px] absolute" />
+            <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-15 md:h-30 w-auto top-0 left-[110px] md:left-[150px] absolute" />
           </Link>
         </div>
         <div className="hidden md:flex gap-[1vw] px-4">
