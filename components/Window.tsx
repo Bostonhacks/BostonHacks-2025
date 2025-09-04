@@ -22,8 +22,8 @@ type WindowProps =
   }
 
 const titlebarButtonClassname = `
-  w-4 h-3.5 bg-ms-gray border
-  text-black text-xs font-bold flex items-center justify-center
+  w-5 h-4.5 bg-ms-gray border
+  text-black text-sm font-bold flex items-center justify-center
   border-t-white border-l-white border-r-black border-b-black
   hover:bg-gray-200 active:bg-gray-500
   active:border-t-black active:border-l-black active:border-r-white active:border-b-white 
@@ -209,10 +209,10 @@ const Window = ({
   return (
     <div
       ref={modalRef}
-      className={`bg-ms-gray border-2 border-b-black border-r-black border-t-white border-l-white
+      className={`p-1 bg-ms-gray border-2 border-b-black border-r-black border-t-white border-l-white
         shadow-md font-mssansserif shadow-gray-500 flex flex-col
         ${isMinimized ? 'h-8 overflow-hidden' : `${initialSize.height}px`}
-        ${isMaximized ? 'fixed top-0 left-0 z-50' : 'relative'}
+        ${isMaximized ? 'fixed top-0 left-0 z-50' : 'absolute'}
         ${className} 
       `}
       style={{
@@ -276,7 +276,7 @@ const Window = ({
         className="bg-gradient-to-r from-[#01017D] to-blue-600 text-white px-1 py-0.5 flex justify-between items-center border-b border-gray-500 cursor-grab active:cursor-grabbing select-none"
         onMouseDown={handleMouseDown}
       >
-        <span className="font-bold text-xs pl-1">{title}</span>
+        <span className="font-bold text-md pl-1">{title}</span>
         <div className="flex gap-0.5">
           {minimizable && (
             <button
@@ -323,7 +323,7 @@ const Window = ({
           {menuItems.map((item, index) => (
             <button
               key={index}
-              className={`px-2 py-0.5 text-xs hover:border-b-black 
+              className={`px-2 py-0.5 text-sm hover:border-b-black 
                 hover:border-r-black hover:border-t-white hover:border-l-white 
                 border-1 border-transparent text-black active:bg-gray-200
                 active:border-t-black active:border-l-black active:border-r-white active:border-b-white

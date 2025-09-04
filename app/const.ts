@@ -1,7 +1,14 @@
 export const routes = [
-  { label: 'About', path: '#about', type: 'hash' as const },
-  { label: 'Login', path: '/login', type: 'page' as const },
-];
+
+  // { label: 'About', path: '#about', type: 'hash' as const },
+  // { label: 'Login', path: '/login', type: 'page' as const },
+  { label: "APPLY", path: "/login", type: 'page' as const },
+  { label: "TRACKS", path: "#tracks", type: 'hash' as const },
+  { label: "SCHEDULE", path: "#schedule", type: 'hash' as const },
+  { label: "FAQs", path: "#faqs", type: 'hash' as const },
+  { label: "SPONSORS", path: "/sponsors", type: 'page' as const }
+
+]
 
 export const LOGO_SIZE = {
   width: 50,
@@ -55,4 +62,11 @@ export const STATE_OPTIONS = [
   "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
   "DC", "Other"
 ];
+
+
+export const TRACK_DESCRIPTIONS = {
+  track1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud est laborum.",
+  track2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud est laborum.",
+  track3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud est laborum.",
+};
 
