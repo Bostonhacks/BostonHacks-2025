@@ -2,9 +2,11 @@ import Background from "@/components/Background";
 
 import SponsorshipHeader from "@/components/SponsorshipHeader";
 import SponsorshipOpportunities from "@/components/SponsorshipOpportunities";
+import Footer from "@/components/Footer";
 
 const SponsorsPage = () => {
   return (
+    <>
     <Background>
       <SponsorshipHeader />
       <main className="flex flex-col">
@@ -17,6 +19,8 @@ const SponsorsPage = () => {
         <div className="absolute bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
       </main>
     </Background>
+    <Footer/>
+    </>
   )
 }
 
