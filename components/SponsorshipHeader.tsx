@@ -204,7 +204,7 @@ const SponsorshipHeader = () => {
           <div className="outline-[0.5px] outline-white bg-white/25 backdrop-blur-sm p-8 md:p-10 rounded-2xl flex flex-col gap-7 items-center w-48 sm:w-80 md:w-96 lg:w-[420px] mx-auto z-10">
             {/*Sponsors Button*/}
             <a 
-              href="https://google.com" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdQlFTLEDqusB70hEGX4qAxWNX0b-aZGfAhf5druxvrQNRaOA/viewform?usp=dialog" 
               target="_blank" 
               rel="noopener noreferrer"
             >
