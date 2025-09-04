@@ -150,6 +150,18 @@
   text-shadow: 0 1.2px 0 rgba(18, 93, 199, 0.2);
 }
 
+.text-white-blue-outline-sponsors {
+  color: white;
+  -webkit-text-stroke: 0.7px #125DC7;
+  text-shadow: 1.39px 0.7px 1.46px rgba(18, 93, 199, 0.2);
+}
+
+.text-white-blue-outline-year {
+  color: white;
+  -webkit-text-stroke: 1.0px #125DC7;
+  text-shadow: 0px 1px 5.7px rgba(18, 93, 199, 0.2);
+}
+
 :root {
   overflow-x: hidden;
   /*Main Colors and Fonts*/
@@ -309,6 +321,11 @@
 [data-animate="true"] .window-3 {
   animation-play-state: running;
   animation-delay: 1s;
+}
+
+[data-animate="true"] .window-4 {
+  animation-play-state: running;
+  animation-delay: 1.5s;
 }
 
 @keyframes windows95Appear {
