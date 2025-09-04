@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Akshar:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -37,11 +38,23 @@
   font-display: swap;
 }
 
+
+@font-face {
+  font-family: MSSansSerif;
+  src: url("../public/fonts/ms-sans-serif-1.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Custom animations for underwater theme */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -87,17 +100,21 @@
     transform: translateY(0px) scale(1);
     opacity: 0.7;
   }
+
   25% {
     transform: translateY(-30px) scale(1.1);
     opacity: 1;
   }
+
   50% {
     transform: translateY(-60px) scale(1.1);
     opacity: 1;
   }
+
   75% {
     transform: translateY(-30px) scale(1.1);
   }
+
   100% {
     transform: translateY(0px) scale(1);
     opacity: 0.7;
@@ -105,21 +122,28 @@
 }
 
 @keyframes gentle-sway {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0px) rotate(0deg);
   }
+
   25% {
     transform: translateX(10px) rotate(2deg);
   }
+
   75% {
     transform: translateX(-10px) rotate(-2deg);
   }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
   }
+
   50% {
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 30px rgba(135, 206, 235, 0.4));
   }
@@ -184,6 +208,9 @@
   /*--color-tertiary: #E95A85;*/
   /*--font-presicav: "Presicav", sans-serif;*/
   /*--font-36days: "DaysOfType", sans-serif;*/
+  --font-neuropol: "Neuropol X Free", sans-serif;
+  --font-ms-sans-serif: "MSSansSerif", sans-serif;
+  --font-akshar: "Akshar", sans-serif;
   /**/
   /* Main gradient colors */
   /*--gradient-stop-1: #070A0F;*/
@@ -230,14 +257,15 @@
   --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
 
 
-
-
   /*------------ olt temp landing site ------------*/
   /*--color-primary: var(--text-primary);*/
   /*--color-secondary: var(--overlay-color);*/
   /*--color-tertiary: var(--color-tertiary);*/
   /*--font-presicav: var(--font-presicav);*/
   /*--font-36days: var(--font-36days);*/
+  --font-neuropol: var(--font-neuropol);
+  --font-ms-sans-serif: var(--font-ms-sans-serif);
+  --font-akshar: var(--font-akshar);
   /*--color-focus-primary: var(--color-focus-primary);*/
   /**/
   /*@keyframes pulse-glow {*/
@@ -274,6 +302,7 @@
   /*--animate-spin-fast: spin-custom 10s linear infinite;*/
   /*--animate-spin-fast-reverse: spin-custom-reverse 10s linear infinite;*/
 }
+
 /**/
 /*@theme inline {*/
 /*  --color-background: var(--background);*/
@@ -363,4 +392,32 @@ body {
   color: black;
   font-family: "Noto Sans", sans-serif;
   background-attachment: fixed;
+}
+
+.text-outline-blue {
+  color: white;
+  -webkit-text-stroke: 0.02em #125DC7;
+  -webkit-text-fill-color: white;
+  text-shadow: 4.4px 2.2px 4.62px rgba(2, 0, 66, 0.29);
+}
+
+.text-shadow {
+  text-shadow: 0px 8.8px 8.8px #0B334140;
+}
+
+.track-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.track-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.img-shadow {
+  filter: drop-shadow(8.8px 8.8px 8.8px #0000007b);
+}
+
+.title-shadow {
+  filter: drop-shadow(5px 7px 13.4px #0000007b);
 }
