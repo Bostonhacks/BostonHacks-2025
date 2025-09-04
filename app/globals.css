@@ -352,6 +352,11 @@
   animation-delay: 1s;
 }
 
+[data-animate="true"] .window-4 {
+  animation-play-state: running;
+  animation-delay: 1.3s;
+}
+
 @keyframes windows95Appear {
   0% {
     opacity: 0;
