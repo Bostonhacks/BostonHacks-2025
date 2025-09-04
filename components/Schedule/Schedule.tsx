@@ -1,7 +1,6 @@
 import React from 'react';
 import WindowSection, { ScreenWindowSizes } from './ScheduleWindow';
 import WindowsAnimationTrigger from '../RetroRemix/useInViewport';
-import Image from 'next/image';
 
 const Schedule = () => {
   return (
