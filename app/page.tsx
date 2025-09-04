@@ -3,6 +3,7 @@ import { routes } from "./const";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 import RetroRemix from "./RetroRemix/RetroRemix";
+import SponserInfo from "@/components/SponserInfo"
 
 const Home = () => {
   return (
@@ -12,6 +13,9 @@ const Home = () => {
       <main className="flex flex-col">
         <div className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
+        </div>
+        <div className="font-akshar flex flex-col items-center justify-center h-fit text-white">
+          <SponserInfo />
         </div>
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
         <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
