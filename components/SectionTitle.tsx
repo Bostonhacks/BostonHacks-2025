@@ -4,7 +4,6 @@ import glass from "@/public/trackTitle.svg";
 const SectionTitle = ({ title }: { title: string }) => {
   return (
     <div className="flex justify-center items-center">
-      {/* <div className="relative w-1/2 isolate"> */}
       <Image
         src={glass}
         alt="Title"
@@ -16,7 +15,6 @@ const SectionTitle = ({ title }: { title: string }) => {
       >
         {title}
       </span>
-      {/* </div> */}
     </div>
   );
 };

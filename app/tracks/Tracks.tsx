@@ -10,10 +10,10 @@ import SectionTitle from "@/components/SectionTitle";
 
 const Tracks = () => {
   return (
-    <div>
+    <div className="mx-5 md:mx-40">
       {/* Title for the section */}
       <div className="flex justify-center items-center">
-        <div className="relative w-1/2 isolate">
+        <div className="relative w-3/4 md:w-1/2 isolate">
           <Image
             src={sunglare}
             alt="sunglare"
@@ -28,7 +28,7 @@ const Tracks = () => {
         </div>
       </div>
 
-      <div>
+      <div className="mt-10">
         <Track trackNum={1} imgSrc={leaf} alignment={1} />
         <Track trackNum={2} imgSrc={orange} alignment={3} />
         <Track trackNum={3} imgSrc={disk} alignment={1} />

@@ -20,8 +20,7 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-        {/* TODO: move to correct spot -- leaving tracks here for now */}
-        <div className="min-h-screen w-full">
+        <div className="h-auto w-full">
           <Tracks />
         </div>
         <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
