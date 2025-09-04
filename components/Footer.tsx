@@ -43,7 +43,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="my-[40vw] flex w-full flex flex-col text-white">
+            <div className="my-[40vw] flex w-full flex-col text-white">
                 <ApplyNow />
             </div>
             <h1 className="inline-block text-center font-neuropol text-white-blue-outline-1 text-[10vw] z-10"

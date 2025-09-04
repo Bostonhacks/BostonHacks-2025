@@ -30,15 +30,18 @@ const Countdown = ({ targetDate }: { targetDate: string }) => {
         return timeLeft;
     };
 
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-        setTimeLeft(calculateTimeLeft());
-        }, 1000);
-
-        return () => clearInterval(timer); // cleanup on unmount
+    const updateTime = () => setTimeLeft(calculateTimeLeft());
+    updateTime(); // run immediately once mounted
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
     }, [targetDate]);
+
+    if (!timeLeft) {
+    return null; // or a spinner / placeholder
+    }
 
     return (
         <div className='justify-center items-center flex'>
