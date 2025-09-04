@@ -57,14 +57,14 @@ const Navbar = ({ routes }: NavbarProps) => {
 
   return (
     <>
-      <nav className="w-full items-center justify-between px-10 md:py-5 py-10 md:fixed flex z-100">
-        <div>
+      <nav className="absolute w-full items-center justify-between px-10 py-5 md:fixed flex z-100">
+        <div className="">
           <Link href="/">
-            <Image src={logo} alt="logo" />
+            <Image src={logo} alt="logo" className="md:w-16 md:h-16 w-12 h-12" />
           </Link>
 
           <Link href="https://mlh.io" target="_blank" rel="noreferrer">
-            <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-30 w-auto -top-2 left-[45vw] md:left-[150px] absolute" />
+            <Image src={MLHTrustBadge} alt="MLH Trust Badge" className="h-15 md:h-30 w-auto top-0 left-[110px] md:left-[150px] absolute" />
           </Link>
         </div>
         <div className="hidden md:flex gap-[1vw] px-4">
