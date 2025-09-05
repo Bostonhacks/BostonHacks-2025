@@ -156,16 +156,22 @@
   text-shadow: 0 0 10px rgba(32, 109, 223, 0.3);
 }
 
+.text-white-blue-outline-1 {
+  color: white;
+  -webkit-text-stroke: 2.4px #125DC7;
+  text-shadow: 0 0 6px rgba(18, 93, 199, 0.2);
+}
+
 .text-white-blue-outline-2 {
   color: white;
   -webkit-text-stroke: 4.8px #125DC7;
   text-shadow: 0 0 8px rgba(18, 93, 199, 0.25);
 }
 
-.text-white-blue-outline-1 {
+.text-white-blue-outline-our-sponsors {
   color: white;
-  -webkit-text-stroke: 2.4px #125DC7;
-  text-shadow: 0 0 6px rgba(18, 93, 199, 0.2);
+  -webkit-text-stroke: 1px #206DDF;
+  text-shadow: 2 1 2.1px rgba(2, 0, 66, 0.47);
 }
 
 .text-white-blue-outline-date {

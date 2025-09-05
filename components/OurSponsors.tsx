@@ -1,0 +1,68 @@
+import people from '@/public/apply-image.svg';
+import Frame from '@/public/main/OurSponsors/sponsor-frame.svg';
+import Redhat from '@/public/main/OurSponsors/Redhat.svg';
+import CapitalOne from '@/public/main/OurSponsors/CapitalOne.svg';
+import Muse from '@/public/main/OurSponsors/Muse.svg';
+import Coder from '@/public/main/OurSponsors/Coder.svg';
+import Seqera from '@/public/main/OurSponsors/Seqera.svg';
+import AISA from '@/public/main/OurSponsors/AISA.png';
+import SectionTitle from './SectionTitle';
+import Image from 'next/image';
+
+const OurSponsors = () => {
+    return (
+        <div className='relative w-full mb-[80vw] md:mb-[150vw]'>
+            <div className="relative flex justify-center items-center w-3/4 md:w-1/2 mx-auto mb-[10vw]">
+                {/* Text */}
+                <SectionTitle title={`Our\nSponsors:`} className="text-[5vw] whitespace-pre-line leading-tight" />
+
+                {/* Icon */}
+                <div className="absolute top-0 right-0 -mt-6 -mr-6">
+                    <Image
+                    src={people}
+                    alt="Sponsors Icon"
+                    className="drop-shadow-lg w-[20vw] lg:w-[8vw]"
+                    />
+                </div>
+            </div>
+            {/* <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
+                <Image src={Frame} alt="Frame 1" className="w-full h-auto object-cover rounded-lg" />
+                <Image src={Frame} alt="Frame 2" className="w-full h-auto object-cover rounded-lg" />
+                <Image src={Frame} alt="Frame 3" className="w-full h-auto object-cover rounded-lg" />
+                <Image src={Frame} alt="Frame 4" className="w-full h-auto object-cover rounded-lg" />
+                <Image src={Frame} alt="Frame 5" className="w-full h-auto object-cover rounded-lg" />
+                <Image src={Frame} alt="Frame 6" className="w-full h-auto object-cover rounded-lg" />
+            </div> */}
+            <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
+                {[
+                    Redhat,
+                    CapitalOne,
+                    Muse,
+                    Coder,
+                    Seqera,
+                    AISA,
+                ].map((src, i) => (
+                    <div key={i} className="relative w-full aspect-square">
+                    {/* Frame */}
+                    <Image
+                        src={Frame}
+                        alt={`Frame ${i + 1}`}
+                        fill
+                        className="object-contain pointer-events-none select-none"
+                    />
+                    {/* Inner image */}
+                     <div className="absolute inset-0 flex items-center justify-center z-10 translate-x-[0.5vw]">
+                        <Image
+                        src={src}
+                        alt={`Image ${i + 1}`}
+                        className="object-contain w-[20vw] h-auto"
+                        />
+                    </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default OurSponsors;
