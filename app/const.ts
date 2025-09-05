@@ -93,3 +93,41 @@ Add new features to your favorite product, apply an existing feature in a novel 
   }
 ];
 
+export const FAQ_CONTENT = [
+  {
+      question: 'What is BostonHacks',
+      answer: 'BostonHacks is a 24-hour event where students from different backgrounds gather together to use technology to create cool projects. Come to BostonHacks to expand your knowledge and skills, make new friends, win prizes and network with recruiters from our corporate sponsors!'
+  },
+  {
+      question: 'When and where is BostonHacks?',
+      answer: 'BostonHacks is an in-person 24-hour hackathon on October 11-12th, 2025. It takes place in the Boston University George Sherman Union (GSU)'
+  },
+  {
+      question: 'Who can attend?',
+      answer: 'All college students including undergraduate and graduate students with any background, all across the world are welcome!'
+  },
+  {
+      question: 'Are there any rules?',
+      answer: 'We want to ensure a positive experience for all participants. We encourage you to read the <a href="https://mlh.io/code-of-conduct" target="_blank" class="text-blue-500 underline">MLH Code of Conduct</a>.'
+  },
+  {
+      question: 'Do I need experience?',
+      answer: 'No experience is necessary. We will have plenty of mentors and resources available, along with several workshops targeted for beginners. Come learn and experience your first hackathon at BostonHacks!'
+  },
+  {
+      question: 'Does it cost anything?',
+      answer: 'BostonHacks is 100% free. You dont have to spend a dime! Unfortunately, we wont be providing any travel reimbursements this year.'
+  },
+  {
+      question: 'Can we form teams?',
+      answer: 'Of course you can! We encourage people to work in teams of up to four people. You may opt-in to team formation through our Discord Server which will match you with an ideal team. You can work alone, but it wont be as fun :['
+  },
+  {
+      question: 'When does registration close?',
+      answer: 'Registration closes on October 4th. Apply ASAP!'
+  },
+  {
+      question: 'MLH Code of Conduct',
+      answer: 'TL\;DR. Be respectful. Harassment and abuse are never tolerated. If you are in a situation that makes you uncomfortable at an MLH Member Event, if the event itself is creating an unsafe or inappropriate environment, or if interacting with a MLH representative or event organizer makes you uncomfortable, please refer to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank" class="text-[var(--popup-blue)] underline">Full MLH Code of Conduct PDF</a>'
+  }
+];

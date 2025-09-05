@@ -1,6 +1,7 @@
-import Background from "@/components/Background";
-import { routes } from "./const";
 import Navbar from "@/components/Navbar";
+import FAQs from "@/components/FAQs";
+import { routes } from "./const";
+import Background from "@/components/Background";
 import Tracks from "./tracks/Tracks";
 import Header from "@/components/Header";
 import RetroRemix from "@/components/RetroRemix/RetroRemix";
@@ -22,14 +23,15 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-          <div id="tracks" className="h-auto w-full">
+          <div id="tracks" className="my-20 h-auto w-full">
             <Tracks />
           </div>
-          <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-          <div id="schedule" className="flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
+          <div id="schedule" className="my-20 flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
             <Schedule />
           </div>
-          <div id="faqs" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+          <div id="faqs" className="my-20 flex flex-col items-center justify-center min-h-screen text-white">
+            <FAQs />
+          </div>
           <div id="sponsors" className="h-auto w-full">
             <OurSponsors />
           </div>
