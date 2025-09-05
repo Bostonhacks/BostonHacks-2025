@@ -13,15 +13,14 @@ const SponsorsPage = () => {
           <div className="flex flex-col items-center justify-center min-h-screen text-white">
             <SponsorshipOpportunities />
           </div>
-          <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
-          <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+          {/* <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div> */}
+          {/* <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div> */}
 
-          <div className="absolute bottom-0">wapeofijawpfeoiawjfpoawijfawpofijawpoefj</div>
         </main>
       </Background>
-      <Footer/>
+      <Footer />
     </>
-    
+
   )
 }
 

@@ -11,32 +11,32 @@ import OurSponsors from "@/components/OurSponsors";
 const Home = () => {
   return (
     <>
-    <Background>
-      <main className="flex flex-col">
-        <Navbar routes={routes} />
-        <div id="header" className="w-full h-screen">
-          <Header />
-        </div>
-        <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
-          <RetroRemix />
-        </div>
+      <Background>
+        <main className="flex flex-col">
+          <Navbar routes={routes} />
+          <div id="header" className="w-full h-screen">
+            <Header />
+          </div>
+          <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
+            <RetroRemix />
+          </div>
 
-        <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-        <div className="h-auto w-full">
-          <Tracks />
-        </div>
-        <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-        <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
-        <div id="schedule" className="flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
-          <Schedule />
-        </div>
-        <div id="faqs" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
-        <div id="sponsors" className="h-auto w-full">
-          <OurSponsors/>
-        </div>
-      </main>
-    </Background>
-    <Footer />
+          <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
+          <div id="tracks" className="h-auto w-full">
+            <Tracks />
+          </div>
+          <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
+          <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+          <div id="schedule" className="flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
+            <Schedule />
+          </div>
+          <div id="faqs" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+          <div id="sponsors" className="h-auto w-full">
+            <OurSponsors />
+          </div>
+        </main>
+      </Background>
+      <Footer />
     </>
   )
 }
