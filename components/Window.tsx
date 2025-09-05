@@ -212,7 +212,7 @@ const Window = ({
       className={`p-1 bg-ms-gray border-2 border-b-black border-r-black border-t-white border-l-white
         shadow-md font-mssansserif shadow-gray-500 flex flex-col
         ${isMinimized ? 'h-8 overflow-hidden' : `${initialSize.height}px`}
-        ${isMaximized ? 'fixed top-0 left-0 z-50' : 'absolute'}
+        ${isMaximized ? 'fixed top-0 left-0 z-300' : 'absolute'}
         ${className} 
       `}
       style={{
