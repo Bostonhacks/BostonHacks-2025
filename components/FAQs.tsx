@@ -3,15 +3,9 @@ import { useState } from 'react';
 import Image from 'next/image';
 import closed from '@/public/closedToggle.png';
 import bubble1 from '@/public/bubble1.svg';
-import bubble2 from '@/public/bubble2.svg';
 import faqsplash from '@/public/faqsplash.svg';
 import fish from '@/public/clownfish.svg';
 import { FAQ_CONTENT } from "@/app/const";
-
-type faqInfo = {
-    question: string,
-    answer: string,
-}
 
 const faqs = FAQ_CONTENT;
 
