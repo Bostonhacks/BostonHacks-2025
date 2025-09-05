@@ -32,12 +32,12 @@ const Track = ({ trackNum, imgSrc, alignment }: TrackProps) => {
           onClick={() => setExpandedTrack(!expandedTrack)}
         >
           <span className="inline-block track-image">
-            track {trackNum}
+            {TRACK_DESCRIPTIONS[trackNum - 1].name}
           </span>
         </span>
         <Image
           src={imgSrc}
-          alt={`Track ${trackNum}`}
+          alt={`${TRACK_DESCRIPTIONS[trackNum - 1].name}`}
           className="md:w-1/2 h-auto object-cover track-image"
           onClick={() => setExpandedTrack(!expandedTrack)}
         />
@@ -60,9 +60,9 @@ const Track = ({ trackNum, imgSrc, alignment }: TrackProps) => {
 
       {expandedTrack && (
         <div
-          className={`col-start-2 ${rowClass} flex items-center justify-center text-white font-akshar text-center text-shadow`}
-          style={{ fontSize: "2vw" }}>
-          {TRACK_DESCRIPTIONS[`track${trackNum}` as keyof typeof TRACK_DESCRIPTIONS]}
+          className={`col-start-2 ${rowClass} whitespace-pre-line text-md leading-4 md:leading-8 md:text-3xl flex items-center justify-center text-white font-akshar text-center text-shadow`}
+        >
+          {TRACK_DESCRIPTIONS[trackNum - 1].description}
         </div>
       )}
     </div>

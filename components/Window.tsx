@@ -19,6 +19,7 @@ type WindowProps =
     resizable?: boolean
     className?: string
     menuItems?: string[]
+    contentClassname?: string
   }
 
 const titlebarButtonClassname = `
@@ -44,7 +45,8 @@ const Window = ({
   maximizable = true,
   resizable = true,
   className = "",
-  menuItems = []
+  menuItems = [],
+  contentClassname = "",
 }: WindowProps) => {
   const [position, setPosition] = useState(initialPosition)
   const [size, setSize] = useState(initialSize)
@@ -342,7 +344,7 @@ const Window = ({
 
       {/* Content */}
       {!isMinimized && (
-        <div className="h-full overflow-hidden"
+        <div className={`h-full overflow-hidden ${contentClassname}`}
           style={{
             height: isMaximized ? 'calc(100%)' : `${size.height}px`,
           }}
@@ -368,8 +370,9 @@ const Window = ({
             </div>
           )}
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }
 

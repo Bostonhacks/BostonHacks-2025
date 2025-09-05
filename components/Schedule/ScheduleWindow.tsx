@@ -24,10 +24,10 @@ const SCREEN_WINDOW_SIZES = {
     { width: 600, height: 880, startX: 0, startY: 0 }
   ],
   LARGE: [
-    { width: 1252, height: 1300, startX: 0, startY: 0 }
+    { width: 1252, height: 1100, startX: 0, startY: 0 }
   ],
   XLARGE: [
-    { width: 1252, height: 1300, startX: 0, startY: 0 }
+    { width: 1252, height: 1100, startX: 0, startY: 0 }
   ]
 };
 
@@ -38,37 +38,24 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
   const data = [
     {
       times: [
-        { time: "Day 1. . . . . .", activity: "Wake up" },
-        { time: "10:00 am. . . . . .", activity: "Breakfast" },
-        { time: "11:00 am. . . . . .", activity: "Orientation" },
-        { time: "12:00 pm. . . . . .", activity: "How 2 code" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
+        { time: "09:00 am. . . . . .", activity: "Check-in starts" },
+        { time: "10:00 am. . . . . .", activity: "Opening ceremony" },
+        { time: "10:30 am. . . . . .", activity: "Hacking begins" },
+        // { time: "11:00 am. . . . . .", activity: "Hackathon 101 @ Terrace Lounge" },
+        // { time: "11:30 am. . . . . .", activity: "Intro to GitHub @ Terrace Lounge" },
+        { time: "12:00 pm. . . . . .", activity: "Lunch" },
+        // { time: "01:00 pm. . . . . .", activity: "BUDSA Workshop @ GSU Backcourt" },
+        // { time: "02:00 pm. . . . . .", activity: "Leetcode/Competitive Programming @ Terrace Lounge" },
+        // { time: "02:00 pm. . . . . .", activity: "Screentime: Off @ Ziskand Lounge" },
+        { time: "06:30 pm. . . . . .", activity: "Dinner" },
+        { time: "10:00 pm. . . . . .", activity: "Sleeping spaces open" },
       ],
     },
     {
       times: [
-        { time: "Day 2. . . . . .", activity: "Wake up" },
-        { time: "10:00 am. . . . . .", activity: "Breakfast" },
-        { time: "11:00 am. . . . . .", activity: "Idk" },
-        { time: "12:00 pm. . . . . .", activity: "How 2 code" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-      ],
-    },
-    {
-      times: [
-        { time: "Day 3. . . . . .", activity: "Wake up" },
-        { time: "10:00 am. . . . . .", activity: "Breakfast" },
-        { time: "11:00 am. . . . . .", activity: "Design" },
-        { time: "12:00 pm. . . . . .", activity: "How 2 code" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
-        { time: "1:00pm. . . . . .", activity: "Yay" },
+        { time: "08:00 am. . . . . .", activity: "Breakfast" },
+        { time: "09:30 am. . . . . .", activity: "Submissions due, judging starts" },
+        { time: "11:00 pm. . . . . .", activity: "Closing ceremony" },
       ],
     },
   ];
@@ -106,6 +93,7 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
         title="Untitled - Notepad"
         initialSize={{ width: windowSizing[0].width, height: windowSizing[0].height }}
         className="window-1 window-animate"
+        contentClassname="overflow-scroll"
         maximizable={!isSmall}
         menuItems={['File', 'Edit', 'Seach', 'Help']}
       >
@@ -125,34 +113,62 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
                         <div className='flex justify-center items-center'></div>
                         {/* Title */}
                         <div className="mb-[clamp(0.25rem,0.5vw,1rem)]">
-                          <span className="text-[clamp(2rem,4vw,4rem)]">Schedule</span>
+                          <span className="text-[clamp(2rem,4vw,4rem)]">Schedule*</span>
+                          <div>*Times subject to change | Workshops and activities will be posted at a later date</div>
                         </div>
 
-                        <div className='flex overflow-hidden'>
-                          {Array.from({ length: isSmall ? 1 : 2 }).map((_, colIndex) => (
-                            <div key={colIndex} className="space-y-[clamp(0.25rem,0.75vw,1rem)] gap-[clamp(3rem,4vw,4rem)] flex-1">
-                              {data.map((day, i) => (
-                                <div key={i}>
-                                  {day.times.map((slot, j) => (
-                                    <div
-                                      key={j}
-                                      className="flex 
-                                                px-[clamp(0.25rem,0.75vw,1rem)] 
-                                                py-[clamp(0.125rem,0.5vw,0.5rem)] 
-                                                text-[clamp(1rem,1.5vw,2rem)] 
-                                                leading-[1.6]
-                                                whitespace-nowrap"
-                                    >
-                                      <span className="min-w-[clamp(6em,15vw,8em)] w-[clamp(6em,15vw,8em)] font-medium text-gray-700 mr-[2rem]">
-                                        {slot.time}
-                                      </span>
-                                      <span className="text-gray-900">{slot.activity}</span>
+                        <div className='flex flex-col overflow-hidden'>
+                          {data.map((day, dayIndex) => {
+                            // Extract the day title (first entry with "Day X" pattern)
+                            const dayEntries = day.times;
+
+                            return (
+                              <div key={dayIndex} className="mb-[clamp(1rem,2vw,2rem)]">
+                                {/* Day Title */}
+
+                                <div className="mb-[clamp(0.5rem,1vw,1rem)]">
+                                  <h2 className="text-[clamp(1.5rem,2.5vw,3rem)] font-bold text-gray-800">
+                                    Day {dayIndex + 1}
+                                  </h2>
+                                </div>
+
+                                {/* Day Entries in Columns */}
+                                <div className='flex overflow-hidden space-x-7'>
+                                  {Array.from({ length: isSmall ? 1 : 2 }).map((_, colIndex) => (
+                                    <div key={colIndex} className="space-y-[clamp(0.25rem,0.75vw,1rem)] flex-1">
+                                      {dayEntries
+                                        .filter((_, entryIndex) => {
+                                          // For mobile (1 column), show all entries
+                                          // For desktop (2 columns), distribute vertically first
+                                          if (isSmall) return true;
+
+                                          const entriesPerColumn = Math.ceil(dayEntries.length / 2);
+                                          return colIndex === 0
+                                            ? entryIndex < entriesPerColumn
+                                            : entryIndex >= entriesPerColumn;
+                                        })
+                                        .map((slot, j) => (
+                                          <div
+                                            key={j}
+                                            className="flex 
+                                                      px-[clamp(0.25rem,0.75vw,1rem)] 
+                                                      py-[clamp(0.125rem,0.5vw,0.5rem)] 
+                                                      text-[clamp(1rem,1.5vw,2rem)] 
+                                                      leading-[1.6]
+                                                      "
+                                          >
+                                            <span className="whitespace-nowrap min-w-[clamp(6em,15vw,8em)] w-[clamp(6em,15vw,8em)] font-medium text-gray-700 mr-[2rem]">
+                                              {slot.time}
+                                            </span>
+                                            <span className="text-gray-900">{slot.activity}</span>
+                                          </div>
+                                        ))}
                                     </div>
                                   ))}
                                 </div>
-                              ))}
-                            </div>
-                          ))}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>

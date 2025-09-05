@@ -57,7 +57,7 @@ const Navbar = ({ routes }: NavbarProps) => {
 
   return (
     <>
-      <nav className="absolute w-full items-center justify-between px-10 py-5 md:fixed flex z-100">
+      <nav className="absolute w-full items-center justify-between px-10 py-5 md:fixed flex z-200">
         <div className="">
           <Link href="/">
             <Image src={logo} alt="logo" className="md:w-16 md:h-16 w-12 h-12" />
