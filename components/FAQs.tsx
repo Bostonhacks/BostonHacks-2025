@@ -53,6 +53,7 @@ const FaqEntry = ({ question, answer }: { question: string, answer: string }) =>
       }
     </li>
   );
+
 };
 
 const FaqColumn = ({ column }) => { // each column is passed some faq entries, to create column/list of faqs
