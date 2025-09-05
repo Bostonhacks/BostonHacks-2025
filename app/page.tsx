@@ -1,39 +1,45 @@
-import Navbar from "./Navbar";
-import Header from "./Header";
-import Footer from "./Footer";
-import { Metadata } from "next";
+import Navbar from "@/components/Navbar";
+import FAQs from "@/components/FAQs";
+import { routes } from "./const";
+import Background from "@/components/Background";
+import Tracks from "./tracks/Tracks";
+import Header from "@/components/Header";
+import RetroRemix from "@/components/RetroRemix/RetroRemix";
+import Schedule from "@/components/Schedule/Schedule";
+import Footer from "@/components/Footer";
+import OurSponsors from "@/components/OurSponsors";
 
-export const metadata: Metadata = {
-  title: "BostonHacks 2025",
-  description: "BostonHacks 2025 Hackathon, Boston University’s largest, annual student-run hackathon and various beginner friendly workshops!",
-  keywords: ["bostonhacks", "hackathon", "bostonhacks 2025", "boston hackathon"],
-  openGraph: {
-    title: "BostonHacks 2025",
-    description: "BostonHacks 2025 Hackathon landing page",
-    url: "https://www.bostonhacks.org",
-    siteName: "BostonHacks 2025",
-    locale: "en_US",
-    type: "website",
-  }
-};
-
-export default function Home() {
+const Home = () => {
   return (
-    <main className="w-dvw h-dvh overflow-hidden">
-      {/* background gradient is defined within globals.css */}
-      <div className="fixed">
-        <Navbar />
-      </div>
+    <>
+      <Background>
+        <main className="flex flex-col">
+          <Navbar routes={routes} />
+          <div id="header" className="w-full h-screen">
+            <Header />
+          </div>
+          <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
+            <RetroRemix />
+          </div>
 
-      <div className="2xl:scale-125 lg:scale-80 flex flex-col items-center w-screen justify-center h-screen">
-        <Header />
-      </div>
-
-      <div className="p-10 fixed bottom-0 w-full">
-        <Footer />
-      </div>
-
-      {/* if you need more control over SVG logo, consider using https://react-svgr.com/playground/ */}
-    </main>
+          <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
+          <div id="tracks" className="my-20 h-auto w-full">
+            <Tracks />
+          </div>
+          <div id="schedule" className="my-20 flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
+            <Schedule />
+          </div>
+          <div id="faqs" className="my-20 flex flex-col items-center justify-center min-h-screen text-white">
+            <FAQs />
+          </div>
+          <div id="sponsors" className="h-auto w-full">
+            <OurSponsors />
+          </div>
+        </main>
+      </Background>
+      <Footer />
+    </>
   )
 }
+
+export default Home;
