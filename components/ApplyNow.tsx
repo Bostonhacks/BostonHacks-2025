@@ -12,6 +12,7 @@ const ApplyNow = () => {
       <Window
         title="JOIN US"
         initialSize={{ width: 400, height: 200 }}
+        className='z-30'
         closable={true}
       >
         <div className="flex h-full justify-center items-center gap-5 md:gap-10">
