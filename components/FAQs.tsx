@@ -78,7 +78,7 @@ const FAQs = () => {
       <Image
         src={bubble1}
         alt="bubble"
-        className="absolute top-40 -right-15 opacity-50 pointer-events-none"
+        className="absolute top-40 -right-15 opacity-30 pointer-events-none"
       />
       <Image
         src={fish}
