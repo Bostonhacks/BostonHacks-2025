@@ -89,7 +89,7 @@ const FAQs = () => {
                 className="absolute left-0 -z-10 scale-120 overflow-visible pointer-events-none"
                 priority
             />
-            <div className="bg-[var(--popup-gray)] bg-opacity-20 w-[95%] h-auto border-3 border-t-[white] border-l-[white] border-r-[black] border-b-[black]">
+            <div className="bg-[var(--popup-gray)] bg-opacity-20 w-[85%] h-auto border-3 border-t-[white] border-l-[white] border-r-[black] border-b-[black]">
                 {/* <p className="flex flex-col items-center justify-center min-h-screen text-blue-500">FAQs???</p> */}
                 <section id="faq" className="w-full flex flex-col justify-center text-text-primary my-[10rem] mt-0">
                 <div className="bg-[var(--popup-blue)] bg-opacity-20 w-[99.5%] h-auto px-5 pt-15 pb-15 -mt-4 ml-3 right-0 ">
