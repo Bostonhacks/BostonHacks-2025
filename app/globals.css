@@ -253,6 +253,7 @@
   --color-ms-gray: var(--ms-gray);
   --color-ms-gray-darker: var(--ms-gray-darker);
 
+  --font-mssansserif: var(--ms-sans-serif-1);
 
   --font-akshar: "Akshar", sans-serif;
   --font-neuropol: "Neuropol X Free", sans-serif;
