@@ -26,7 +26,6 @@ const Home = () => {
             <Tracks />
           </div>
           <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
-          <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
           <div id="schedule" className="flex flex-col items-center justify-center min-h-screen text-white mt-[150px]">
             <Schedule />
           </div>
