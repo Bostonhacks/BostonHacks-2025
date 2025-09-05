@@ -25,14 +25,6 @@ const OurSponsors = () => {
                     />
                 </div>
             </div>
-            {/* <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
-                <Image src={Frame} alt="Frame 1" className="w-full h-auto object-cover rounded-lg" />
-                <Image src={Frame} alt="Frame 2" className="w-full h-auto object-cover rounded-lg" />
-                <Image src={Frame} alt="Frame 3" className="w-full h-auto object-cover rounded-lg" />
-                <Image src={Frame} alt="Frame 4" className="w-full h-auto object-cover rounded-lg" />
-                <Image src={Frame} alt="Frame 5" className="w-full h-auto object-cover rounded-lg" />
-                <Image src={Frame} alt="Frame 6" className="w-full h-auto object-cover rounded-lg" />
-            </div> */}
             <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
                 {[
                     Redhat,
