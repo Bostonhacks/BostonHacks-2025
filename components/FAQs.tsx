@@ -56,7 +56,8 @@ const FaqEntry = ({ question, answer }: { question: string, answer: string }) =>
 
 };
 
-const FaqColumn = ({ column }) => { // each column is passed some faq entries, to create column/list of faqs
+const FaqColumn = ({ column }: { column: Array<{ question: string; answer: string }> }) => {
+
   return (
     <div className="column">
       <ul className="grid grid-cols-1 auto-rows-auto">
