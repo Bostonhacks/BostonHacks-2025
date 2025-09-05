@@ -1,6 +1,7 @@
-import Background from "@/components/Background";
-import { routes } from "./const";
 import Navbar from "@/components/Navbar";
+import FAQs from "@/components/FAQs";
+import { routes } from "./const";
+import Background from "@/components/Background";
 import Tracks from "./tracks/Tracks";
 import Header from "@/components/Header";
 import RetroRemix from "@/components/RetroRemix/RetroRemix";
@@ -30,6 +31,7 @@ const Home = () => {
             <Schedule />
           </div>
           <div id="faqs" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+            <FAQs/>
           <div id="sponsors" className="h-auto w-full">
             <OurSponsors />
           </div>
