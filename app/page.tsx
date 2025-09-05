@@ -3,6 +3,7 @@ import { routes } from "./const";
 import Navbar from "@/components/Navbar";
 import Tracks from "./tracks/Tracks";
 import Header from "@/components/Header";
+import SponserInfo from "@/components/SponsorInfo"
 import RetroRemix from "@/components/RetroRemix/RetroRemix";
 import Schedule from "@/components/Schedule/Schedule";
 import Footer from "@/components/Footer";
@@ -20,6 +21,12 @@ const Home = () => {
         <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
           <RetroRemix />
         </div>
+        <div className="font-akshar flex flex-col items-center justify-center h-fit text-white">
+          <SponserInfo />
+        </div>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
+        <div id="about" className="flex flex-col items-center justify-center min-h-screen text-white">section</div>
 
         <div className="flex flex-col items-center justify-center min-h-screen text-white"></div>
         <div className="h-auto w-full">
