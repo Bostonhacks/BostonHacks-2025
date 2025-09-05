@@ -10,51 +10,51 @@ import SectionTitle from './SectionTitle';
 import Image from 'next/image';
 
 const OurSponsors = () => {
-    return (
-        <div className='relative w-full mb-[80vw] md:mb-[150vw]'>
-            <div className="relative flex justify-center items-center w-3/4 md:w-1/2 mx-auto mb-[10vw]">
-                {/* Text */}
-                <SectionTitle title={`Our\nSponsors:`} className="text-[5vw] whitespace-pre-line leading-tight" />
+  return (
+    <div className='relative w-full mb-[80vw] md:mb-[150vw]'>
+      <div className="relative flex justify-center items-center w-3/4 md:w-1/2 mx-auto mb-[10vw]">
+        {/* Text */}
+        <SectionTitle title={`Our\nSponsors:`} className="text-3xl lg:text-[70px] whitespace-pre-line leading-tight" />
 
-                {/* Icon */}
-                <div className="absolute top-0 right-0 -mt-6 -mr-6">
-                    <Image
-                    src={people}
-                    alt="Sponsors Icon"
-                    className="drop-shadow-lg w-[20vw] lg:w-[8vw]"
-                    />
-                </div>
-            </div>
-            <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
-                {[
-                    Redhat,
-                    CapitalOne,
-                    Muse,
-                    Coder,
-                    Seqera,
-                    AISA,
-                ].map((src, i) => (
-                    <div key={i} className="relative w-full aspect-square">
-                    {/* Frame */}
-                    <Image
-                        src={Frame}
-                        alt={`Frame ${i + 1}`}
-                        fill
-                        className="object-contain pointer-events-none select-none"
-                    />
-                    {/* Inner image */}
-                     <div className="absolute inset-0 flex items-center justify-center z-10 translate-x-[0.5vw]">
-                        <Image
-                        src={src}
-                        alt={`Image ${i + 1}`}
-                        className="object-contain w-[20vw] h-auto"
-                        />
-                    </div>
-                    </div>
-                ))}
-            </div>
+        {/* Icon */}
+        <div className="absolute top-0 right-0 -mt-6 -mr-6">
+          <Image
+            src={people}
+            alt="Sponsors Icon"
+            className="drop-shadow-lg w-[20vw] lg:w-[15vw]"
+          />
         </div>
-    );
+      </div>
+      <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
+        {[
+          Redhat,
+          CapitalOne,
+          Muse,
+          Coder,
+          Seqera,
+          AISA,
+        ].map((src, i) => (
+          <div key={i} className="relative w-full aspect-square flex items">
+            {/* Frame */}
+            <Image
+              src={Frame}
+              alt={`Frame ${i + 1}`}
+              fill
+              className="object-contain pointer-events-none select-none"
+            />
+            {/* Inner image */}
+            <div className="absolute inset-0 flex items-center justify-center z-10 translate-x-[5px]">
+              <Image
+                src={src}
+                alt={`Image ${i + 1}`}
+                className="object-contain scale-70 w-full h-auto"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default OurSponsors;
