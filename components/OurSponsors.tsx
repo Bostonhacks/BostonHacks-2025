@@ -47,7 +47,7 @@ const OurSponsors = () => {
               <Image
                 src={src}
                 alt={`Image ${i + 1}`}
-                className="object-contain scale-70 w-full h-auto"
+                className="object-contain scale-68 w-full h-auto"
               />
             </div>
           </div>

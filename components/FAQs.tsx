@@ -75,11 +75,11 @@ const FAQs = () => {
   // console.log('First Column:', firstColumn);
   // console.log('Second Column:', secondColumn);
   return (
-    <div className="w-full relative flex items-start justify-center py-20">
+    <div className="w-full relative flex items-start justify-center py-2">
       <Image
         src={bubble1}
         alt="bubble"
-        className="absolute top-40 -right-15 opacity-30 pointer-events-none"
+        className="absolute top-0 -translate-y-1/2 -right-[15%] lg:right-[5%] opacity-30 pointer-events-none w-[70vw] md:w-[40vw] lg:w-[30vw]"
       />
       <Image
         src={fish}
