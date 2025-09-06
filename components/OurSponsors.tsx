@@ -14,14 +14,14 @@ const OurSponsors = () => {
     <div className='relative w-full mb-[80vw] md:mb-[150vw]'>
       <div className="relative flex justify-center items-center w-3/4 md:w-1/2 mx-auto mb-[10vw]">
         {/* Text */}
-        <SectionTitle title={`Our\nSponsors:`} className="text-3xl lg:text-[70px] whitespace-pre-line leading-tight" />
+        <SectionTitle title={`Our\nSponsors:`} className="text-3xl md:text-[5vw] text-[6vw] whitespace-pre-line leading-tight" />
 
         {/* Icon */}
-        <div className="absolute top-0 right-0 -mt-6 -mr-6">
+        <div className="absolute top-0 right-0 -mt-[3vw] -mr-[3vw]">
           <Image
             src={people}
             alt="Sponsors Icon"
-            className="drop-shadow-lg w-[20vw] lg:w-[15vw]"
+            className="drop-shadow-lg w-[15vw] md:w-[10vw]"
           />
         </div>
       </div>

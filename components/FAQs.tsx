@@ -79,7 +79,7 @@ const FAQs = () => {
       <Image
         src={bubble1}
         alt="bubble"
-        className="absolute top-0 -translate-y-1/2 -right-[15%] lg:right-[5%] opacity-30 pointer-events-none w-[70vw] md:w-[40vw] lg:w-[30vw]"
+        className="absolute top-0 -translate-y-[60%] -right-[15%] lg:right-[5%] opacity-30 pointer-events-none w-[70vw] md:w-[40vw] lg:w-[30vw]"
       />
       <Image
         src={fish}
