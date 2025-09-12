@@ -52,32 +52,38 @@ const Footer = () => {
       </h1>
       <Countdown targetDate="2025-10-11T09:00:00-04:00" />
 
-      <div className='flex justify-center items-center gap-8 mt-8 z-20 w-full my-36 pointer-events-none scale-90 lg:scale-120'>
-        <a
-          href="https://instagram.com/bostonhacks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pointer-events-auto"
-        >
-          <Image src={Instagram} alt="Instagram" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
-        </a>
+      <div className='flex flex-col justify-center items-center gap-4 mt-8 z-20 w-full my-36 scale-90 lg:scale-120'>
+        <div className='flex justify-center items-center gap-8'>
+          <a
+            href="https://instagram.com/bostonhacks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <Image src={Instagram} alt="Instagram" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
+          </a>
 
-        <a
-          href="https://twitter.com/boston_hacks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pointer-events-auto"
-        >
-          <Image src={Twitter} alt="Twitter" className="w-6.5 h-6.5 hover:scale-120 transition-transform duration-200" />
-        </a>
+          <a
+            href="https://twitter.com/boston_hacks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <Image src={Twitter} alt="Twitter" className="w-6.5 h-6.5 hover:scale-120 transition-transform duration-200" />
+          </a>
 
-        <a
-          href="https://facebook.com/bostonhacks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pointer-events-auto"
-        >
-          <Image src={Facebook} alt="Facebook" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
+          <a
+            href="https://facebook.com/bostonhacks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <Image src={Facebook} alt="Facebook" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
+          </a>
+        </div>
+
+        <a href="mailto:contact@bostonhacks.org" className="font-ms-sans-serif text-white text-sm font-medium">
+          contact@bostonhacks.org
         </a>
       </div>
 

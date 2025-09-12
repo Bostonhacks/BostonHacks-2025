@@ -321,9 +321,9 @@ const ApplyPage = () => {
               <br />
               If you have any questions, feel free to reach out to us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
             </div>
-            <Link href="/">
+            <Link href="/login">
               <WindowsButton className="hover:cursor-pointer w-full p-1">
-                Return to Home
+                Return to login
               </WindowsButton>
             </Link>
           </div>
@@ -620,6 +620,7 @@ const ApplyPage = () => {
                           value={formData.diet}
                           onChange={handleInputChange}
                           className={inputClass}
+                          required
                           placeholder="None, Vegetarian, Vegan, etc."
                         />
                       </div>
@@ -1051,6 +1052,7 @@ const ApplyPage = () => {
                           onChange={handleInputChange}
                           className={inputClass}
                           placeholder="None, Vegetarian, Vegan, etc."
+                          required
                         />
                       </div>
                       <div>
