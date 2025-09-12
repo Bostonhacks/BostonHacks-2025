@@ -5,6 +5,7 @@ import CapitalOne from '@/public/main/OurSponsors/CapitalOne.svg';
 import Muse from '@/public/main/OurSponsors/Muse.svg';
 import Coder from '@/public/main/OurSponsors/Coder.svg';
 import Seqera from '@/public/main/OurSponsors/Seqera.svg';
+import Ignite from '@/public/main/OurSponsors/Ignite.png';
 import AISA from '@/public/main/OurSponsors/AISA.png';
 import SectionTitle from './SectionTitle';
 import Image from 'next/image';
@@ -25,7 +26,7 @@ const OurSponsors = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 grid-rows-3 gap-4 w-full max-w-5xl mx-auto p-4">
+      <div className="grid grid-cols-2 gap-4 w-full max-w-5xl mx-auto p-4">
         {[
           Redhat,
           CapitalOne,
@@ -33,8 +34,15 @@ const OurSponsors = () => {
           Coder,
           Seqera,
           AISA,
-        ].map((src, i) => (
-          <div key={i} className="relative w-full aspect-square flex items">
+          Ignite,
+        ].map((src, i, array) => (
+          <div
+            key={i}
+            className={`relative w-full aspect-square flex items ${array.length % 2 === 1 && i === array.length - 1
+              ? 'col-span-2 mx-auto max-w-[50%]'
+              : ''
+              }`}
+          >
             {/* Frame */}
             <Image
               src={Frame}

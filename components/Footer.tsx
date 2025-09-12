@@ -10,6 +10,7 @@ import Twitter from '@/public/Footer/twitter.svg';
 import Facebook from '@/public/Footer/facebook.svg';
 import ApplyNow from "@/components/ApplyNow";
 import Countdown from "@/components/Countdown";
+import LinkedIn from '@/public/Footer/linkedin.svg';
 
 const Footer = () => {
   return (
@@ -64,6 +65,15 @@ const Footer = () => {
           </a>
 
           <a
+            href="https://www.linkedin.com/company/bostonhacks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <Image src={LinkedIn} alt="LinkedIn" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
+          </a>
+
+          <a
             href="https://twitter.com/boston_hacks"
             target="_blank"
             rel="noopener noreferrer"
@@ -80,6 +90,7 @@ const Footer = () => {
           >
             <Image src={Facebook} alt="Facebook" className="w-8 h-8 hover:scale-120 transition-transform duration-200" />
           </a>
+
         </div>
 
         <a href="mailto:contact@bostonhacks.org" className="font-ms-sans-serif text-white text-sm font-medium">
