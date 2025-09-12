@@ -18,7 +18,7 @@ const Home = () => {
           <div id="header" className="w-full h-screen">
             <Header />
           </div>
-          <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
+          <div id="theme" className="mt-5 md:mt-15 flex flex-col items-center justify-center h-screen text-white">
             <RetroRemix />
           </div>
 

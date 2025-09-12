@@ -19,12 +19,12 @@ export enum ScreenWindowSizes {
 const SCREEN_WINDOW_SIZES = {
   // everything is scaled down on small
   SMALL: [
-    { width: 300, height: 400, startX: 180, startY: 10 },
+    { width: 300, height: 400, startX: 180, startY: 20 },
     { width: 300, height: 450, startX: 10, startY: 430 },
     { width: 400, height: 700, startX: 70, startY: 850 },
   ],
   MEDIUM: [
-    { width: 400, height: 420, startX: 600, startY: 10 },
+    { width: 400, height: 420, startX: 600, startY: 40 },
     { width: 450, height: 450, startX: 100, startY: 100 },
     { width: 550, height: 800, startX: 350, startY: 500 },
   ],
