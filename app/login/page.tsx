@@ -9,18 +9,17 @@ import Image from "next/image"
 import Link from "next/link"
 import Logo from "@/public/logo.svg"
 import { LOGO_SIZE } from "../const"
-import { useRouter } from "next/navigation"
 import WindowsButton from "@/components/WindowsButton"
 import { CircularProgress } from "@mui/material"
 import Window from "@/components/Window"
-import { ShortUser } from "@/types/types"
+import { ShortUser, Application } from "@/types/types"
 
 const LoginPage = () => {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [pageLoading, setPageLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const [userEmail, setUserEmail] = React.useState<string | null>(null);
-  const router = useRouter();
+  const [currentApplication, setCurrentApplication] = React.useState<Application | null>(null);
 
   // window stowing handling
   const [showLoginModal, setShowLoginModal] = useState(true)
@@ -54,15 +53,28 @@ const LoginPage = () => {
     const checkUser = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/me`, { credentials: 'include' });
-        if (response.ok) {
-          const user: ShortUser = await response.json();
-          if (!!user && !!user?.id) {
-            setLoggedIn(true);
-            setUserEmail(user.email);
-            return;
-          }
+        if (!response.ok) {
+          setLoggedIn(false);
+          throw new Error("There was an error processing your request. Please try again later.");
         }
-        setLoggedIn(false);
+
+        const user: ShortUser = await response.json();
+        if (!!user && !!user?.id) {
+          setLoggedIn(true);
+          setUserEmail(user.email);
+        }
+
+        const applicationsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/application/user?user_id=${user.id}`, { credentials: 'include' });
+
+        if (!applicationsRes.ok) {
+          throw new Error("There was an error processing your request. Please try again later.");
+        }
+
+        const applications: Application[] = await applicationsRes.json();
+
+        const currentYear = new Date().getFullYear();
+        const currentYearApps = applications.find(app => app.applicationYear === currentYear);
+        setCurrentApplication(currentYearApps || null);
       } catch (error) {
         setError(error instanceof Error ? error.message : "Unknown error occurred")
       } finally {
@@ -71,7 +83,7 @@ const LoginPage = () => {
     }
     checkUser();
 
-  }, [setPageLoading, setLoggedIn, router]);
+  }, []);
 
   if (pageLoading) {
     return (
@@ -131,12 +143,23 @@ const LoginPage = () => {
               <div className="text-2xl font-bold text-green-800 mb-4 font-mssansserif">Welcome back!</div>
               <div className="text-lg mb-6 font-mssansserif">You are currently logged in with <span className="font-bold text-blue-800">{userEmail}</span>.</div>
               <div className="flex flex-col space-y-2">
-                <Link href="/apply">
-                  <WindowsButton className="w-full">
-                    Apply Now
-                  </WindowsButton>
-                </Link>
-                <Link href="/">
+                {currentApplication ? (
+                  <Link href="/apply/status">
+                    <WindowsButton className="w-full">
+                      View Application Status
+                    </WindowsButton>
+                  </Link>
+                ) : (
+
+                  <Link href="/apply">
+                    <WindowsButton className="w-full">
+                      Apply Now
+                    </WindowsButton>
+                  </Link>
+                )
+                }
+
+                < Link href="/">
                   <WindowsButton className="w-full">
                     Back to Home
                   </WindowsButton>
@@ -154,13 +177,13 @@ const LoginPage = () => {
             </div>
           )}
         </Suspense>
-      </div>
+      </div >
 
       <StowBar
         stowedWindows={stowedWindows}
         onRemove={handleStowRemove}
       />
-    </Background>
+    </Background >
   )
 }
 

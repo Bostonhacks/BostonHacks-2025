@@ -82,6 +82,7 @@ const LoginModal = ({ onStow }: LoginModalProps) => {
         onClose={onStow}
         closable={true}
         menuItems={["File", "Edit", "Search", "Help"]}
+        className="scale-75 md:scale-100"
       >
         <div className="p-2 w-full h-full">
           <div className="flex flex-col w-full h-full items-center space-y-6 p-5 bg-gray-200 border-black border-1">
