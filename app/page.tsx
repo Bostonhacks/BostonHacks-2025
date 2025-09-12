@@ -8,6 +8,7 @@ import RetroRemix from "@/components/RetroRemix/RetroRemix";
 import Schedule from "@/components/Schedule/Schedule";
 import Footer from "@/components/Footer";
 import OurSponsors from "@/components/OurSponsors";
+import IntroSection from "@/components/IntroSection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
           <div id="header" className="w-full h-screen">
             <Header />
           </div>
+          <IntroSection />
           <div id="theme" className="flex flex-col items-center justify-center h-screen text-white">
             <RetroRemix />
           </div>
