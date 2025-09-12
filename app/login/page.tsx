@@ -55,7 +55,7 @@ const LoginPage = () => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/me`, { credentials: 'include' });
         if (!response.ok) {
           setLoggedIn(false);
-          throw new Error("There was an error processing your request. Please try again later.");
+          return;
         }
 
         const user: ShortUser = await response.json();
