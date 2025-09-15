@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Window from './Window';
+import Link from 'next/link';
 
 const dueDate = "October 1st";
 
@@ -26,7 +27,7 @@ const WarningBanner = () => {
     <div className="fixed left-5 bottom-[170px] z-300">
       <Window
         title={
-          <span className="text-lg mr-3">⚠️ Application Reminder</span>
+          <span className="text-md mr-3">⚠️ Application Reminder</span>
         }
         onClose={handleClose}
         initialPosition={{ x: 0, y: 0 }}
@@ -37,8 +38,8 @@ const WarningBanner = () => {
         resizable={false}
       >
         <div className="p-4 flex items-center h-full">
-          <span className="font-ms-sans-serif text-sm">
-            Applications are due <span className="font-bold text-red-700">{dueDate}</span>. If you haven&apos;t applied yet, don&apos;t miss out!
+          <span className="font-ms-sans-serif text-md">
+            Applications are due <span className="font-bold text-red-700">{dueDate}</span>. If you haven&apos;t applied yet, go apply <Link className="text-blue-600" href="/login">here</Link>!
           </span>
         </div>
       </Window>
