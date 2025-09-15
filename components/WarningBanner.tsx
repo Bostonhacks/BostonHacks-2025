@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Window from './Window';
 import Link from 'next/link';
 
-const dueDate = "October 1st";
+const dueDate = "September 28";
 
 const WarningBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +39,7 @@ const WarningBanner = () => {
       >
         <div className="p-4 flex items-center h-full">
           <span className="font-ms-sans-serif text-md">
-            Applications are due <span className="font-bold text-red-700">{dueDate}</span>. If you haven&apos;t applied yet, go apply <Link className="text-blue-600" href="/login">here</Link>!
+            Applications are due <span className="font-bold text-red-700">{dueDate}, 11:59 PM EST</span>. If you haven&apos;t applied yet, go apply <Link className="text-blue-600" href="/login">here</Link>!
           </span>
         </div>
       </Window>
