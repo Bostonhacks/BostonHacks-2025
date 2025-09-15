@@ -8,11 +8,13 @@ import RetroRemix from "@/components/RetroRemix/RetroRemix";
 import Schedule from "@/components/Schedule/Schedule";
 import Footer from "@/components/Footer";
 import OurSponsors from "@/components/OurSponsors";
+import WarningBanner from "@/components/WarningBanner";
 
 const Home = () => {
   return (
     <>
       <Background>
+        <WarningBanner />
         <main className="flex flex-col">
           <Navbar routes={routes} />
           <div id="header" className="w-full h-screen">
