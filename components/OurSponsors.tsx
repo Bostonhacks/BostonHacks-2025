@@ -2,7 +2,7 @@ import people from '@/public/apply-image.svg';
 import Frame from '@/public/main/OurSponsors/sponsor-frame.svg';
 import Redhat from '@/public/main/OurSponsors/Redhat.svg';
 import CapitalOne from '@/public/main/OurSponsors/CapitalOne.svg';
-import Muse from '@/public/main/OurSponsors/Muse.svg';
+import Muse from '@/public/main/OurSponsors/Muse.png';
 import Coder from '@/public/main/OurSponsors/Coder.svg';
 import Seqera from '@/public/main/OurSponsors/Seqera.svg';
 import Ignite from '@/public/main/OurSponsors/Ignite.png';
