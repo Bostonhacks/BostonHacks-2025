@@ -6,7 +6,7 @@ import Muse from '@/public/main/OurSponsors/Muse.svg';
 import Coder from '@/public/main/OurSponsors/Coder.svg';
 import Seqera from '@/public/main/OurSponsors/Seqera.svg';
 import Ignite from '@/public/main/OurSponsors/Ignite.png';
-import AISA from '@/public/main/OurSponsors/AISA.png';
+import Spark from '@/public/main/OurSponsors/Spark.png';
 import SectionTitle from './SectionTitle';
 import Image from 'next/image';
 
@@ -33,7 +33,7 @@ const OurSponsors = () => {
           Muse,
           Coder,
           Seqera,
-          AISA,
+          Spark,
           Ignite,
         ].map((src, i, array) => (
           <div
