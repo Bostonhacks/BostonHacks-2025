@@ -124,7 +124,7 @@ export const FAQ_CONTENT = [
   },
   {
     question: 'When does registration close?',
-    answer: 'Registration closes on October 4th. Apply ASAP!'
+    answer: 'Registration closes on September 28, 11:59 PM EST. Apply ASAP!'
   },
   {
     question: 'MLH Code of Conduct',
