@@ -7,7 +7,7 @@ import Image from "next/image"
 import Logo from "@/public/logo.svg"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { Application, ShortUser } from "@/types/types"
+import { Application, ShortUser, Status } from "@/types/types"
 import { useEffect, useState } from "react"
 import CircularProgress from '@mui/material/CircularProgress'
 
@@ -16,6 +16,8 @@ const StatusPage = () => {
   const [application, setApplication] = useState<Application | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [actionLoading, setActionLoading] = useState(false);
+  const [user, setUser] = useState<ShortUser | null>(null);
 
   useEffect(() => {
     const getApplicationStatus = async () => {
@@ -27,6 +29,7 @@ const StatusPage = () => {
         }
 
         const userData: ShortUser = await userResponse.json();
+        setUser(userData);
 
         const applicationRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/application/user?user_id=${userData.id}`, { credentials: 'include' });
 
@@ -52,18 +55,45 @@ const StatusPage = () => {
     getApplicationStatus();
   }, [router])
 
+  const handleStatusUpdate = async (newStatus: Status.CONFIRMED | Status.DECLINED) => {
+    if (!application) return;
+
+    setActionLoading(true);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/application/${application.id}/confirmdeny`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ status: newStatus }),
+      });
+
+      if (!response.ok) {
+        throw new Error("There was an error updating your status. Please try again later or contact us.");
+      }
+
+      // Update the application status locally
+      setApplication(prev => prev ? { ...prev, status: newStatus } : null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error occurred");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   const getStatusConfig = (status: string) => {
     switch (status.toLowerCase()) {
       case 'accepted':
-        return { color: 'bg-green-600', icon: '✓', title: 'Application Accepted!', message: 'Congratulations! Your application has been accepted. You will be notified with more information through email from contact@bostonhacks.org.' };
+        return { color: 'bg-green-600', icon: '✓', title: 'Application Accepted!', message: 'Congratulations! Your application has been accepted. Please confirm if you will be able to attend the event on October 11-12 at the GSU at Boston University.' };
       case 'pending':
-        return { color: 'bg-yellow-600', icon: '⏳', title: 'Application Under Review', message: 'Your application is currently being reviewed. We will notify you once a decision has been made.' };
+        return { color: 'bg-yellow-600', icon: '⏳', title: 'Application Under Review', message: 'Your application is currently being reviewed. We will notify you once a decision has been made. If you are accepted, please come back to this page to confirm attendance.' };
       case 'waitlisted':
         return { color: 'bg-orange-600', icon: '⏸', title: 'Application Waitlisted', message: 'You have been placed on our waitlist. We will contact you if a spot becomes available.' };
       case 'rejected':
         return { color: 'bg-red-600', icon: '✗', title: 'Application Not Accepted', message: 'Unfortunately, your application was not accepted this time. Thank you for your interest.' };
       case 'confirmed':
-        return { color: 'bg-blue-600', icon: '✓', title: 'Attendance Confirmed', message: 'Your attendance has been confirmed. We look forward to seeing you there!' };
+        return { color: 'bg-blue-600', icon: '✓', title: 'Attendance Confirmed', message: 'Your attendance has been confirmed. You\'ll receive more information through email from contact@bostonhacks.org closer to the event date on October 11-12. We look forward to seeing you there!' };
       case 'declined':
         return { color: 'bg-gray-600', icon: '↩', title: 'Attendance Declined', message: 'You have declined your invitation. Thank you for letting us know.' };
       default:
@@ -93,16 +123,12 @@ const StatusPage = () => {
             <Window
               title="Error"
               initialSize={{ width: 400, height: 250 }}
+              initialPosition={{ x: -200, y: -100 }}
               closable={true}
               onClose={() => setError(null)}
             >
               <div className="p-2 w-full h-full">
                 <div className="flex flex-col w-full h-full items-center space-y-4 p-5 bg-gray-200 border-black border-1">
-                  <div className="p-2.5">
-                    <div className="w-12 h-12 bg-red-600 border-2 border-gray-400 flex items-center justify-center">
-                      <span className="text-white font-bold text-xl">!</span>
-                    </div>
-                  </div>
                   <div className="text-red-700 text-sm text-center">
                     {error}
                     <br />
@@ -120,7 +146,7 @@ const StatusPage = () => {
 
         {/* Main Status Window */}
         <Window
-          title="Application Status"
+          title={<>Application Status {user?.email && ` - ${user.email}`}</>}
           initialSize={{ width: 500, height: 500 }}
           closable={false}
           menuItems={["File", "Edit", "View", "Help"]}
@@ -144,6 +170,8 @@ const StatusPage = () => {
                 <>
                   {(() => {
                     const config = getStatusConfig(application.status);
+                    const isAccepted = application.status.toLowerCase() === 'accepted';
+
                     return (
                       <>
                         <div className="p-2.5">
@@ -155,6 +183,33 @@ const StatusPage = () => {
                         <p className="text-sm text-gray-600 text-center max-w-xs">
                           {config.message}
                         </p>
+
+                        {isAccepted && (
+                          <div className="flex flex-col space-y-3 w-full max-w-xs">
+                            <p className="text-sm text-gray-700 text-center font-medium">
+                              Please confirm your attendance:
+                            </p>
+                            <div className="flex space-x-3 justify-center">
+                              <WindowsButton
+                                className="rounded-md py-2 px-4 bg-green-600 hover:bg-green-700"
+                                onClick={() => handleStatusUpdate(Status.CONFIRMED)}
+                                disabled={actionLoading}
+                                title="Confirm Attendance"
+                              >
+                                {actionLoading ? <CircularProgress size="1rem" color="inherit" /> : "Confirm"}
+                              </WindowsButton>
+                              <WindowsButton
+                                className="rounded-md py-2 px-4 bg-red-600 hover:bg-red-700"
+                                onClick={() => handleStatusUpdate(Status.DECLINED)}
+                                disabled={actionLoading}
+                                title="Decline Attendance"
+                              >
+                                {actionLoading ? <CircularProgress size="1rem" color="inherit" /> : "Decline"}
+                              </WindowsButton>
+                            </div>
+                          </div>
+                        )}
+
                         <div className="text-xs text-gray-500 text-center max-w-xs">
                           If you require further assistance, please contact us at <a href="mailto:contact@bostonhacks.org">contact@bostonhacks.org</a>
                         </div>
@@ -185,11 +240,11 @@ const StatusPage = () => {
               >
                 Back
               </WindowsButton>
-            </div>
-          </div>
-        </Window>
-      </div>
-    </Background>
+            </div >
+          </div >
+        </Window >
+      </div >
+    </Background >
   );
 };
 
