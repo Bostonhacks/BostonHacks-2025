@@ -73,6 +73,11 @@ const StatusPage = () => {
         throw new Error("There was an error updating your status. Please try again later or contact us.");
       }
 
+      const result = await response.json();
+      if (result?.application?.status !== newStatus) {
+        throw new Error("Failed to update status correctly. Please refresh the page or contact us.");
+      }
+
       // Update the application status locally
       setApplication(prev => prev ? { ...prev, status: newStatus } : null);
     } catch (err) {
