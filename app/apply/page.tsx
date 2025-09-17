@@ -308,7 +308,7 @@ const ApplyPage = () => {
       <div className="w-screen h-screen flex items-center justify-center z-100">
         <Window
           title="Success"
-          initialSize={{ width: 400, height: 250 }}
+          initialSize={{ width: 400, height: 280 }}
           closable={false}
         >
           <div className="flex flex-col p-4 items-center">
