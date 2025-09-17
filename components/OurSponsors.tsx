@@ -1,6 +1,6 @@
 import people from '@/public/apply-image.svg';
 import Frame from '@/public/main/OurSponsors/sponsor-frame.svg';
-import Redhat from '@/public/main/OurSponsors/Redhat.svg';
+import Redhat from '@/public/main/OurSponsors/Redhat.png';
 import CapitalOne from '@/public/main/OurSponsors/CapitalOne.svg';
 import Muse from '@/public/main/OurSponsors/Muse.png';
 import Coder from '@/public/main/OurSponsors/Coder.svg';
