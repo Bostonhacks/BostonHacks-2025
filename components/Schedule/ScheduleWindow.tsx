@@ -54,7 +54,8 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
     {
       times: [
         { time: "08:00 am. . . . . .", activity: "Breakfast" },
-        { time: "09:30 am. . . . . .", activity: "Submissions due, judging starts" },
+        { time: "09:00 am. . . . . .", activity: "Submissions due to DevPost and preparation for expo presentations" },
+        { time: "09:15 am. . . . . .", activity: "Expo presentations begin and judging starts" },
         { time: "11:00 pm. . . . . .", activity: "Closing ceremony" },
       ],
     },
