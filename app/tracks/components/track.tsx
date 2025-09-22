@@ -12,9 +12,10 @@ type TrackProps = {
   trackNum: number;
   imgSrc: string;
   alignment: number; // 1 for left, 3 for right
+  prizes?: React.ReactNode;
 };
 
-const Track = ({ trackNum, imgSrc, alignment }: TrackProps) => {
+const Track = ({ trackNum, imgSrc, alignment, prizes }: TrackProps) => {
   const colClass = alignment === 1 ? "col-start-1" : alignment === 3 ? "col-start-3" : "";
   const rowClass =
     trackNum === 1 ? "row-start-1" :
@@ -41,6 +42,11 @@ const Track = ({ trackNum, imgSrc, alignment }: TrackProps) => {
           className="md:w-1/2 h-auto object-cover track-image"
           onClick={() => setExpandedTrack(!expandedTrack)}
         />
+
+        <div className="my-2 text-xl font-ms-sans-serif">
+          {prizes}
+        </div>
+
         {expandedTrack ? (
           <Image
             src={alignment === 1 ? expandedBlueLeft : alignment === 3 ? expandedBlueRight : expandedBlueLeft}
