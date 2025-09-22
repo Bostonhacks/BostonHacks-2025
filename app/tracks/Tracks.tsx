@@ -29,9 +29,36 @@ const Tracks = () => {
       </div>
 
       <div className="mt-10">
-        <Track trackNum={1} imgSrc={leaf} alignment={1} />
-        <Track trackNum={2} imgSrc={orange} alignment={3} />
-        <Track trackNum={3} imgSrc={disk} alignment={1} />
+        <Track
+          trackNum={1}
+          imgSrc={leaf}
+          alignment={1}
+          prizes={
+            <>
+              $2300 in prizes
+            </>
+          }
+        />
+        <Track
+          trackNum={2}
+          imgSrc={orange}
+          alignment={3}
+          prizes={
+            <>
+              $2300 in prizes
+            </>
+          }
+        />
+        <Track
+          trackNum={3}
+          imgSrc={disk}
+          alignment={1}
+          prizes={
+            <>
+              $2300 in prizes
+            </>
+          }
+        />
       </div>
 
     </div>
