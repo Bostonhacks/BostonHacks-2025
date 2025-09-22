@@ -5,6 +5,7 @@ import Logo from "@/public/logo.svg";
 import Image from "next/image";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bostonhacks.org"),
   title: "Sponsor BostonHacks 2025 - Partnership Opportunities",
   description: "Partner with BostonHacks 2025 and connect with talented students from Boston University and beyond. Explore sponsorship packages and benefits.",
   keywords: ["bostonhacks sponsor", "hackathon sponsorship", "boston university partnership", "tech recruiting", "student outreach", "corporate partnership", "hackathon sponsor benefits", "retro remix sponsor"],
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://bostonhacks.org/opengraph-image.jpg",
+        url: "/opengraph-image.jpg",
         alt: "BostonHacks 2025 Banner",
       }
     ]
