@@ -43,9 +43,11 @@ const Track = ({ trackNum, imgSrc, alignment, prizes }: TrackProps) => {
           onClick={() => setExpandedTrack(!expandedTrack)}
         />
 
-        <div className="my-2 text-xl font-ms-sans-serif">
-          {prizes}
-        </div>
+        {prizes && (
+          <div className="my-2 text-xl font-ms-sans-serif">
+            {prizes}
+          </div>
+        )}
 
         {expandedTrack ? (
           <Image
