@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     siteName: "BostonHacks 2025",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://bostonhacks.org/opengraph-image.jpg",
+        alt: "BostonHacks 2025 Banner",
+      }
+    ]
   }
 };
 
