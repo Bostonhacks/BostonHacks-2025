@@ -4,6 +4,8 @@ import cursor from "@/public/cursor.svg";
 import leaf from "@/public/leaf.svg";
 import orange from "@/public/orange.svg";
 import disk from "@/public/disk.svg";
+import makermods from "@/public/main/OurSponsors/MakerMods.png";
+import capone from "@/public/main/OurSponsors/CapitalOne.svg";
 
 import Track from "./components/track";
 import SectionTitle from "@/components/SectionTitle";
@@ -59,6 +61,25 @@ const Tracks = () => {
             </>
           }
         />
+        <Track trackNum={4}
+          imgSrc={capone}
+          alignment={3}
+          prizes={
+            <>
+              $1000 in Amazon gift cards
+            </>
+          }
+        />
+        <Track trackNum={5}
+          imgSrc={makermods}
+          alignment={1}
+          prizes={
+            <>
+              $2000 from MakerMods
+            </>
+          }
+        />
+
       </div>
 
     </div>

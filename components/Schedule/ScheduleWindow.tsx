@@ -82,7 +82,7 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
         />
       </div>
       {/* Bubble */}
-      <div className="absolute pointer-events-none z-0 flex right-0 lg:-translate-y-[85%] window-1 window-animate">
+      <div className="absolute pointer-events-none z-0 flex right-0 lg:-translate-y-[75%] window-1 window-animate">
         <Image
           src={Bubble}
           alt="Bubble"

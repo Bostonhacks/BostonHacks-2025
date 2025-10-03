@@ -6,9 +6,8 @@ export const routes = [
   { label: "TRACKS", path: "#tracks", type: 'hash' as const },
   { label: "SCHEDULE", path: "#schedule", type: 'hash' as const },
   { label: "FAQs", path: "#faqs", type: 'hash' as const },
-  { label: "SPONSORS", path: "#sponsors", type: 'hash' as const }
-
-]
+  { label: "SPONSORS", path: "#sponsors", type: 'hash' as const },
+];
 
 export const LOGO_SIZE = {
   width: 60,
@@ -89,6 +88,22 @@ With all these cybersecurity threats, how can you help people and enterprises se
 Billions of websites, millions of applications, new products being launched every day... but no one seems to be adding that magic mix of features that you’ve been looking for. Think you know better than the rest? Today’s the day to turn those crazy ideas into reality, building from scratch or merging different products together to create your very own concept. 
 
 Add new features to your favorite product, apply an existing feature in a novel way, or burn it all to the ground and create something completely different from anything we’ve seen before.The world is your oyster, push those boundaries and Make Fetch Happen.
+`
+  },
+  {
+    name: "Capital One Subtrack",
+    description: `
+Can be chosen as subtrack in addition to any of the main tracks. 
+
+Description description Description descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription description
+`
+  },
+  {
+    name: "MakerMods Subtrack",
+    description: `
+Can be chosen as subtrack in addition to any of the main tracks. 
+
+Description description Description descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription description
 `
   }
 ];

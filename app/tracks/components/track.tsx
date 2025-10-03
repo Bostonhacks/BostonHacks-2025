@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import expandWhiteLeft from "@/public/expand-white.svg";
 import expandWhiteRight from "@/public/expand-whitev2.svg";
 import expandedBlueLeft from "@/public/expandblue.svg";
@@ -10,17 +10,14 @@ import { TRACK_DESCRIPTIONS } from "@/app/const";
 
 type TrackProps = {
   trackNum: number;
-  imgSrc: string;
+  imgSrc: string | StaticImageData;
   alignment: number; // 1 for left, 3 for right
   prizes?: React.ReactNode;
 };
 
 const Track = ({ trackNum, imgSrc, alignment, prizes }: TrackProps) => {
   const colClass = alignment === 1 ? "col-start-1" : alignment === 3 ? "col-start-3" : "";
-  const rowClass =
-    trackNum === 1 ? "row-start-1" :
-      trackNum === 2 ? "row-start-2" :
-        trackNum === 3 ? "row-start-3" : "";
+  const rowClass = trackNum ? `row-start-1` : "";
 
   const [expandedTrack, setExpandedTrack] = useState(false);
 
