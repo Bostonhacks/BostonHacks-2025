@@ -89,6 +89,22 @@ Billions of websites, millions of applications, new products being launched ever
 
 Add new features to your favorite product, apply an existing feature in a novel way, or burn it all to the ground and create something completely different from anything we’ve seen before.The world is your oyster, push those boundaries and Make Fetch Happen.
 `
+  },
+  {
+    name: "Capital One Subtrack",
+    description: `
+Can be chosen as subtrack in addition to any of the main tracks. 
+
+Description description Description descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription description
+`
+  },
+  {
+    name: "MakerMods Subtrack",
+    description: `
+Can be chosen as subtrack in addition to any of the main tracks. 
+
+Description description Description descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription descriptionDescription description
+`
   }
 ];
 

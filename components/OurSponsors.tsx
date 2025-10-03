@@ -8,6 +8,7 @@ import Seqera from '@/public/main/OurSponsors/Seqera.svg';
 import Ignite from '@/public/main/OurSponsors/Ignite.png';
 import Spark from '@/public/main/OurSponsors/Spark.png';
 import SectionTitle from './SectionTitle';
+import MakerMods from '@/public/main/OurSponsors/MakerMods.png';
 import Image from 'next/image';
 
 const OurSponsors = () => {
@@ -35,6 +36,7 @@ const OurSponsors = () => {
           Seqera,
           Spark,
           Ignite,
+          MakerMods
         ].map((src, i, array) => (
           <div
             key={i}
