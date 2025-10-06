@@ -9,6 +9,7 @@ import Schedule from "@/components/Schedule/Schedule";
 import Footer from "@/components/Footer";
 import OurSponsors from "@/components/OurSponsors";
 import WarningBanner from "@/components/WarningBanner";
+import Location from "./location/Location";
 
 const Home = () => {
   return (
@@ -16,9 +17,15 @@ const Home = () => {
       <Background>
         <WarningBanner />
         <main className="flex flex-col">
+
           <Navbar routes={routes} />
+
           <div id="header" className="w-full h-screen">
             <Header />
+          </div>
+
+          <div id="location" className="mt-30 p-20 w-full h-screen">
+            <Location />
           </div>
           <div id="theme" className="mt-5 md:mt-15 flex flex-col items-center justify-center h-screen text-white">
             <RetroRemix />
