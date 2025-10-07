@@ -16,10 +16,13 @@ const Home = () => {
       <Background>
         <WarningBanner />
         <main className="flex flex-col">
+
           <Navbar routes={routes} />
-          <div id="header" className="w-full h-screen">
+
+          <div id="header" className="w-full h-screen mb-[5vw]">
             <Header />
           </div>
+
           <div id="theme" className="mt-5 md:mt-15 flex flex-col items-center justify-center h-screen text-white">
             <RetroRemix />
           </div>
