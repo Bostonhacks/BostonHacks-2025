@@ -7,6 +7,7 @@ import splash from '@/public/splash.svg'
 import waterbead from '@/public/waterbead.svg'
 import bubble from '@/public/bubble.svg'
 import LoginSponsorButton from "@/components/LoginSponsorButton";
+import Location from "@/app/location/Location";
 
 const Header = () => {
   return (

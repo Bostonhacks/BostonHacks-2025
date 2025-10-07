@@ -7,6 +7,7 @@ import LoginButton from "@/public/login_button.png"
 import LoginButtonHover from "@/public/login_button_hover.png"
 import SponsorButton from "@/public/sponsor_button.png"
 import SponsorButtonHover from "@/public/sponsor_button_hover.png"
+import Location from "@/app/location/Location";
 
 
 const buttonStyle = "flex items-center rounded-[45px] shadow-md shadow-[#345068] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.8)] cursor-pointer transition-all duration-50";
@@ -49,6 +50,8 @@ const LoginSponsorButton = () => {
           ></Image>
         </button>
       </Link>
+
+      <Location/>
 
     </div>
   )
