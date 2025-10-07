@@ -15,6 +15,7 @@ type WindowProps =
     onClose?: () => void
     closable?: boolean
     minimizable?: boolean
+    initialMaximized?: boolean
     maximizable?: boolean
     resizable?: boolean
     className?: string
@@ -44,6 +45,7 @@ const Window = ({
   minimizable = true,
   maximizable = true,
   resizable = true,
+  initialMaximized = false,
   className = "",
   menuItems = [],
   contentClassname = "",
@@ -56,7 +58,7 @@ const Window = ({
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
   const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 })
   const [isMinimized, setIsMinimized] = useState(false)
-  const [isMaximized, setIsMaximized] = useState(false)
+  const [isMaximized, setIsMaximized] = useState(initialMaximized)
   const [isVisible, setIsVisible] = useState(true)
   const [restorePosition, setRestorePosition] = useState(initialPosition)
   const [restoreSize, setRestoreSize] = useState(initialSize)

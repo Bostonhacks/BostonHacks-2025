@@ -35,7 +35,7 @@ const Tracks = () => {
           alignment={1}
           prizes={
             <>
-              $2300 in prizes
+              $1500 in prizes
             </>
           }
         />
@@ -45,7 +45,7 @@ const Tracks = () => {
           alignment={3}
           prizes={
             <>
-              $2300 in prizes
+              $1500 in prizes
             </>
           }
         />
@@ -55,7 +55,7 @@ const Tracks = () => {
           alignment={1}
           prizes={
             <>
-              $2300 in prizes
+              $1500 in prizes
             </>
           }
         />

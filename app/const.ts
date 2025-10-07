@@ -6,9 +6,8 @@ export const routes = [
   { label: "TRACKS", path: "#tracks", type: 'hash' as const },
   { label: "SCHEDULE", path: "#schedule", type: 'hash' as const },
   { label: "FAQs", path: "#faqs", type: 'hash' as const },
-  { label: "SPONSORS", path: "#sponsors", type: 'hash' as const }
-
-]
+  { label: "SPONSORS", path: "#sponsors", type: 'hash' as const },
+];
 
 export const LOGO_SIZE = {
   width: 60,
