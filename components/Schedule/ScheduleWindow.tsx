@@ -40,20 +40,24 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
       times: [
         { time: "09:00 am. . . . . .", activity: "Check-in starts" },
         { time: "10:00 am. . . . . .", activity: "Opening ceremony" },
-        { time: "10:30 am. . . . . .", activity: "Hacking begins" },
-        // { time: "11:00 am. . . . . .", activity: "Hackathon 101 @ Terrace Lounge" },
-        // { time: "11:30 am. . . . . .", activity: "Intro to GitHub @ Terrace Lounge" },
+        { time: "10:30 am. . . . . .", activity: "Hacking begins & Team Formation" },
+        { time: "11:00 am. . . . . .", activity: "Hackathon 101/Google AI Studio & Friend-finding" },
+        { time: "11:30 am. . . . . .", activity: "GitHub Copilot & Advice for Switching Majors" },
         { time: "12:00 pm. . . . . .", activity: "Lunch" },
-        // { time: "01:00 pm. . . . . .", activity: "BUDSA Workshop @ GSU Backcourt" },
-        // { time: "02:00 pm. . . . . .", activity: "Leetcode/Competitive Programming @ Terrace Lounge" },
-        // { time: "02:00 pm. . . . . .", activity: "Screentime: Off @ Ziskand Lounge" },
+        { time: "01:00 pm. . . . . .", activity: "BUDSA Intro to Databases & Web Dev 101" },
+        { time: "02:00 pm. . . . . .", activity: "Competitive Programming & Professional Panel" },
+        { time: "03:00 pm. . . . . .", activity: "Screentime: Off & Startup Pitch Competition" },
+        { time: "04:00 pm. . . . . .", activity: "Internship Experience Panel & Chrome Extensions" },
+        { time: "05:00 pm. . . . . .", activity: "Mock Interviews & Origami" },
         { time: "06:30 pm. . . . . .", activity: "Dinner" },
+        { time: "08:00 pm. . . . . .", activity: "MS Paint: Bob Ross & GAME BREAK!" },
+        { time: "09:30 pm. . . . . .", activity: "Movie Night" },
         { time: "10:00 pm. . . . . .", activity: "Sleeping spaces open" },
       ],
     },
     {
       times: [
-        { time: "08:00 am. . . . . .", activity: "Breakfast" },
+        { time: "07:45 am. . . . . .", activity: "Breakfast" },
         { time: "09:00 am. . . . . .", activity: "Submissions due to DevPost and preparation for expo presentations" },
         { time: "09:15 am. . . . . .", activity: "Expo presentations begin and judging starts" },
         { time: "11:00 pm. . . . . .", activity: "Closing ceremony" },
@@ -115,7 +119,7 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
                         {/* Title */}
                         <div className="mb-[clamp(0.25rem,0.5vw,1rem)]">
                           <span className="text-[clamp(2rem,4vw,4rem)]">Schedule*</span>
-                          <div>*Times subject to change | Workshops and activities will be posted at a later date</div>
+                          <div>*Times and activities subject to change</div>
                         </div>
 
                         <div className='flex flex-col overflow-hidden'>
