@@ -41,18 +41,26 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
         { time: "09:00 am. . . . . .", activity: "Check-in starts" },
         { time: "10:00 am. . . . . .", activity: "Opening ceremony" },
         { time: "10:30 am. . . . . .", activity: "Hacking begins & Team Formation" },
-        { time: "11:00 am. . . . . .", activity: "Hackathon 101/Google AI Studio & Friend-finding" },
-        { time: "11:30 am. . . . . .", activity: "GitHub Copilot & Advice for Switching Majors" },
-        { time: "12:00 pm. . . . . .", activity: "Lunch" },
-        { time: "01:00 pm. . . . . .", activity: "BUDSA Intro to Databases & Web Dev 101" },
-        { time: "02:00 pm. . . . . .", activity: "Competitive Programming & Professional Panel" },
-        { time: "03:00 pm. . . . . .", activity: "Screentime: Off & Startup Pitch Competition" },
-        { time: "04:00 pm. . . . . .", activity: "Internship Experience Panel & Chrome Extensions" },
-        { time: "05:00 pm. . . . . .", activity: "Mock Interviews & Origami" },
+        { time: "11:00 am. . . . . .", activity: "Hackathon 101 & Friend-finding @ GSU Backcourt" },
+        { time: "11:00 am. . . . . .", activity: "Google AI Studio @ Terrace Lounge" },
+        { time: "11:30 am. . . . . .", activity: "GitHub Copilot @ Terrace Lounge" },
+        { time: "11:30 am. . . . . .", activity: "Advice for Switching Majors @ GSU Backcourt" },
+        { time: "12:00 pm. . . . . .", activity: "Lunch @ Ziskind Lounge (Next to main hall)" },
+        { time: "01:00 pm. . . . . .", activity: "BUDSA Intro to Databases @ GSU Backcourt" },
+        { time: "01:00 pm. . . . . .", activity: "Web Dev 101 @ Terrace Lounge" },
+        { time: "02:00 pm. . . . . .", activity: "Leetcode/Competitive Programming @ Terrace Lounge" },
+        { time: "02:00 pm. . . . . .", activity: "Professional Panel @ GSU Backcourt" },
+        { time: "03:00 pm. . . . . .", activity: "Screentime: Off @ Ziskind Lounge" },
+        { time: "03:00 pm. . . . . .", activity: "Startup Pitch Competition @ GSU Backcourt" },
+        { time: "04:00 pm. . . . . .", activity: "Internship Experience Panel @ GSU Backcourt" },
+        { time: "04:00 pm. . . . . .", activity: "Chrome Extensions @ Terrace Lounge" },
+        { time: "05:00 pm. . . . . .", activity: "Mock Interviews: Spicy Edition @ GSU Backcourt" },
+        { time: "05:00 pm. . . . . .", activity: "Origami! @ Ziskind Lounge" },
         { time: "06:30 pm. . . . . .", activity: "Dinner" },
-        { time: "08:00 pm. . . . . .", activity: "MS Paint: Bob Ross & GAME BREAK!" },
-        { time: "09:30 pm. . . . . .", activity: "Movie Night" },
-        { time: "10:00 pm. . . . . .", activity: "Sleeping spaces open" },
+        { time: "08:00 pm. . . . . .", activity: "MS Paint Bob Ross - MLH @ GSU Backcourt" },
+        { time: "08:00 pm. . . . . .", activity: "GAME BREAK! @ Ziskind Lounge" },
+        { time: "09:30 pm. . . . . .", activity: "Movie Night @ GSU Backcourt" },
+        { time: "10:00 pm. . . . . .", activity: "Sleeping spaces open @ GSU Alley (Basement)" },
       ],
     },
     {
@@ -120,6 +128,7 @@ const ScheduleWindow = ({ windowSize }: { windowSize: ScreenWindowSizes }) => {
                         <div className="mb-[clamp(0.25rem,0.5vw,1rem)]">
                           <span className="text-[clamp(2rem,4vw,4rem)]">Schedule*</span>
                           <div>*Times and activities subject to change</div>
+                          <div>Check the directions at the top of this page or go <a target="_blank" className="text-blue-500 underline" href="https://drive.google.com/file/d/1WzQseHYQpiuM51TzB8XWdH8n9RqHu0iU/view">here</a> to see floor schematics.</div>
                         </div>
 
                         <div className='flex flex-col overflow-hidden'>
