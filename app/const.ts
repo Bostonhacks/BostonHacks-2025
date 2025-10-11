@@ -2,7 +2,7 @@ export const routes = [
 
   // { label: 'About', path: '#about', type: 'hash' as const },
   // { label: 'Login', path: '/login', type: 'page' as const },
-  { label: "APPLY", path: "/login", type: 'page' as const },
+  { label: "DISCORD", path: "https://discord.gg/JsPXpeB7", type: 'page' as const },
   { label: "TRACKS", path: "#tracks", type: 'hash' as const },
   { label: "SCHEDULE", path: "#schedule", type: 'hash' as const },
   { label: "FAQs", path: "#faqs", type: 'hash' as const },
